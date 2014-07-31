@@ -74,10 +74,14 @@ struct vec4 {
 };
 
 /* stored like this:
-0 3 6
-1 4 7
-2 5 8 */
+a d g
+b e h
+c f i */
 struct mat3 {
+	mat3 ();
+	mat3 (float a, float b, float c,
+				float d, float e, float f,
+				float g, float h, float i);
 	float m[9];
 };
 
@@ -87,6 +91,12 @@ struct mat3 {
 2 6 10 14
 3 7 11 15*/
 struct mat4 {
+	mat4 ();
+	// note! this is entering components in ROW-major order
+	mat4 (float a, float b, float c, float d,
+				float e, float f, float g, float h,
+				float i, float j, float k, float l,
+				float mm, float n, float o, float p);
 	vec4 operator* (const vec4& rhs);
 	mat4 operator* (const mat4& rhs);
 	mat4& operator= (const mat4& rhs);

@@ -1,3 +1,7 @@
+31 July 2014 - anton
+* moved demo code to GitHub
+* fixed incorrect comments in math_funcs.h in various demos
+
 4 July 2014 - anton
 * removed binding keyword from sampler declarations in shaders that I changed
 from #version 420 #version 400. left a couple in #version 420 with the keyword

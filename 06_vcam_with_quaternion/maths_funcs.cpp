@@ -68,6 +68,48 @@ vec4::vec4 (const vec3& vv, float w) {
 	v[3] = w;
 }
 
+mat3::mat3 () {}
+
+/* note: entered in COLUMNS */
+mat3::mat3 (float a, float b, float c,
+						float d, float e, float f,
+						float g, float h, float i) {
+	m[0] = a;
+	m[1] = b;
+	m[2] = c;
+	m[3] = d;
+	m[4] = e;
+	m[5] = f;
+	m[6] = g;
+	m[7] = h;
+	m[8] = i;
+}
+
+mat4::mat4 () {}
+
+/* note: entered in COLUMNS */
+mat4::mat4 (float a, float b, float c, float d,
+						float e, float f, float g, float h,
+						float i, float j, float k, float l,
+						float mm, float n, float o, float p) {
+	m[0] = a;
+	m[1] = b;
+	m[2] = c;
+	m[3] = d;
+	m[4] = e;
+	m[5] = f;
+	m[6] = g;
+	m[7] = h;
+	m[8] = i;
+	m[9] = j;
+	m[10] = k;
+	m[11] = l;
+	m[12] = mm;
+	m[13] = n;
+	m[14] = o;
+	m[15] = p;
+}
+
 /*-----------------------------PRINT FUNCTIONS--------------------------------*/
 void print (const vec2& v) {
 	printf ("[%.2f, %.2f]\n", v.v[0], v.v[1]);
