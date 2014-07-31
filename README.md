@@ -1,6 +1,8 @@
-This series of demos accompanies the e-book "Anton's OpenGL 4 Tutorials".
+This series of demos accompanies the e-book "Anton's OpenGL 4 Tutorials":
+http://www.amazon.com/gp/product/B00LAMQYF2
+
 Copyright Dr Anton Gerdelan, Trinity College Dublin, Ireland. June 2014.
-<anton at antongerdelan dot net>
+email: anton at antongerdelan dot net
 
 # Info #
 
