@@ -9,10 +9,6 @@ See "LICENCE.txt" for licence information.
 For updated information about this demonstration code, see:
 http://antongerdelan.net/opengl/book_info.html
 
-Original 3d mesh .blend files are in a separate download to keep main file
-smaller:
-http://antongerdelan.net/opengl/book_code/book_code_blender.zip
-
 There is also an example of code for "Hello Triangle" for OpenGL 2.1 for
 reference
 
@@ -76,23 +72,7 @@ make -f Makefile.win32
 ## Windows with Visual Studio ##
 
 I provided some Visual Studio 2012 project files.
-These are in a separate download because I was getting time-out problems with my
-web hosting provider with larger files:
-
-http://antongerdelan.net/opengl/book_code/book_code_vs.zip
-
-Extract this file and copy the visual_studio folder into the main tutorials
-folder. It should look like this:
-
-book_code\  tutorials folder from main download
-book_code\00_hello_triangle\  first demo
-book_code\visual_studio  extracted folder
-book_code\visual_studio\tutorials.sln  visual studio 2012 main solution file
-
 You can find an overarching solution file in the main folder. This should
 convert well to most versions of visual studio. I used 32-bit versions of the
 libraries, but there's no reason that you can't add 64-bit versions if you
-prefer.antons_opengl_tutorials_book
-============================
-
-Anton's OpenGL 4 Tutorials book - Demo Code
+prefer.
