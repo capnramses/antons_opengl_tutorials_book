@@ -453,7 +453,7 @@ int main () {
 				sizeof (float) * 32,
 				GL_MAP_WRITE_BIT | GL_MAP_INVALIDATE_BUFFER_BIT | GL_MAP_UNSYNCHRONIZED_BIT
 			);
-			//memcpy (&cam_ubo_ptr[0], proj_mat.m, sizeof (float) * 16);
+			memcpy (&cam_ubo_ptr[0], proj_mat.m, sizeof (float) * 16);
 			memcpy (&cam_ubo_ptr[16], view_mat.m, sizeof (float) * 16);
 
 			glUnmapBuffer(GL_UNIFORM_BUFFER);

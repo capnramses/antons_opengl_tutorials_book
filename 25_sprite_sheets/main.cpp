@@ -238,7 +238,6 @@ int main () {
 		
 		/* do a little animation */
 		static double anim_timer = 0.0;
-		static int sprite_index = 0;
 		anim_timer += elapsed_seconds;
 		/* play in this sequence: 2, 0, 2, 3 */
 		if (anim_timer > 2.0) {
