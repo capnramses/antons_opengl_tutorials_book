@@ -23,12 +23,12 @@ Anton Gerdelan, 2 July 2014.
 # Compiling #
 The libraries reside in the common/ folder
 
-common/include - header files
-common/linux_i386 - 32-bit linux libraries
-common/linux_x86_64 - 64-bit linux libraries
-common/msvc110 - 32-bit Windows visual studio libraries
-common/osx_64 - 64-bit apple OS X libraries
-common/win32 - 32-bit Windows GCC (mingw) libraries
+* common/include - header files
+* common/linux_i386 - 32-bit linux libraries
+* common/linux_x86_64 - 64-bit linux libraries
+* common/msvc110 - 32-bit Windows visual studio libraries
+* common/osx_64 - 64-bit apple OS X libraries
+* common/win32 - 32-bit Windows GCC (mingw) libraries
 
 ## Linux ##
 
