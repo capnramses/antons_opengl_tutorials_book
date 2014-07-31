@@ -1,0 +1,35 @@
+4 July 2014 - anton
+* removed binding keyword from sampler declarations in shaders that I changed
+from #version 420 #version 400. left a couple in #version 420 with the keyword
+updated book_code_vs.zip to suit also
+for comparison - note in top of shaders affected
+* reworked "HACK" comment in normal mapping shader to something more informative
+
+3 July 2014 - anton
+* added Apple OS X Makefiles for most demos. still to do (when I can borrow a Mac):
+- demos using assimp library
+- demos using freetype library
+* changed all shaders with #version 420 to #version 400 so that it will run on
+Apple and other machines with 4.0 or 4.1 support without needing to modify it
+* fixed a segfault bug in demo 02_shaders/ (thanks for spotting Andrea!)
+* got assimp library working for OS X, added Mac makefiles for mesh demos
+
+2 July 2014 - anton
+* removed binaries and .dlls from individual demo folder to make download smaller
+* removed visual studio project files from main download now in:
+http://antongerdelan.net/opengl/book_code/book_code_vs.zip
+* and blender .blend files are now in:
+http://antongerdelan.net/opengl/book_code/book_code_blender.zip
+
+30 June 2014 - anton
+* added Makefile.win32 (GCC 32-bit windows) and appropriate .dlls to all projects
+* added freetype.lib to common/win32/
+* updated Visual Studio projects
+* added all the missing Visual Studio tutorials to the solution
+* fixed some C code that wasn't strict enough for msvc
+* redefined stdbool.h for pure C code because msvc doesn't allow it
+* added maths.h defines to make msvc use M_PI
+* fixed some out-of-date file links in VS solution
+
+25 June 2014 - anton
+* added README.txt

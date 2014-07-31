@@ -1,0 +1,14 @@
+CC = g++
+FLAGS = -Wall -pedantic
+INC = -I ../common/include -I ../common/include/freetype
+LOC_LIB = ../common/win32/libglew32.dll.a ../common/win32/glfw3dll.a 
+SYS_LIB = -lOpenGL32 -L ./ -lglew32 -lglfw3 -lm
+
+all: generator viewer
+
+generator:
+	${CC} ${FLAGS} -o generate.exe generator_main.cpp stb_image_write.c ${INC} ../common/win32/freetype.lib ${SYS_LIB}
+
+viewer:
+	${CC} ${FLAGS} -o view.exe viewer_main.cpp maths_funcs.cpp stb_image.c ${INC} ${LOC_LIB} ${SYS_LIB}
+	

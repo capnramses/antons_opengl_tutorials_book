@@ -1,0 +1,11 @@
+BIN = meshimp.exe
+CC = g++
+FLAGS = -Wall -pedantic
+INC = -I ../common/include
+LOC_LIB = ../common/win32/libglew32.dll.a ../common/win32/glfw3dll.a ../common/win32/assimp.lib
+SYS_LIB = -lOpenGL32 -L ./ -lglew32 -lglfw3 -lm
+SRC = main.cpp gl_utils.cpp maths_funcs.cpp
+
+all:
+	${CC} ${FLAGS} -o ${BIN} ${SRC} ${INC} ${LOC_LIB} ${SYS_LIB}
+
