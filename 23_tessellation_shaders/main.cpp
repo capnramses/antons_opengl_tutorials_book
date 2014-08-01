@@ -62,7 +62,7 @@ int main () {
 	glfwMakeContextCurrent (window);
 	
 	glfwWindowHint (GLFW_SAMPLES, 4);
-																	
+
 	// start GLEW extension handler
 	glewExperimental = GL_TRUE;
 	glewInit ();
@@ -85,16 +85,21 @@ int main () {
 	glDepthFunc (GL_LESS); // depth-testing interprets a smaller value as "closer"
 	glClearColor (0.2, 0.2, 0.2, 1.0);
 
+	/* i've made the mesh 2 triangles, to help illustrate the numbers used for
+	patch size versus points to draw */
 	GLfloat points[] = {
-		 0.0f,	0.5f,	0.0f,
-		 0.5f, -0.5f,	0.0f,
-		-0.5f, -0.5f,	0.0f
+		 0.0f, 0.75f, 0.0f,
+		 0.5f, 0.25f, 0.0f,
+		-0.5f, 0.25f, 0.0f,
+		 0.5f, -0.25f, 0.0f,
+		 0.0f, -0.75f, 0.0f,
+		-0.5f, -0.25f, 0.0f
 	};
 
 	GLuint points_vbo;
 	glGenBuffers (1, &points_vbo);
 	glBindBuffer (GL_ARRAY_BUFFER, points_vbo);
-	glBufferData (GL_ARRAY_BUFFER, 9 * sizeof (GLfloat), points, GL_STATIC_DRAW);
+	glBufferData (GL_ARRAY_BUFFER, sizeof (points), points, GL_STATIC_DRAW);
 	
 	GLuint vao;
 	glGenVertexArrays (1, &vao);
@@ -190,6 +195,7 @@ int main () {
 	glCullFace (GL_BACK); // cull back face
 	glFrontFace (GL_CW); // GL_CCW for counter clock-wise
 	glPolygonMode(GL_FRONT, GL_LINE);
+	// i'm drawing a base mesh comprised of triangles (3 points per patch)
 	glPatchParameteri (GL_PATCH_VERTICES, 3);
 	while (!glfwWindowShouldClose (window)) {
 		_update_fps_counter (window);
@@ -199,8 +205,8 @@ int main () {
 		
 		glUseProgram (shader_programme);
 		glBindVertexArray (vao);
-		// set patch parameters
-		glDrawArrays (GL_PATCHES, 0, 3);
+		// set patch parameters - I'm drawing a mesh comprising 2 triangles, so '6'
+		glDrawArrays (GL_PATCHES, 0, 6);
 		// update other events like input handling 
 		glfwPollEvents ();
 		if (GLFW_PRESS == glfwGetKey (window, GLFW_KEY_ESCAPE)) {
