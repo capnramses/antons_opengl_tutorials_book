@@ -1,3 +1,7 @@
+1 Aug 2014 - anton
+* tessellation demo now uses 2 triangles to show difference between patch size
+and point count
+
 31 July 2014 - anton
 * moved demo code to GitHub
 * fixed incorrect comments in math_funcs.h in various demos
