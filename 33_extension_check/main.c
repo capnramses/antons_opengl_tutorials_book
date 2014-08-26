@@ -19,34 +19,11 @@
 #include <GL/glew.h> /* include GLEW and new version of GL on Windows */
 #include <GLFW/glfw3.h> /* GLFW helper library */
 #include <stdio.h>
+#include <string.h>
 /* removed to keep visual studio happy #include <stdbool.h> */
 #define bool int
 #define true 1
 #define false 0
-
-const char* sev_str[] = {
-	"severity: HIGH",
-	"severity: MEDIUM",
-	"severity: LOW"
-};
-
-const char* source_str[] = {
-	"source: API",
-	"source: WINDOW SYSTEM",
-	"source: SHADER COMPILER",
-	"source: THIRD PARTY",
-	"source: APPLICATION",
-	"source: OTHER"
-};
-
-const char* type_str[] = {
-	"type: ERROR",
-	"type: DEPRECATED BEHAVIOUR",
-	"type: UNDEFINED BEHAVIOUR",
-	"type: PORTABILITY",
-	"type: PERFORMANCE",
-	"type: OTHER"
-};
 
 void debug_gl_callback (
 	unsigned int source,
@@ -57,16 +34,92 @@ void debug_gl_callback (
 	const char* message,
 	void* userParam
 ) {
-	int src_i = source - 0x8246;
-	int typ_i = type - 0x824C;
-	int sev_i = severity - 0x9146;
+	char src_str[2048]; /* source */
+	char type_str[2048]; /* type */
+	char sev_str[2048]; /* severity */
+	
+	switch (source) {
+		case 0x8246:
+			strcpy (src_str, "API");
+			break;
+		case 0x8247:
+			strcpy (src_str, "WINDOW_SYSTEM");
+			break;
+		case 0x8248:
+			strcpy (src_str, "SHADER_COMPILER");
+			break;
+		case 0x8249:
+			strcpy (src_str, "THIRD_PARTY");
+			break;
+		case 0x824A:
+			strcpy (src_str, "APPLICATION");
+			break;
+		case 0x824B:
+			strcpy (src_str, "OTHER");
+			break;
+		default:
+			strcpy (src_str, "undefined");
+			break;
+	}
+	
+	switch (type) {
+		case 0x824C:
+			strcpy (type_str, "ERROR");
+			break;
+		case 0x824D:
+			strcpy (type_str, "DEPRECATED_BEHAVIOR");
+			break;
+		case 0x824E:
+			strcpy (type_str, "UNDEFINED_BEHAVIOR");
+			break;
+		case 0x824F:
+			strcpy (type_str, "PORTABILITY");
+			break;
+		case 0x8250:
+			strcpy (type_str, "PERFORMANCE");
+			break;
+		case 0x8251:
+			strcpy (type_str, "OTHER");
+			break;
+		case 0x8268:
+			strcpy (type_str, "MARKER");
+			break;
+		case 0x8269:
+			strcpy (type_str, "PUSH_GROUP");
+			break;
+		case 0x826A:
+			strcpy (type_str, "POP_GROUP");
+			break;
+		default:
+			strcpy (type_str, "undefined");
+			break;
+	}
+	
+	switch (severity) {
+		case 0x9146:
+			strcpy (sev_str, "HIGH");
+			break;
+		case 0x9147:
+			strcpy (sev_str, "MEDIUM");
+			break;
+		case 0x9148:
+			strcpy (sev_str, "LOW");
+			break;
+		case 0x826B:
+			strcpy (sev_str, "NOTIFICATION");
+			break;
+		default:
+			strcpy (sev_str, "undefined");
+			break;
+	}
+	
 	fprintf (
 		stderr,
-		"%s %s id: %u %s length: %i %s userParam: %i\n",
-		source_str[src_i],
-		type_str[typ_i],
+		"source: %s type: %s id: %u severity: %s length: %i message: %s userParam: %i\n",
+		src_str,
+		type_str,
 		id,
-		sev_str[sev_i],
+		sev_str,
 		length,
 		message,
 		*(int*)userParam
@@ -114,12 +167,12 @@ int main () {
 		return 1;
 	} 
 
-	/* change to 3.2 if on Apple OS X
+	/* change to 3.2 if on Apple OS X */
 	glfwWindowHint (GLFW_CONTEXT_VERSION_MAJOR, 4);
 	glfwWindowHint (GLFW_CONTEXT_VERSION_MINOR, 0);
 	glfwWindowHint (GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 	glfwWindowHint (GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-	glfwWindowHint (GLFW_OPENGL_DEBUG_CONTEXT, GL_TRUE); */
+	glfwWindowHint (GLFW_OPENGL_DEBUG_CONTEXT, GL_TRUE);
 	
 	window = glfwCreateWindow (
 		640, 480, "Hello Triangle", NULL, NULL
