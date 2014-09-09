@@ -234,7 +234,6 @@ int main () {
 	glfwMakeContextCurrent (window);
 	
 	glfwWindowHint (GLFW_SAMPLES, 4);
-	
 	// start GLEW extension handler
 	glewExperimental = GL_TRUE;
 	glewInit ();

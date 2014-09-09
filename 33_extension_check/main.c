@@ -124,7 +124,6 @@ void debug_gl_callback (
 		message,
 		*(int*)userParam
 	);
-	;
 }
 
 int main () {

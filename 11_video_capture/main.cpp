@@ -61,20 +61,19 @@ bool screencapture () {
 
 bool dump_video_frame () {
 	static long int frame_number = 0;
+	printf ("writing video frame %li\n", frame_number);
 	// write into a file
 	char name[1024];
-	// save name will have number
 	sprintf (name, "video_frame_%03ld.png", frame_number);
-	printf ("writing image %s\n", name);
-
-	unsigned char* buffer = (unsigned char*)malloc (g_gl_width * g_gl_height * 3);
-	glReadPixels (0, 0, g_gl_width, g_gl_height, GL_RGB, GL_UNSIGNED_BYTE, buffer);
-
-	unsigned char* last_row = buffer + (g_gl_width * 3 * (g_gl_height - 1));
-	if (!stbi_write_png (name, g_gl_width, g_gl_height, 3, last_row, -3 * g_gl_width)) {
-		fprintf (stderr, "ERROR: could not write video image file %s\n", name);
+	
+	unsigned char* last_row = g_video_memory_ptr +
+		(g_gl_width * 3 * (g_gl_height - 1));
+	if (!stbi_write_png (
+		name, g_gl_width, g_gl_height, 3, last_row, -3 * g_gl_width
+	)) {
+		fprintf (stderr, "ERROR: could not write video file %s\n", name);
+		return false;
 	}
-	free (buffer);
 
 	frame_number++;
 	return true;
