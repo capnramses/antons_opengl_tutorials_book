@@ -1,0 +1,11 @@
+BIN = meshimp
+CC = g++
+FLAGS = -Wall -pedantic -g
+INC = -I ../common/include
+LOC_LIB = ../common/linux_i386/libGLEW.a ../common/linux_i386/libglfw3.a ../common/linux_i386/libassimp.a
+SYS_LIB = -lGL -lX11 -lXxf86vm -lXrandr -lpthread -lXi -lz
+SRC = main.cpp maths_funcs.cpp gl_utils.cpp
+
+all:
+	${CC} ${FLAGS} -o ${BIN} ${SRC} ${INC} ${LOC_LIB} ${SYS_LIB}
+
