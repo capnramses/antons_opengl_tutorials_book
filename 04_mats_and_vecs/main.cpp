@@ -19,6 +19,7 @@
 #include <assert.h>
 #include <string.h>
 #include <stdarg.h>
+#include <math.h>
 #define GL_LOG_FILE "gl.log"
 
 // keep track of window size for things like the viewport and the mouse cursor
@@ -139,18 +140,30 @@ int main () {
 		double elapsed_seconds = current_seconds - previous_seconds;
 		previous_seconds = current_seconds;
 		
-		// update the matrix
-		matrix[12] = elapsed_seconds * speed + last_position;
-		last_position = matrix[12];
-		glUseProgram (shader_programme);
-		glUniformMatrix4fv (matrix_location, 1, GL_FALSE, matrix);
-	
 		_update_fps_counter (g_window);
 		// wipe the drawing surface clear
 		glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glViewport (0, 0, g_gl_width, g_gl_height);
 		
+		//
+		// Note: this call is not necessary, but I like to do it anyway before any
+		// time that I call glDrawArrays() so I never use the wrong shader programme
 		glUseProgram (shader_programme);
+		
+		// update the matrix
+		// - you could simplify this by just using sin(current_seconds)
+		matrix[12] = elapsed_seconds * speed + last_position;
+		last_position = matrix[12];
+		if (fabs (last_position) > 1.0) {
+			speed = -speed;
+		}
+		//
+		// Note: this call is related to the most recently 'used' shader programme
+		glUniformMatrix4fv (matrix_location, 1, GL_FALSE, matrix);
+		
+		//
+		// Note: this call is not necessary, but I like to do it anyway before any
+		// time that I call glDrawArrays() so I never use the wrong vertex data
 		glBindVertexArray (vao);
 		// draw points 0-3 from the currently bound VAO with current in-use shader
 		glDrawArrays (GL_TRIANGLES, 0, 3);
