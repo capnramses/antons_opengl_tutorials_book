@@ -157,8 +157,8 @@ int main () {
 	float aspect = (float)g_gl_width / (float)g_gl_height; // aspect ratio
 	proj_mat = perspective (fovy, aspect, near, far);
 		
-	float cam_speed = 3.0f; // 1 unit per second
-	float cam_heading_speed = 50.0f; // 30 degrees per second
+	float cam_speed = 5.0f; // 1 unit per second
+	float cam_heading_speed = 100.0f; // 30 degrees per second
 	float cam_heading = 0.0f; // y-rotation in degrees
 	mat4 T = translate (
 		identity_mat4 (), vec3 (-cam_pos.v[0], -cam_pos.v[1], -cam_pos.v[2])
@@ -330,10 +330,10 @@ int main () {
 		if (cam_moved) {
 			quat_to_mat4 (R.m, quaternion);
 			
-
-		//	printf ("dot fwd . up %f\n", dot (fwd, up));
-		//	printf ("dot rgt . up %f\n", dot (rgt, up));
-		//	printf ("dot fwd . rgt\n %f", dot (fwd, rgt));
+			// checking for fp errors
+			//	printf ("dot fwd . up %f\n", dot (fwd, up));
+			//	printf ("dot rgt . up %f\n", dot (rgt, up));
+			//	printf ("dot fwd . rgt\n %f", dot (fwd, rgt));
 
 			cam_pos = cam_pos + vec3 (fwd) * -move.v[2];
 			cam_pos = cam_pos + vec3 (up) * move.v[1];
