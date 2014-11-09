@@ -254,6 +254,12 @@ int main () {
 			create_versor (q_yaw, cam_yaw, up.v[0], up.v[1], up.v[2]);
 			// add yaw rotation to the camera's current orientation
 			mult_quat_quat (quaternion, q_yaw, quaternion);
+			
+			// recalc axes to suit new orientation
+			quat_to_mat4 (R.m, quaternion);
+			fwd = R * vec4 (0.0, 0.0, -1.0, 0.0);
+			rgt = R * vec4 (1.0, 0.0, 0.0, 0.0);
+			up = R * vec4 (0.0, 1.0, 0.0, 0.0);
 		}
 		if (glfwGetKey (g_window, GLFW_KEY_RIGHT)) {
 			cam_yaw -= cam_heading_speed * elapsed_seconds;
@@ -261,6 +267,12 @@ int main () {
 			float q_yaw[16];
 			create_versor (q_yaw, cam_yaw, up.v[0], up.v[1], up.v[2]);
 			mult_quat_quat (quaternion, q_yaw, quaternion);
+			
+			// recalc axes to suit new orientation
+			quat_to_mat4 (R.m, quaternion);
+			fwd = R * vec4 (0.0, 0.0, -1.0, 0.0);
+			rgt = R * vec4 (1.0, 0.0, 0.0, 0.0);
+			up = R * vec4 (0.0, 1.0, 0.0, 0.0);
 		}
 		if (glfwGetKey (g_window, GLFW_KEY_UP)) {
 			cam_pitch += cam_heading_speed * elapsed_seconds;
@@ -268,6 +280,12 @@ int main () {
 			float q_pitch[16];
 			create_versor (q_pitch, cam_pitch, rgt.v[0], rgt.v[1], rgt.v[2]);
 			mult_quat_quat (quaternion, q_pitch, quaternion);
+			
+			// recalc axes to suit new orientation
+			quat_to_mat4 (R.m, quaternion);
+			fwd = R * vec4 (0.0, 0.0, -1.0, 0.0);
+			rgt = R * vec4 (1.0, 0.0, 0.0, 0.0);
+			up = R * vec4 (0.0, 1.0, 0.0, 0.0);
 		}
 		if (glfwGetKey (g_window, GLFW_KEY_DOWN)) {
 			cam_pitch -= cam_heading_speed * elapsed_seconds;
@@ -275,6 +293,12 @@ int main () {
 			float q_pitch[16];
 			create_versor (q_pitch, cam_pitch, rgt.v[0], rgt.v[1], rgt.v[2]);
 			mult_quat_quat (quaternion, q_pitch, quaternion);
+			
+			// recalc axes to suit new orientation
+			quat_to_mat4 (R.m, quaternion);
+			fwd = R * vec4 (0.0, 0.0, -1.0, 0.0);
+			rgt = R * vec4 (1.0, 0.0, 0.0, 0.0);
+			up = R * vec4 (0.0, 1.0, 0.0, 0.0);
 		}
 		if (glfwGetKey (g_window, GLFW_KEY_Z)) {
 			cam_roll -= cam_heading_speed * elapsed_seconds;
@@ -282,6 +306,12 @@ int main () {
 			float q_roll[16];
 			create_versor (q_roll, cam_roll, fwd.v[0], fwd.v[1], fwd.v[2]);
 			mult_quat_quat (quaternion, q_roll, quaternion);
+			
+			// recalc axes to suit new orientation
+			quat_to_mat4 (R.m, quaternion);
+			fwd = R * vec4 (0.0, 0.0, -1.0, 0.0);
+			rgt = R * vec4 (1.0, 0.0, 0.0, 0.0);
+			up = R * vec4 (0.0, 1.0, 0.0, 0.0);
 		}
 		if (glfwGetKey (g_window, GLFW_KEY_C)) {
 			cam_roll += cam_heading_speed * elapsed_seconds;
@@ -289,15 +319,22 @@ int main () {
 			float q_roll[16];
 			create_versor (q_roll, cam_roll, fwd.v[0], fwd.v[1], fwd.v[2]);
 			mult_quat_quat (quaternion, q_roll, quaternion);
-		}
-		// update view matrix
-		if (cam_moved) {
-			// re-calculate local axes so can move fwd in dir cam is pointing
+			
+			// recalc axes to suit new orientation
 			quat_to_mat4 (R.m, quaternion);
 			fwd = R * vec4 (0.0, 0.0, -1.0, 0.0);
 			rgt = R * vec4 (1.0, 0.0, 0.0, 0.0);
 			up = R * vec4 (0.0, 1.0, 0.0, 0.0);
+		}
+		// update view matrix
+		if (cam_moved) {
+			quat_to_mat4 (R.m, quaternion);
 			
+
+		//	printf ("dot fwd . up %f\n", dot (fwd, up));
+		//	printf ("dot rgt . up %f\n", dot (rgt, up));
+		//	printf ("dot fwd . rgt\n %f", dot (fwd, rgt));
+
 			cam_pos = cam_pos + vec3 (fwd) * -move.v[2];
 			cam_pos = cam_pos + vec3 (up) * move.v[1];
 			cam_pos = cam_pos + vec3 (rgt) * move.v[0];
