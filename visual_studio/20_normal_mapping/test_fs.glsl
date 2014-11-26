@@ -1,4 +1,4 @@
-#version 400
+#version 410
 
 // inputs: texture coordinates, and view and light directions in tangent space
 in vec2 st;

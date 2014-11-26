@@ -162,7 +162,7 @@ int main () {
 	glEnable (GL_DEPTH_TEST); // enable depth-testing
 	glDepthFunc (GL_LESS); // depth-testing interprets a smaller value as "closer"
 
-	assert (load_mesh ("untitled.obj"));
+	assert (load_mesh ("monkey.obj"));
 
 	GLuint vao;
 	glGenVertexArrays (1, &vao);

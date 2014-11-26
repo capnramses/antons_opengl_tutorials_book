@@ -1,4 +1,4 @@
-#version 400
+#version 410
 
 // vertex points in light coordinate space
 in vec4 st_shadow;

@@ -37,7 +37,7 @@ void create_ground_plane_shaders () {
 	the floor but also that the 'front' was on the top side. also note how i
 	work out the texture coordinates, st, from the vertex point position */
 	const char* gp_vs_str =
-	"#version 400\n"
+	"#version 410\n"
 	"in vec2 vp;"
 	"uniform mat4 V, P;"
 	"out vec2 st;"
@@ -46,7 +46,7 @@ void create_ground_plane_shaders () {
 	"  gl_Position = P * V * vec4 (10.0 * vp.x, -1.0, 10.0 * -vp.y, 1.0);"
 	"}";
 	const char* gp_fs_str =
-	"#version 400\n"
+	"#version 410\n"
 	"in vec2 st;"
 	"uniform sampler2D tex;"
 	"out vec4 frag_colour;"
@@ -77,7 +77,7 @@ void create_ground_plane_shaders () {
 void create_gui_shaders () {
 	// note that i scaled down the size to 0.5 * the viewport size here
 	const char* gui_vs_str =
-	"#version 400\n"
+	"#version 410\n"
 	"in vec2 vp;"
 	"uniform vec2 gui_scale;"
 	"out vec2 st;"
@@ -86,7 +86,7 @@ void create_gui_shaders () {
 	"  gl_Position = vec4 (vp * gui_scale, 0.0, 1.0);"
 	"}";
 	const char* gui_fs_str =
-	"#version 400\n"
+	"#version 410\n"
 	"in vec2 st;"
 	"uniform sampler2D tex;"
 	"out vec4 frag_colour;"

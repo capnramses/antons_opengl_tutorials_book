@@ -1,4 +1,4 @@
-#version 400
+#version 410
 
 uniform mat4 V;
 uniform sampler2D p_tex;

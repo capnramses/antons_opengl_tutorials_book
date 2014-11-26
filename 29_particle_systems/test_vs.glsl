@@ -1,5 +1,5 @@
 /* shader to update a particle system based on a simple kinematics function */
-#version 400 core
+#version 410 core
 
 layout (location = 0) in vec3 v_i; // initial velocity
 layout (location = 1) in float start_time;

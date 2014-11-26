@@ -142,7 +142,7 @@ int main () {
 	/* these are the strings of code for the shaders
 	the vertex shader positions each vertex point */
 	const char* vertex_shader =
-	"#version 400\n"
+	"#version 410\n"
 	"in vec3 vp;"
 	"void main () {"
 	"	gl_Position = vec4 (vp, 1.0);"
@@ -150,7 +150,7 @@ int main () {
 	/* the fragment shader colours each fragment (pixel-sized area of the
 	triangle) */
 	const char* fragment_shader =
-	"#version 400\n"
+	"#version 410\n"
 	"out vec4 frag_colour;"
 	"void main () {"
 	"	frag_colour = vec4 (0.5, 0.0, 0.5, 1.0);"
@@ -168,7 +168,7 @@ int main () {
 
 	/* change to 3.2 if on Apple OS X */
 	glfwWindowHint (GLFW_CONTEXT_VERSION_MAJOR, 4);
-	glfwWindowHint (GLFW_CONTEXT_VERSION_MINOR, 0);
+	glfwWindowHint (GLFW_CONTEXT_VERSION_MINOR, 1);
 	glfwWindowHint (GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 	glfwWindowHint (GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 	glfwWindowHint (GLFW_OPENGL_DEBUG_CONTEXT, GL_TRUE);

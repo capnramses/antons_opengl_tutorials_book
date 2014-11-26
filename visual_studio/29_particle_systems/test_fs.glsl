@@ -1,5 +1,5 @@
 /* shader to render simple particle system points */
-#version 400 core
+#version 410 core
 
 in float opacity;
 uniform sampler2D tex; // optional. enable point-sprite coords to use

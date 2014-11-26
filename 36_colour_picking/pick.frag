@@ -1,4 +1,4 @@
-#version 400
+#version 410
 uniform vec3 unique_id;
 out vec4 frag_colour;
 

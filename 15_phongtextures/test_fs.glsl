@@ -26,7 +26,8 @@ float specular_exponent = 100.0; // specular 'power'
 void main() {
 	vec3 light_pos_eye = (view * vec4 (light_position_world, 1.0)).xyz;
 
-	vec3 Ia = vec3 (0.2, 0.2, 0.2) * texture (ambient_map, st).rgb;
+	vec3 Ka = texture (ambient_map, st).rgb;
+	vec3 Ia = vec3 (0.2, 0.2, 0.2) * Ka;
 
 	vec4 texel = texture (diffuse_map, st);
 	vec3 Kd = texel.rgb;
@@ -44,4 +45,5 @@ void main() {
 	vec3 texel_e = texture (emission_map, st).rgb;
 
 	frag_colour = vec4 (Id + Is + Ia + texel_e, 1.0);
+	//frag_colour= vec4 (Ka, 1.0);
 }

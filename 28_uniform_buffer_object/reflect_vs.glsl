@@ -1,4 +1,4 @@
-#version 400
+#version 410
 
 layout(location = 0) in vec3 vp; // positions from mesh
 layout(location = 1) in vec3 vn; // normals from mesh

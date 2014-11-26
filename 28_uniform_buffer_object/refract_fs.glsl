@@ -1,4 +1,4 @@
-#version 400
+#version 410
 
 in vec3 pos_eye;
 in vec3 n_eye;

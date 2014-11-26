@@ -1,4 +1,4 @@
-#version 400
+#version 410
 
 // triangles, quads, or isolines
 layout (triangles, equal_spacing, ccw) in;

@@ -1,4 +1,4 @@
-#version 400
+#version 410
 
 in vec3 texcoords;
 uniform samplerCube cube_texture;

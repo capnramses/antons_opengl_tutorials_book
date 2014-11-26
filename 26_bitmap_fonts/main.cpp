@@ -204,7 +204,7 @@ void create_shaders () {
 	the floor but also that the 'front' was on the top side. also note how i
 	work out the texture coordinates, st, from the vertex point position */
 	const char* vs_str =
-	"#version 400\n"
+	"#version 410\n"
 	"layout (location = 0) in vec2 vp;"
 	"layout (location = 1) in vec2 vt;"
 	"out vec2 st;"
@@ -213,7 +213,7 @@ void create_shaders () {
 	"  gl_Position = vec4 (vp, 0.0, 1.0);"
 	"}";
 	const char* fs_str =
-	"#version 400\n"
+	"#version 410\n"
 	"in vec2 st;"
 	"uniform sampler2D tex;"
 	"uniform vec4 text_colour;"

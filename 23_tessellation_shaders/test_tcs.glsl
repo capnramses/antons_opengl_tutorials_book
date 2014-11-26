@@ -1,4 +1,4 @@
-#version 400
+#version 410
 
 // number of CPs in patch
 layout (vertices = 3) out;

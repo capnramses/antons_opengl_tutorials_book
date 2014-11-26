@@ -1,4 +1,4 @@
-#version 400
+#version 410
 
 in vec3 colour; // i made this up in the tess. evaluation shader
 out vec4 fragcolour;

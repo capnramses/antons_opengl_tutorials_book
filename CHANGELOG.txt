@@ -1,3 +1,11 @@
+26 Nov 2014 - anton
+* changed shader version tags from #version 400 to #version 410 to properly
+support the layout (location=x) keyword
+updated Visual Studio demos to suit --not tested yet-- hopefully they work
+* changed minimum OpenGL version from 4.0 to 4.1 to suit
+* fixed incorrect monkey texture coordinates in 15_phongtextures
+generated a new AO map to suit, put .blend file in tutorial folder
+
 1 Aug 2014 - anton
 * tessellation demo now uses 2 triangles to show difference between patch size
 and point count

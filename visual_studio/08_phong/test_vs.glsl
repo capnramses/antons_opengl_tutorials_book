@@ -1,4 +1,4 @@
-#version 400
+#version 410
 
 in layout (location = 0) vec3 vertex_position;
 in layout (location = 1) vec3 vertex_normal;

@@ -1,4 +1,4 @@
-#version 400
+#version 410
 
 in vec2 st;
 uniform sampler2D depth_tex;

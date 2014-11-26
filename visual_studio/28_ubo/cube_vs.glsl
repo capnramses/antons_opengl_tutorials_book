@@ -1,4 +1,4 @@
-#version 400
+#version 410
 
 in vec3 vp;
 //uniform mat4 P, V;
