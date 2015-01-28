@@ -206,6 +206,11 @@ void init_shadow_fb () {
 	// tell framebuffer not to use any colour drawing outputs
 	GLenum draw_bufs[] = { GL_NONE };
 	glDrawBuffers (1, draw_bufs);
+	
+	// this *should* avoid a GL_FRAMEBUFFER_INCOMPLETE_READ_BUFFER error that
+	// comes on mac - invalid framebuffer due to having only a depth buffer and
+	// no colour buffer specified.
+	glReadBuffer (GL_NONE);
 
 	// bind default framebuffer again
 	glBindFramebuffer (GL_FRAMEBUFFER, 0);
