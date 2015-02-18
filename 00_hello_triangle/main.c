@@ -5,6 +5,8 @@
 | First version 27 Jan 2014													   |
 | Copyright Dr Anton Gerdelan, Trinity College Dublin, Ireland.				   |
 | See individual libraries for separate legal notices						   |
+| SDL2 port: Dr Aidan Delaney <aidan@ontologyengineering.org>				   |
+|			 (c) 2015														   |
 |******************************************************************************|
 | "Hello Triangle". Just the basics.										   |
 | If you're on Mac un-comment the version number code at the beginning. It	   |
