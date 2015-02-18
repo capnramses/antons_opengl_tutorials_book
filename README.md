@@ -82,3 +82,4 @@ prefer.
 # SDL2 Port #
 
 Dr Aidan Delaney at the University of Brighton has made an SDL2 port (as an alternative to using GLFW), which you can find on GitHub https://github.com/AidanDelaney/antons_opengl_tutorials_book/tree/sdl2-port/00_hello_triangle
+(see Makefile.linux64)
