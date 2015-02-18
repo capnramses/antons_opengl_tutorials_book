@@ -2,8 +2,8 @@ BIN = hellot
 CC = gcc
 FLAGS = -Wall -pedantic
 INC = -I ../common/include
-LOC_LIB = ../common/linux_x86_64/libGLEW.a ../common/linux_x86_64/libglfw3.a
-SYS_LIB = -lGL -lX11 -lXxf86vm -lXrandr -lpthread -lXi -lm
+LOC_LIB = ../common/linux_x86_64/libGLEW.a ../common/linux_x86_64/libSDL2.a
+SYS_LIB = -lGL -lX11 -lXxf86vm -lXrandr -ldl -lpthread -lXi -lm
 SRC = main.c
 
 all:
