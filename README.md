@@ -78,3 +78,7 @@ You can find an overarching solution file in the main folder. This should
 convert well to most versions of visual studio. I used 32-bit versions of the
 libraries, but there's no reason that you can't add 64-bit versions if you
 prefer.
+
+# SDL2 Port #
+
+Dr Aidan Delaney at the University of Brighton has made an SDL2 port (as an alternative to using GLFW), which you can find on GitHub https://github.com/AidanDelaney/antons_opengl_tutorials_book/tree/sdl2-port/00_hello_triangle
