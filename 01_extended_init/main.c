@@ -341,14 +341,14 @@ int main () {
 			// put the stuff we've been drawing onto the display
 			SDL_GL_SwapWindow(window);
 			break;
-        case SDL_WINDOWEVENT:
-          switch (event.window.event) {
-                case SDL_WINDOWEVENT_RESIZED:
-                  sdl_window_size_callback(window, event.window.data1, event.window.data2);
-                break;
-            default:
-                break;
-        }
+		case SDL_WINDOWEVENT:
+			switch (event.window.event) {
+				case SDL_WINDOWEVENT_RESIZED:
+					sdl_window_size_callback(window, event.window.data1, event.window.data2);
+					break;
+				default:
+					break;
+			}
 		defult:
 			break;
 		}
