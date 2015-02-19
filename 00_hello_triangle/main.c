@@ -22,25 +22,6 @@
 #include <SDL2/SDL.h> /* SDL helper library */
 #include <stdio.h>
 
-void shader_compile_check(int shader_token) {
-	int shader_ok;
-	char * errorLog;
-
-	glGetShaderiv(shader_token, GL_COMPILE_STATUS, &shader_ok);
-	if (!shader_ok) {
-		GLint maxLength = 0;
-		glGetShaderiv(shader_token, GL_INFO_LOG_LENGTH, &maxLength);
-
-		errorLog = calloc (maxLength, sizeof(char));
-		glGetShaderInfoLog(shader_token, maxLength, &maxLength, errorLog);
-
-		fprintf(stderr, "Shader compilation failed: %s\n", errorLog);
-
-		glDeleteShader(shader_token); /* Don't leak the shader. */
-		exit(-1);
-	}
-}
-
 /*
  * SDL timers run in separate threads.	In the timer thread
  * push an event onto the event queue.	This event signifies
@@ -183,11 +164,9 @@ int main () {
 	vs = glCreateShader (GL_VERTEX_SHADER);
 	glShaderSource (vs, 1, &vertex_shader, NULL);
 	glCompileShader (vs);
-	shader_compile_check(vs);
 	fs = glCreateShader (GL_FRAGMENT_SHADER);
 	glShaderSource (fs, 1, &fragment_shader, NULL);
 	glCompileShader (fs);
-	shader_compile_check(fs);
 	shader_programme = glCreateProgram ();
 	glAttachShader (shader_programme, fs);
 	glAttachShader (shader_programme, vs);
