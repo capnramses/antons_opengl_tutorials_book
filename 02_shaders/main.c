@@ -9,12 +9,12 @@
 | Shaders.                                                                     |
 | I put some utility stuff, discussed in the previous demo into a file called  |
 | gl_utils to keep this main file tidier                                       |
-| I put GLFW and GLEW start-up code into a "start_GL()" function. remember to  |
+| I put SDL and GLEW start-up code into a "start_gl()" function. remember to  |
 | uncomment the version number code if on an Apple machine                     |
 \******************************************************************************/
 #include "gl_utils.h"
 #include <GL/glew.h> /* include GLEW and new version of GL on Windows */
-#include <GLFW/glfw3.h> /* GLFW helper library */
+#include <SDL2/SDL.h> /* SDL2 helper library */
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
@@ -27,7 +27,23 @@
 /* keep track of window size for things like the viewport and the mouse cursor */
 int g_gl_width = 640;
 int g_gl_height = 480;
-GLFWwindow* g_window = NULL;
+SDL_Window* g_window = NULL;
+
+/*
+ * SDL timers run in separate threads.	In the timer thread
+ * push an event onto the event queue.	This event signifies
+ * to call draw a frame from the thread in which the OpenGL
+ * context was created.
+ */
+Uint32 tick(Uint32 interval, void *param) {
+	SDL_Event event;
+	event.type = SDL_USEREVENT;
+	event.user.code = 0;
+	event.user.data1 = 0;
+	event.user.data2 = 0;
+	SDL_PushEvent(&event);
+	return interval;
+}
 
 const char* GL_type_to_string (GLenum type) {
   switch (type) {
@@ -187,6 +203,7 @@ bool parse_file_into_str (
 
 
 int main () {
+	SDL_Event event;
 	GLfloat points[] = {
 		 0.0f,	0.5f,	0.0f,
 		 0.5f, -0.5f,	0.0f,
@@ -274,27 +291,42 @@ int main () {
 	assert (colour_loc > -1);
 	glUseProgram (shader_programme);
 	glUniform4f (colour_loc, 1.0f, 0.0f, 0.0f, 1.0f);
-	
-	while (!glfwWindowShouldClose (g_window)) {
-		_update_fps_counter (g_window);
-		/* wipe the drawing surface clear */
-		glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-		glViewport (0, 0, g_gl_width, g_gl_height);
-		
-		glUseProgram (shader_programme);
-		glBindVertexArray (vao);
-		/* draw points 0-3 from the currently bound VAO with current in-use shader */
-		glDrawArrays (GL_TRIANGLES, 0, 3);
-		/* update other events like input handling */
-		glfwPollEvents ();
-		if (GLFW_PRESS == glfwGetKey (g_window, GLFW_KEY_ESCAPE)) {
-			glfwSetWindowShouldClose (g_window, 1);
+
+	/* Call the function "tick" every 1/60th second */
+	SDL_AddTimer(1000/60, tick, NULL);
+
+	/* The main event loop */
+	while (SDL_WaitEvent(&event)) {
+		switch (event.type) {
+		case SDL_QUIT:
+			SDL_Quit();
+			break;
+		case SDL_USEREVENT:
+			_update_fps_counter (g_window);
+			/* wipe the drawing surface clear */
+			glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+			glViewport (0, 0, g_gl_width, g_gl_height);
+
+			glUseProgram (shader_programme);
+			glBindVertexArray (vao);
+			/* draw points 0-3 from the currently bound VAO with current in-use shader */
+			glDrawArrays (GL_TRIANGLES, 0, 3);
+
+			/* put the stuff we've been drawing onto the display */
+			SDL_GL_SwapWindow(g_window);
+			break;
+		case SDL_WINDOWEVENT:
+			switch (event.window.event) {
+				case SDL_WINDOWEVENT_RESIZED:
+					sdl_window_size_callback(g_window, event.window.data1, event.window.data2);
+					break;
+				default:
+					break;
+			}
+		default:
+			break;
 		}
-		/* put the stuff we've been drawing onto the display */
-		glfwSwapBuffers (g_window);
 	}
-	
-	/* close GL context and any other GLFW resources */
-	glfwTerminate();
+
 	return 0;
 }

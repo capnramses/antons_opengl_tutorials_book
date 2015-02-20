@@ -10,7 +10,7 @@
 #define _GL_UTILS_H_
 
 #include <GL/glew.h> /* include GLEW and new version of GL on Windows */
-#include <GLFW/glfw3.h> /* GLFW helper library */
+#include <SDL2/SDL.h> /* SDL2 helper library */
 #include <stdarg.h>
 /* #include <stdbool.h> // for visual studio i had to comment this out and define pure-C bool :( */
 #define bool int
@@ -21,7 +21,7 @@
 
 extern int g_gl_width;
 extern int g_gl_height;
-extern GLFWwindow* g_window;
+extern SDL_Window* g_window;
 
 bool start_gl ();
 
@@ -32,12 +32,12 @@ bool gl_log (const char* message, ...);
 /* same as gl_log except also prints to stderr */
 bool gl_log_err (const char* message, ...);
 
-void glfw_error_callback (int error, const char* description);
+void sdl_error_callback (int error, const char* description);
 
 void log_gl_params ();
 
-void _update_fps_counter (GLFWwindow* window);
+void _update_fps_counter (SDL_Window* window);
 
-void glfw_window_size_callback (GLFWwindow* window, int width, int height);
+void sdl_window_size_callback (SDL_Window* window, int width, int height);
 
 #endif
