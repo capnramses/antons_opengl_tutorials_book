@@ -1,1 +1,3 @@
 * header file in maths_funcs.h is in row order and order 01234 thing is wrong
+* Rationalise Make system in some way such that it is still easily understandable by novices, but supports changes more easily.
+    - note that the reasoning for this rationalisation precludes the use of Autotools :(
