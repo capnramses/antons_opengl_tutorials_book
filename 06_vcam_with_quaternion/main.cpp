@@ -37,6 +37,11 @@
 #define FRAGMENT_SHADER_FILE "test_fs.glsl"
 #define NUM_SPHERES 4
 
+// keep track of window size for things like the viewport and the mouse cursor
+int g_gl_width = 640;
+int g_gl_height = 480;
+GLFWwindow* g_window = NULL;
+
 /* create a unit quaternion q from an angle in degrees a, and an axis x,y,z */
 void create_versor (float* q, float a, float x, float y, float z) {
 	float rad = ONE_DEG_IN_RAD * a;

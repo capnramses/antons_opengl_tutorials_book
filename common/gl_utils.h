@@ -4,50 +4,43 @@
 | Email: anton at antongerdelan dot net                                        |
 | First version 27 Jan 2014                                                    |
 | Copyright Dr Anton Gerdelan, Trinity College Dublin, Ireland.                |
-| See individual libraries for separate legal notices                          |
+| See individual libraries' separate legal notices                             |
+|******************************************************************************|
+| This is just a file holding some commonly-used "utility" functions to keep   |
+| the main file a bit easier to read. You can might build up something like    |
+| this as learn more GL. Note that you don't need much code here to do good GL.|
+| If you have a big object-oriented engine then maybe you can ask yourself if  |
+| it is really making life easier.                                             |
 \******************************************************************************/
 #ifndef _GL_UTILS_H_
 #define _GL_UTILS_H_
 
+#include <stdarg.h> // used by log functions to have variable number of args
 #include <GL/glew.h> // include GLEW and new version of GL on Windows
 #include <GLFW/glfw3.h> // GLFW helper library
-#include <stdarg.h>
 
-#define GL_LOG_FILE "gl.log"
-
+/*------------------------------GLOBAL VARIABLES------------------------------*/
 extern int g_gl_width;
 extern int g_gl_height;
 extern GLFWwindow* g_window;
-
-bool start_gl ();
-
+/*--------------------------------LOG FUNCTIONS-------------------------------*/
 bool restart_gl_log ();
-
 bool gl_log (const char* message, ...);
-
 /* same as gl_log except also prints to stderr */
 bool gl_log_err (const char* message, ...);
-
+/*--------------------------------GLFW3 and GLEW------------------------------*/
+bool start_gl ();
 void glfw_error_callback (int error, const char* description);
-
-void log_gl_params ();
-
-void _update_fps_counter (GLFWwindow* window);
-
-const char* GL_type_to_string (unsigned int type);
-
 void glfw_window_size_callback (GLFWwindow* window, int width, int height);
-
+void _update_fps_counter (GLFWwindow* window);
+/*-----------------------------------SHADERS----------------------------------*/
+bool parse_file_into_str (const char* file_name, char* shader_str, int max_len);
 void print_shader_info_log (GLuint shader_index);
-
-void print_programme_info_log (GLuint sp);
-
-void print_all (GLuint sp);
-
-bool is_valid (GLuint sp);
-
-bool parse_file_into_str (
-	const char* file_name, char* shader_str, int max_len
+bool create_shader (const char* file_name, GLuint* shader, GLenum type);
+bool is_programme_valid (GLuint sp);
+bool create_programme (GLuint vert, GLuint frag, GLuint* programme);
+/* just use this func to create most shaders; give it vertex and frag files */
+GLuint create_programme_from_files (
+	const char* vert_file_name, const char* frag_file_name
 );
-
 #endif
