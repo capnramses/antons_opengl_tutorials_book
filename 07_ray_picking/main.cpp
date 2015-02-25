@@ -22,6 +22,11 @@
 #define FRAGMENT_SHADER_FILE "test_fs.glsl"
 #define NUM_SPHERES 4
 
+// keep track of window size for things like the viewport and the mouse cursor
+int g_gl_width = 640;
+int g_gl_height = 480;
+GLFWwindow* g_window = NULL;
+
 // camera matrices. it's easier if they are global
 mat4 view_mat;
 mat4 proj_mat;
