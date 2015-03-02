@@ -1,10 +1,10 @@
 BIN = quats
 CC = g++
 FLAGS = -Wall -pedantic
-INC = -I ../common/include
+INC = -I ../common/include -I ../common
 LOC_LIB = ../common/linux_i386/libGLEW.a ../common/linux_i386/libglfw3.a
 SYS_LIB = -lGL -lX11 -lXxf86vm -lXrandr -lpthread -lXi
-SRC = main.cpp gl_utils.cpp maths_funcs.cpp obj_parser.cpp
+SRC = main.cpp ../common/gl_utils.cpp maths_funcs.cpp obj_parser.cpp
 
 all:
 	${CC} ${FLAGS} -o ${BIN} ${SRC} ${INC} ${LOC_LIB} ${SYS_LIB}
