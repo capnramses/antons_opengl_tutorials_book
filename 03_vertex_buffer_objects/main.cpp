@@ -10,7 +10,7 @@
 \******************************************************************************/
 #include "gl_utils.h" // utility stuff discussed in previous tutorials is here
 #include <GL/glew.h> // include GLEW and new version of GL on Windows
-#include <GLFW/glfw3.h> // GLFW helper library
+#include <SDL2/SDL.h> // SDL2 helper library
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -22,11 +22,27 @@
 // keep track of window size for things like the viewport and the mouse cursor
 int g_gl_width = 640;
 int g_gl_height = 480;
-GLFWwindow* g_window = NULL;
+SDL_Window* g_window = NULL;
+
+/*
+ * SDL timers run in separate threads.	In the timer thread
+ * push an event onto the event queue.	This event signifies
+ * to call draw a frame from the thread in which the OpenGL
+ * context was created.
+ */
+Uint32 tick(Uint32 interval, void *param) {
+	SDL_Event event;
+	event.type = SDL_USEREVENT;
+	event.user.code = 0;
+	event.user.data1 = 0;
+	event.user.data2 = 0;
+	SDL_PushEvent(&event);
+	return interval;
+}
 
 int main () {
 	assert (restart_gl_log ());
-	// all the start-up code for GLFW and GLEW is called here
+	// all the start-up code for SDL and GLEW is called here
 	assert (start_gl ());
 
 	// tell GL to only draw onto a pixel if the shape is closer to the viewer
@@ -111,7 +127,7 @@ int main () {
 	glAttachShader (shader_programme, fs);
 	glAttachShader (shader_programme, vs);
 	glLinkProgram (shader_programme);
-	
+
 	glGetProgramiv (shader_programme, GL_LINK_STATUS, &params);
 	if (GL_TRUE != params) {
 		fprintf (
@@ -122,31 +138,47 @@ int main () {
 		print_programme_info_log (shader_programme);
 		return false;
 	}
-	
+
 	glEnable (GL_CULL_FACE); // cull face
 	glCullFace (GL_BACK); // cull back face
 	glFrontFace (GL_CW); // GL_CCW for counter clock-wise
-	
-	while (!glfwWindowShouldClose (g_window)) {
-		_update_fps_counter (g_window);
-		// wipe the drawing surface clear
-		glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-		glViewport (0, 0, g_gl_width, g_gl_height);
-		
-		glUseProgram (shader_programme);
-		glBindVertexArray (vao);
-		// draw points 0-3 from the currently bound VAO with current in-use shader
-		glDrawArrays (GL_TRIANGLES, 0, 3);
-		// update other events like input handling 
-		glfwPollEvents ();
-		if (GLFW_PRESS == glfwGetKey (g_window, GLFW_KEY_ESCAPE)) {
-			glfwSetWindowShouldClose (g_window, 1);
+
+	/* Call the function "tick" every 1/60th second */
+	SDL_AddTimer(1000/60, tick, NULL);
+
+	SDL_Event event;
+	/* The main event loop */
+	while (SDL_WaitEvent(&event)) {
+		switch (event.type) {
+		case SDL_QUIT:
+			SDL_Quit();
+			break;
+		case SDL_USEREVENT:
+			_update_fps_counter (g_window);
+			/* wipe the drawing surface clear */
+			glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+			glViewport (0, 0, g_gl_width, g_gl_height);
+
+			glUseProgram (shader_programme);
+			glBindVertexArray (vao);
+			/* draw points 0-3 from the currently bound VAO with current in-use shader */
+			glDrawArrays (GL_TRIANGLES, 0, 3);
+
+			/* put the stuff we've been drawing onto the display */
+			SDL_GL_SwapWindow(g_window);
+			break;
+		case SDL_WINDOWEVENT:
+			switch (event.window.event) {
+				case SDL_WINDOWEVENT_RESIZED:
+					sdl_window_size_callback(g_window, event.window.data1, event.window.data2);
+					break;
+				default:
+					break;
+			}
+		default:
+			break;
 		}
-		// put the stuff we've been drawing onto the display
-		glfwSwapBuffers (g_window);
 	}
-	
-	// close GL context and any other GLFW resources
-	glfwTerminate();
+
 	return 0;
 }
