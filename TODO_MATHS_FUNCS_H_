@@ -1,5 +1,0 @@
-* 03_/maths_funcs.h removed the constructors
-* and i put it in main folder
-* need to copy to all sub-folders
-* need to do same for .cpp (remove constructors for mat3 and mat4)
-* test to make sure it isnt used anywhere

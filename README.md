@@ -4,6 +4,9 @@ http://www.amazon.com/gp/product/B00LAMQYF2
 Copyright Dr Anton Gerdelan, Trinity College Dublin, Ireland. June 2014.
 email: anton at antongerdelan dot net
 
+A number of libraries are used for different demonstrations. Please see the
+respective documentation of each for copyright and licence information.
+
 # Info #
 
 See "LICENCE.txt" for licence information.
