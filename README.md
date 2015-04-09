@@ -39,10 +39,12 @@ The libraries reside in the common/ folder
 * open a terminal and cd to the demo of choice
 
 64-bit systems:
-make -f Makefile.linux64
+
+`make -f Makefile.linux64`
 
 32-bit systems:
-make -f Makefile.linux32
+
+`make -f Makefile.linux32`
 
 ## 64-bit Apple OS X ##
 
@@ -53,7 +55,7 @@ back for updates. The Apple drivers are not great - expect bugs in some demos.
 * install the GNU Compiler Collection - usually by installing XCode
 * open a terminal and cd to the demo of choice
 
-make -f Makefile.osx
+`make -f Makefile.osx`
 
 ## Windows with GCC ##
 
@@ -67,7 +69,7 @@ The 32-bit builds will run on all Windows machines - I use 32-bit builds on my
 http://www.mingw.org/
 * open a console and cd to the demo of choice
 
-make -f Makefile.win32
+`make -f Makefile.win32`
 
 * copy the .dll files from the main folder to the demo folder
 
