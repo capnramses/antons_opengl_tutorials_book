@@ -160,10 +160,10 @@ int main () {
 			"%i %f %f %f %f %f\n",
 			i,
 			x_min,
-			(float)(gwidth[i] + padding_px) / 64.0f,
+			(float)(gwidth[i] + padding_px) / (float)slot_glyph_size,
 			y_min,
-			(grows[i] + padding_px)  / 64.0f,
-			-((float)padding_px - (float)gymin[i]) / 64.0f
+			(grows[i] + padding_px)  / (float)slot_glyph_size,
+			-((float)padding_px - (float)gymin[i]) / (float)slot_glyph_size
 		);
 	}
 	fclose (fp);
