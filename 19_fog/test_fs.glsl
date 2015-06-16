@@ -5,9 +5,9 @@ in vec3 pos_eye;
 out vec4 frag_colour;
 
 // required fog variables
-const vec3 fog_colour = vec3 (0.2, 0.2, 0.2);
-const float min_fog_radius = 2.0;
-const float max_fog_radius = 5.0;
+vec3 fog_colour = vec3 (0.2, 0.2, 0.2);
+float min_fog_radius = 2.0;
+float max_fog_radius = 5.0;
 
 void main() {
 	frag_colour = vec4 (normal, 1.0);
