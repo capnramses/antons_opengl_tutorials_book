@@ -38,7 +38,7 @@ void main () {
 	
 	/* Spotlight */
 	vec3 spot_direction = normalize (vec3 (0.5, 0.0, -1.0));
-	const float spot_arc = 1.0 - 5.0 / 90.0;
+	float spot_arc = 1.0 - 5.0 / 90.0;
 	float spot_dot = dot (spot_direction, -direction_to_light_eye);
 	/*float spot_factor = 1.0;
 	if (spot_dot < spot_arc) {
