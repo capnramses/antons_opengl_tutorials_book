@@ -303,6 +303,13 @@ int main () {
 	assert (restart_gl_log ());
 	assert (start_gl ());
 	/* initialise framebuffer and G-buffer */
+
+	/* object positions and matrices */
+	assert (load_plane ());
+	g_plane_M = scale (identity_mat4 (), vec3 (200.0f, 1.0f, 200.0f));
+	g_plane_M = translate (g_plane_M, vec3 (0.0f, -2.0f, 0.0f));
+
+
 	assert (init_fb ());
 	/* load pre-pass shaders that write to the g-buffer */
 	g_first_pass_sp = create_programme_from_files (
@@ -325,10 +332,6 @@ int main () {
 	glUniform1i (g_second_pass_p_tex_loc, 0);
 	glUniform1i (g_second_pass_n_tex_loc, 1);
 	
-	/* object positions and matrices */
-	assert (load_plane ());
-	g_plane_M = scale (identity_mat4 (), vec3 (200.0f, 1.0f, 200.0f));
-	g_plane_M = translate (g_plane_M, vec3 (0.0f, -2.0f, 0.0f));
 	
 	/* load sphere mesh */
 	assert (load_sphere ());

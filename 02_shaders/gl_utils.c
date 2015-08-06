@@ -1,17 +1,17 @@
-/******************************************************************************\
-| OpenGL 4 Example Code.                                                       |
-| Accompanies written series "Anton's OpenGL 4 Tutorials"                      |
-| Email: anton at antongerdelan dot net                                        |
-| First version 27 Jan 2014                                                    |
-| Copyright Dr Anton Gerdelan, Trinity College Dublin, Ireland.                |
-| See individual libraries separate legal notices                              |
-|******************************************************************************|
-| This is just a file holding some commonly-used "utility" functions to keep   |
-| the main file a bit easier to read. You can might build up something like    |
-| this as learn more GL. Note that you don't need much code here to do good GL.|
-| If you have a big object-oriented engine then maybe you can ask yourself if  |
-| it is really making life easier.                                             |
-\******************************************************************************/
+/*****************************************************************************\
+| OpenGL 4 Example Code.                                                      |
+| Accompanies written series "Anton's OpenGL 4 Tutorials"                     |
+| Email: anton at antongerdelan dot net                                       |
+| First version 27 Jan 2014                                                   |
+| Copyright Dr Anton Gerdelan, Trinity College Dublin, Ireland.               |
+| See individual libraries separate legal notices                             |
+|*****************************************************************************|
+| This is just a file holding some commonly-used "utility" functions to keep  |
+| the main file a bit easier to read. You can might build up something like   |
+| this as learn more GL. Note that you don't need much code here to do good GL|
+| If you have a big object-oriented engine then maybe you can ask yourself if |
+| it is really making life easier.                                            |
+\*****************************************************************************/
 #include "gl_utils.h"
 #include <stdio.h>
 #include <time.h>
@@ -20,7 +20,7 @@
 #define GL_LOG_FILE "gl.log"
 #define MAX_SHADER_LENGTH 262144
 
-/*--------------------------------LOG FUNCTIONS-------------------------------*/
+/*--------------------------------LOG FUNCTIONS------------------------------*/
 bool restart_gl_log () {
 	time_t now;
 	char* date;
@@ -81,7 +81,7 @@ bool gl_log_err (const char* message, ...) {
 	return true;
 }
 
-/*--------------------------------GLFW3 and GLEW------------------------------*/
+/*--------------------------------GLFW3 and GLEW-----------------------------*/
 bool start_gl () {
 	const GLubyte* renderer;
 	const GLubyte* version;
@@ -94,12 +94,14 @@ bool start_gl () {
 		return false;
 	}
 
-	/* uncomment these lines if on Apple OS X */
-	/*glfwWindowHint (GLFW_CONTEXT_VERSION_MAJOR, 3);
-	glfwWindowHint (GLFW_CONTEXT_VERSION_MINOR, 2);
-	glfwWindowHint (GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
-	glfwWindowHint (GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-*/
+    /* We must specify 3.2 core if on Apple OS X -- other O/S can specify
+     anything here. I defined 'APPLE' in the makefile for OS X */
+#ifdef APPLE
+    glfwWindowHint (GLFW_CONTEXT_VERSION_MAJOR, 3);
+    glfwWindowHint (GLFW_CONTEXT_VERSION_MINOR, 2);
+    glfwWindowHint (GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+    glfwWindowHint (GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+#endif
 	/*GLFWmonitor* mon = glfwGetPrimaryMonitor ();
 	const GLFWvidmode* vmode = glfwGetVideoMode (mon);
 	g_window = glfwCreateWindow (

@@ -198,6 +198,8 @@ int decode_id (int r, int g, int b) {
 int main () {
 	assert (restart_gl_log ());
 	assert (start_gl ());
+	/* load a mesh to draw in the main scene */
+	load_sphere ();
 	/* set up framebuffer with texture attachment */
 	assert (init_fb ());
 	/* load the picking shaders */
@@ -209,8 +211,6 @@ int main () {
 	assert (g_pick_P_loc > -1);
 	assert (g_pick_V_loc > -1);
 	assert (g_pick_M_loc > -1);
-	/* load a mesh to draw in the main scene */
-	load_sphere ();
 	GLuint sphere_sp = create_programme_from_files (SPHERE_VS, SPHERE_FS);
 	GLint sphere_P_loc = glGetUniformLocation (sphere_sp, "P");
 	GLint sphere_V_loc = glGetUniformLocation (sphere_sp, "V");

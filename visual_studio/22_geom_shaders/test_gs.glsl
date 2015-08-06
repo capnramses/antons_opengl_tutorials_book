@@ -1,5 +1,7 @@
 #version 410
-#extension GL_EXT_geometry_shader4 : enable
+// extension should be core -- commented out
+// replaced gl_VerticesIn with gl_in.length ()
+//#extension GL_EXT_geometry_shader4 : enable
 
 layout (points) in;
 // convert to points, line_strip, or triangle_strip
@@ -11,7 +13,7 @@ in vec3 colour[];
 out vec3 f_colour;
 
 void main () {
-	for(int i = 0; i < gl_VerticesIn; i++) {
+	for(int i = 0; i < gl_in.length (); i++) {
 		// use original point as first point in triangle strip
 		gl_Position = gl_in[i].gl_Position;
 		// output pass-through data to go to fragment-shader (colour)

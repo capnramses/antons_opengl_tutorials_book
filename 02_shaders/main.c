@@ -19,12 +19,14 @@
 #include <stdlib.h>
 #include <assert.h>
 #include <string.h>
-/* #include <stdbool.h> // for visual studio i had to comment this out and define pure-C bool :( */
+/* #include <stdbool.h> // for visual studio i had to comment this out and
+ define pure-C bool :( */
 #define bool int
 #define true 1
 #define false 0
 
-/* keep track of window size for things like the viewport and the mouse cursor */
+/* keep track of window size for things like the viewport and the mouse
+ cursor */
 int g_gl_width = 640;
 int g_gl_height = 480;
 GLFWwindow* g_window = NULL;
@@ -103,7 +105,8 @@ void print_all (GLuint sp) {
 		int actual_length = 0;
 		int size = 0;
 		GLenum type;
-		glGetActiveAttrib (sp, i, max_length, &actual_length, &size, &type, name);
+		glGetActiveAttrib (sp, i, max_length, &actual_length, &size, &type,
+                           name);
 		if (size > 1) {
 			int j;
 			for (j = 0; j < size; j++) {
@@ -130,7 +133,8 @@ void print_all (GLuint sp) {
 		int actual_length = 0;
 		int size = 0;
 		GLenum type;
-		glGetActiveUniform (sp, i, max_length, &actual_length, &size, &type, name);
+		glGetActiveUniform (sp, i, max_length, &actual_length, &size, &type,
+                            name);
 		if (size > 1) {
 			int j;
 			for (j = 0; j < size; j++) {
@@ -170,10 +174,8 @@ bool parse_file_into_str (
 		if (NULL != fgets (line, 2048, file)) {
 			current_len += strlen (line); /* +1 for \n at end */
 			if (current_len >= max_len) {
-				gl_log_err (
-					"ERROR: shader length is longer than string buffer length %i\n",
-					max_len
-				);
+				gl_log_err ("ERROR: shader length is longer than string buffer"
+                            " length %i\n", max_len);
 			}
 			strcat (shader_str, line);
 		}
@@ -204,14 +206,16 @@ int main () {
 	assert (restart_gl_log ());
 	assert (start_gl ());
 	
-	/* tell GL to only draw onto a pixel if the shape is closer to the viewer */
+	/* tell GL to only draw onto a pixel if the shape is closer to the viewer*/
 	glEnable (GL_DEPTH_TEST); /* enable depth-testing */
-	glDepthFunc (GL_LESS); /* depth-testing interprets a smaller value as "closer" */
+	glDepthFunc (GL_LESS); /* depth-testing interprets a smaller value as
+                            "closer" */
 	
 	
 	glGenBuffers (1, &vbo);
 	glBindBuffer (GL_ARRAY_BUFFER, vbo);
-	glBufferData (GL_ARRAY_BUFFER, 9 * sizeof (GLfloat), points, GL_STATIC_DRAW);
+	glBufferData (GL_ARRAY_BUFFER, 9 * sizeof (GLfloat), points,
+                  GL_STATIC_DRAW);
 	
 	glGenVertexArrays (1, &vao);
 	glBindVertexArray (vao);
@@ -283,7 +287,8 @@ int main () {
 		
 		glUseProgram (shader_programme);
 		glBindVertexArray (vao);
-		/* draw points 0-3 from the currently bound VAO with current in-use shader */
+		/* draw points 0-3 from the currently bound VAO with current in-use
+         shader */
 		glDrawArrays (GL_TRIANGLES, 0, 3);
 		/* update other events like input handling */
 		glfwPollEvents ();

@@ -1,4 +1,10 @@
+/* NOTE: this shader is for GLSL 4.2.0 (OpenGL 4.2)
+ to convert it to an earlier version, for example on Apple, you'll need to
+ remove layout (binding = x) for each texture, and instead explicitly
+ set glUniform1i() for each texture in C with these values */
+
 #version 420
+//#version 410
 
 layout(location = 0) in vec3 vertex_position;
 layout(location = 1) in vec3 vertex_normal;
