@@ -50,14 +50,12 @@ The libraries reside in the common/ folder
 
 ###64-bit Apple OS X###
 
-I don't have an Apple machine so these may not all have a Makefile available
-right away. I'll do my best to update this and test all the projects - check
-back for updates. The Apple drivers are not great - expect bugs in some demos.
-
 * install the GNU Compiler Collection - usually by installing XCode
 * open a terminal and cd to the demo of choice
 
 `make -f Makefile.osx`
+
+* I just got an OS X machine and tweaked all the demos. See Issues tab for remaining tasks.
 
 ###Windows with GCC###
 
