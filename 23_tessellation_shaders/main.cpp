@@ -197,7 +197,8 @@ int main () {
 	glEnable (GL_CULL_FACE); // cull face
 	glCullFace (GL_BACK); // cull back face
 	glFrontFace (GL_CW); // GL_CCW for counter clock-wise
-	glPolygonMode(GL_FRONT, GL_LINE);
+	// NB. front or back alone didn't work on OSX -- had to use F&B here
+	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 	// i'm drawing a base mesh comprised of triangles (3 points per patch)
 	glPatchParameteri (GL_PATCH_VERTICES, 3);
 	while (!glfwWindowShouldClose (window)) {
