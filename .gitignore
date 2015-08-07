@@ -44,3 +44,6 @@ pick
 00_hello_triangle_gl2.1/Makefile.osx-e
 *.osx-e
 view
+27_font_atlas/atlas.meta
+27_font_atlas/atlas.png
+generate
