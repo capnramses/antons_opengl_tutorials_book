@@ -241,7 +241,7 @@ void render_shadow_casting () {
 	// bind the sphere vao and draw them
 	glBindVertexArray (g_sphere_vao);
 	for (int i = 0; i < NUM_SPHERES; i++) {
-		glUniformMatrix4fv (g_plain_M_loc, 1, GL_FALSE, g_sphere_Ms[i].m);
+		glUniformMatrix4fv (g_depth_M_loc, 1, GL_FALSE, g_sphere_Ms[i].m);
 		glDrawArrays (GL_TRIANGLES, 0, g_sphere_point_count);
 	}
 	// bind the default framebuffer again
@@ -284,9 +284,9 @@ int main () {
 	g_debug_sp = create_programme_from_files (DEBUG_VS, DEBUG_FS);
 	
 	g_depth_sp = create_programme_from_files (DEPTH_VS, DEPTH_FS);
-	g_depth_M_loc = glGetUniformLocation (g_plain_sp, "M");
-	g_depth_V_loc = glGetUniformLocation (g_plain_sp, "V");
-	g_depth_P_loc = glGetUniformLocation (g_plain_sp, "P");
+	g_depth_M_loc = glGetUniformLocation (g_depth_sp, "M");
+	g_depth_V_loc = glGetUniformLocation (g_depth_sp, "V");
+	g_depth_P_loc = glGetUniformLocation (g_depth_sp, "P");
 /*-------------------------------CREATE CAMERAS-------------------------------*/
 	create_shadow_caster ();
 	
@@ -451,7 +451,7 @@ changed in the shadow casting pass */
 			glUniformMatrix4fv (g_plain_V_loc, 1, GL_FALSE, g_camera_V.m);
 		}
 		/* switch between looking from virtual camera and shadow caster matrices */
-		if (glfwGetKey (g_window, GLFW_KEY_F1)) {
+		if (glfwGetKey (g_window, GLFW_KEY_SPACE)) {
 			glUniformMatrix4fv (g_plain_V_loc, 1, GL_FALSE, g_caster_V.m);
 			glUniformMatrix4fv (g_plain_P_loc, 1, GL_FALSE, g_caster_P.m);
 		} else {

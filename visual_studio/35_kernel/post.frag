@@ -56,7 +56,9 @@ void main () {
 		vec2 (pixel_scale.s * 2.0, pixel_scale.t * 2.0)
 	);
 
-	vec3 colour;
+	// make sure that this starts at zero or could get undefined rubbish on
+	// screen!
+	vec3 colour = vec3 (0.0, 0.0, 0.0);
 	// only blur rhs for comparison
 	if (st.s >= 0.5) {
 		for (int i = 0; i < KERNEL_SIZE; i++) {

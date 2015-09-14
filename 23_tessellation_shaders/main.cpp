@@ -38,12 +38,15 @@ int main () {
 		return 1;
 	}
 
-	// uncomment these lines if on Apple OS X
-	/*glfwWindowHint (GLFW_CONTEXT_VERSION_MAJOR, 3);
+	/* We must specify 3.2 core if on Apple OS X -- other O/S can specify
+	 anything here. I defined 'APPLE' in the makefile for OS X */
+#ifdef APPLE
+	glfwWindowHint (GLFW_CONTEXT_VERSION_MAJOR, 3);
 	glfwWindowHint (GLFW_CONTEXT_VERSION_MINOR, 2);
 	glfwWindowHint (GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 	glfwWindowHint (GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-*/
+#endif
+
 	/*GLFWmonitor* mon = glfwGetPrimaryMonitor ();
 	const GLFWvidmode* vmode = glfwGetVideoMode (mon);
 	GLFWwindow* window = glfwCreateWindow (
@@ -194,7 +197,8 @@ int main () {
 	glEnable (GL_CULL_FACE); // cull face
 	glCullFace (GL_BACK); // cull back face
 	glFrontFace (GL_CW); // GL_CCW for counter clock-wise
-	glPolygonMode(GL_FRONT, GL_LINE);
+	// NB. front or back alone didn't work on OSX -- had to use F&B here
+	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 	// i'm drawing a base mesh comprised of triangles (3 points per patch)
 	glPatchParameteri (GL_PATCH_VERTICES, 3);
 	while (!glfwWindowShouldClose (window)) {

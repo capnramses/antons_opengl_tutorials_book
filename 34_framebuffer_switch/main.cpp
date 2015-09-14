@@ -174,11 +174,11 @@ void load_sphere () {
 int main () {
 	assert (restart_gl_log ());
 	assert (start_gl ());
+	init_ss_quad ();
 	/* set up framebuffer with texture attachment */
 	assert (init_fb ());
 	/* load the post-processing effect shaders */
 	GLuint post_sp = create_programme_from_files (POST_VS, POST_FS);
-	init_ss_quad ();
 	/* load a mesh to draw in the main scene */
 	load_sphere ();
 	GLuint sphere_sp = create_programme_from_files (SPHERE_VS, SPHERE_FS);

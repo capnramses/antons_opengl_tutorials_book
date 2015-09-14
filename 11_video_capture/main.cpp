@@ -279,7 +279,7 @@ int main () {
 		// update other events like input handling 
 		glfwPollEvents ();
 		
-		if (GLFW_PRESS == glfwGetKey (g_window, GLFW_KEY_F11)) {
+		if (GLFW_PRESS == glfwGetKey (g_window, GLFW_KEY_SPACE)) {
 			dump_video = true;
 		}
 		

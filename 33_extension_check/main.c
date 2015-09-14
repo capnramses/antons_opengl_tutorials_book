@@ -166,12 +166,14 @@ int main () {
 		return 1;
 	} 
 
-	/* change to 3.2 if on Apple OS X */
-	glfwWindowHint (GLFW_CONTEXT_VERSION_MAJOR, 4);
-	glfwWindowHint (GLFW_CONTEXT_VERSION_MINOR, 1);
+	/* We must specify 3.2 core if on Apple OS X -- other O/S can specify
+	 anything here. I defined 'APPLE' in the makefile for OS X */
+#ifdef APPLE
+	glfwWindowHint (GLFW_CONTEXT_VERSION_MAJOR, 3);
+	glfwWindowHint (GLFW_CONTEXT_VERSION_MINOR, 2);
 	glfwWindowHint (GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 	glfwWindowHint (GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-	glfwWindowHint (GLFW_OPENGL_DEBUG_CONTEXT, GL_TRUE);
+#endif
 	
 	window = glfwCreateWindow (
 		640, 480, "Hello Triangle", NULL, NULL
@@ -187,7 +189,8 @@ int main () {
 	glewExperimental = GL_TRUE;
 	glewInit ();
 	
-	if (GLEW_KHR_debug) {
+	// note: this will probably not be available on Apple systems
+	if (GLEW_KHR_debug) { // or try GLEW_ARB_debug_output
 		int param = -1;
 		printf ("KHR_debug extension found\n");
 		glDebugMessageCallback ((GLDEBUGPROC)debug_gl_callback, &param);

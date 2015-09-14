@@ -26,8 +26,8 @@ int main () {
 	const GLubyte* version;
 	GLuint vao;
 	GLuint vbo;
-	/* geometry to use. these are 3 xyz points (9 floats total) to make a triangle
-	*/
+	/* geometry to use. these are 3 xyz points (9 floats total) to make a
+     triangle */
 	GLfloat points[] = {
 		 0.0f,	0.5f,	0.0f,
 		 0.5f, -0.5f,	0.0f,
@@ -60,15 +60,16 @@ int main () {
 		return 1;
 	} 
 
-	/* change to 3.2 if on Apple OS X */
-	glfwWindowHint (GLFW_CONTEXT_VERSION_MAJOR, 4);
-	glfwWindowHint (GLFW_CONTEXT_VERSION_MINOR, 1);
+	/* We must specify 3.2 core if on Apple OS X -- other O/S can specify
+	anything here. I defined 'APPLE' in the makefile for OS X */
+#ifdef APPLE
+	glfwWindowHint (GLFW_CONTEXT_VERSION_MAJOR, 3);
+	glfwWindowHint (GLFW_CONTEXT_VERSION_MINOR, 2);
 	glfwWindowHint (GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 	glfwWindowHint (GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+#endif
 
-	window = glfwCreateWindow (
-		640, 480, "Hello Triangle", NULL, NULL
-	);
+	window = glfwCreateWindow (640, 480, "Hello Triangle", NULL, NULL);
 	if (!window) {
 		fprintf (stderr, "ERROR: could not open window with GLFW3\n");
 		glfwTerminate();
@@ -85,15 +86,17 @@ int main () {
 	printf ("Renderer: %s\n", renderer);
 	printf ("OpenGL version supported %s\n", version);
 
-	/* tell GL to only draw onto a pixel if the shape is closer to the viewer */
+	/* tell GL to only draw onto a pixel if the shape is closer to the viewer
+     */
 	glEnable (GL_DEPTH_TEST); /* enable depth-testing */
-	glDepthFunc (GL_LESS);/*depth-testing interprets a smaller value as "closer"*/
-
-	/* a vertex buffer object (VBO) is created here. this stores an array of data
-	on the graphics adapter's memory. in our case - the vertex points */
+    /* with LESS depth-testing interprets a smaller value as "closer" */
+	glDepthFunc (GL_LESS);
+	/* a vertex buffer object (VBO) is created here. this stores an array of
+     data on the graphics adapter's memory. in our case - the vertex points */
 	glGenBuffers (1, &vbo);
 	glBindBuffer (GL_ARRAY_BUFFER, vbo);
-	glBufferData (GL_ARRAY_BUFFER, 9 * sizeof (GLfloat), points, GL_STATIC_DRAW);
+	glBufferData (GL_ARRAY_BUFFER, 9 * sizeof (GLfloat), points,
+                  GL_STATIC_DRAW);
 	
 	/* the vertex array object (VAO) is a little descriptor that defines which
 	data from vertex buffer objects should be used as input variables to vertex
@@ -105,10 +108,10 @@ int main () {
 	glBindBuffer (GL_ARRAY_BUFFER, vbo);
 	glVertexAttribPointer (0, 3, GL_FLOAT, GL_FALSE, 0, NULL);
 	
-	/* here we copy the shader strings into GL shaders, and compile them. we then
-	create an executable shader 'program' and attach both of the compiled shaders.
-	we link this, which matches the outputs of the vertex shader to the inputs of
-	the fragment shader, etc. and it is then ready to use */
+	/* here we copy the shader strings into GL shaders, and compile them. we
+     then create an executable shader 'program' and attach both of the compiled
+     shaders. we link this, which matches the outputs of the vertex shader to
+     the inputs of the fragment shader, etc. and it is then ready to use */
 	vs = glCreateShader (GL_VERTEX_SHADER);
 	glShaderSource (vs, 1, &vertex_shader, NULL);
 	glCompileShader (vs);
@@ -120,19 +123,20 @@ int main () {
 	glAttachShader (shader_programme, vs);
 	glLinkProgram (shader_programme);
 	
-	/* this loop clears the drawing surface, then draws the geometry described by
-	the VAO onto the drawing surface. we 'poll events' to see if the window was
-	closed, etc. finally, we 'swap the buffers' which displays our drawing surface
-	onto the view area. we use a double-buffering system which means that we have
-	a 'currently displayed' surface, and 'currently being drawn' surface. hence
-	the 'swap' idea. in a single-buffering system we would see stuff being drawn
-	one-after-the-other */
+	/* this loop clears the drawing surface, then draws the geometry described
+     by	the VAO onto the drawing surface. we 'poll events' to see if the window
+     was closed, etc. finally, we 'swap the buffers' which displays our drawing
+     surface onto the view area. we use a double-buffering system which means
+     that we have a 'currently displayed' surface, and 'currently being drawn'
+     surface. hence the 'swap' idea. in a single-buffering system we would see
+     stuff being drawn one-after-the-other */
 	while (!glfwWindowShouldClose (window)) {
 		/* wipe the drawing surface clear */
 		glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glUseProgram (shader_programme);
 		glBindVertexArray (vao);
-		/* draw points 0-3 from the currently bound VAO with current in-use shader*/
+		/* draw points 0-3 from the currently bound VAO with current in-use
+         shader */
 		glDrawArrays (GL_TRIANGLES, 0, 3);
 		/* update other events like input handling */
 		glfwPollEvents ();

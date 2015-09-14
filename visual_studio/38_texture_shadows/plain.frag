@@ -8,14 +8,16 @@ uniform vec3 colour;
 uniform float shad_resolution = 2048.0;
 out vec4 frag_colour;
 
-float eval_shadow (vec4 texcoods) {
+float eval_shadow (in vec4 texcoods) {
 	// constant that you can use to slightly tweak the depth comparison
 	float epsilon = 0.003;
-
-	float shadow = texture2D (depth_map, texcoods.xy).r;
+	if (texcoods.x > 1.0 || texcoods.x < 0.0 || texcoods.y > 1.0 || texcoods.y < 0.0 || texcoods.w < 0.0) {
+		return 1.0; // do not add shadow/ignore
+	}
+	float shadow = texture (depth_map, texcoods.xy).r;
 	
 	if (shadow + epsilon < texcoods.z) {
-		return 0.25; // shadowed
+		return 0.1; // shadowed
 	}
 	return 1.0; // not shadowed
 }

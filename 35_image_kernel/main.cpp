@@ -176,9 +176,9 @@ int main () {
 	assert (start_gl ());
 	/* set up framebuffer with texture attachment */
 	assert (init_fb ());
+	init_ss_quad ();
 	/* load the post-processing effect shaders */
 	GLuint post_sp = create_programme_from_files (POST_VS, POST_FS);
-	init_ss_quad ();
 	/* load a mesh to draw in the main scene */
 	load_sphere ();
 	GLuint sphere_sp = create_programme_from_files (SPHERE_VS, SPHERE_FS);
@@ -201,8 +201,12 @@ int main () {
 		_update_fps_counter (g_window);
 		
 		/* bind the 'render to a texture' framebuffer for main scene */
+		glFlush ();
+		glFinish ();
+        glActiveTexture (GL_TEXTURE0);
+        glBindTexture (GL_TEXTURE_2D, 0);
 		glBindFramebuffer (GL_FRAMEBUFFER, g_fb);
-		/* clear the framebuffer's colour and depth buffers */
+        /* clear the framebuffer's colour and depth buffers */
 		glClearColor (0.2, 0.2, 0.2, 1.0);
 		glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		
@@ -213,10 +217,14 @@ int main () {
 		
 		/* bind default framebuffer for post-processing effects. sample texture
 		from previous pass */
+
+		glFlush ();
+		glFinish ();
 		glBindFramebuffer (GL_FRAMEBUFFER, 0);
+
 		// clear the framebuffer's colour and depth buffers 
-		//glClearColor (0.0, 0.0, 0.0, 1.0);
-		//glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+//		glClearColor (0.0, 0.0, 0.0, 1.0);
+//		glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		// use our post-processing shader for the screen-space quad
 		glUseProgram (post_sp);
 		// bind the quad's VAO

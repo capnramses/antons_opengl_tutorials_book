@@ -88,13 +88,16 @@ bool start_gl () {
 		fprintf (stderr, "ERROR: could not start GLFW3\n");
 		return false;
 	}
-
-	// uncomment these lines if on Apple OS X
-	/*glfwWindowHint (GLFW_CONTEXT_VERSION_MAJOR, 3);
+	
+	/* We must specify 3.2 core if on Apple OS X -- other O/S can specify
+	 anything here. I defined 'APPLE' in the makefile for OS X */
+#ifdef APPLE
+	glfwWindowHint (GLFW_CONTEXT_VERSION_MAJOR, 3);
 	glfwWindowHint (GLFW_CONTEXT_VERSION_MINOR, 2);
 	glfwWindowHint (GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 	glfwWindowHint (GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-*/
+#endif
+
 	/*GLFWmonitor* mon = glfwGetPrimaryMonitor ();
 	const GLFWvidmode* vmode = glfwGetVideoMode (mon);
 	g_window = glfwCreateWindow (
