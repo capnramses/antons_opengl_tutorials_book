@@ -35,7 +35,8 @@ void change_sprite (int sprite_index) {
 	const int num_cols = 2;
 	const int num_rows = 2;
 	int col = sprite_index % num_cols;
-	int row = num_rows - 1 - sprite_index / num_rows;
+	// fixed: error on this line. thanks Rogier!
+	int row = num_rows - 1 - sprite_index / num_cols;
 	float s = (float)col / (float)num_cols;
 	float t = (float)row / (float)num_rows;
 	glUseProgram (sp);
