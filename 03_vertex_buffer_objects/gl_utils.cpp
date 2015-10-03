@@ -81,22 +81,22 @@ bool gl_log_err (const char* message, ...) {
 /*--------------------------------GLFW3 and GLEW------------------------------*/
 bool start_gl () {
 	gl_log ("starting GLFW %s", glfwGetVersionString ());
-	
+
 	glfwSetErrorCallback (glfw_error_callback);
 	if (!glfwInit ()) {
 		fprintf (stderr, "ERROR: could not start GLFW3\n");
 		return false;
 	}
 
-    /* We must specify 3.2 core if on Apple OS X -- other O/S can specify
-     anything here. I defined 'APPLE' in the makefile for OS X */
+		/* We must specify 3.2 core if on Apple OS X -- other O/S can specify
+		 anything here. I defined 'APPLE' in the makefile for OS X */
 #ifdef APPLE
-    glfwWindowHint (GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint (GLFW_CONTEXT_VERSION_MINOR, 2);
-    glfwWindowHint (GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
-    glfwWindowHint (GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+	glfwWindowHint (GLFW_CONTEXT_VERSION_MAJOR, 3);
+	glfwWindowHint (GLFW_CONTEXT_VERSION_MINOR, 2);
+	glfwWindowHint (GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+	glfwWindowHint (GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 #endif
-    
+
 	/*GLFWmonitor* mon = glfwGetPrimaryMonitor ();
 	const GLFWvidmode* vmode = glfwGetVideoMode (mon);
 	g_window = glfwCreateWindow (
@@ -113,9 +113,9 @@ bool start_gl () {
 	}
 	glfwSetWindowSizeCallback (g_window, glfw_window_size_callback);
 	glfwMakeContextCurrent (g_window);
-	
+
 	glfwWindowHint (GLFW_SAMPLES, 4);
-	
+
 	// start GLEW extension handler
 	glewExperimental = GL_TRUE;
 	glewInit ();
@@ -126,7 +126,7 @@ bool start_gl () {
 	printf ("Renderer: %s\n", renderer);
 	printf ("OpenGL version supported %s\n", version);
 	gl_log ("renderer: %s\nversion: %s\n", renderer, version);
-	
+
 	return true;
 }
 
@@ -159,34 +159,26 @@ void _update_fps_counter (GLFWwindow* window) {
 }
 
 /*-----------------------------------SHADERS----------------------------------*/
-bool parse_file_into_str (
-	const char* file_name, char* shader_str, int max_len
-) {
-	shader_str[0] = '\0'; // reset string
+/* copy a shader from a plain text file into a character array */
+bool parse_file_into_str (const char* file_name, char* shader_str, int max_len
+	) {
 	FILE* file = fopen (file_name , "r");
 	if (!file) {
 		gl_log_err ("ERROR: opening file for reading: %s\n", file_name);
 		return false;
 	}
-	int current_len = 0;
-	char line[2048];
-	strcpy (line, ""); // remember to clean up before using for first time!
-	while (!feof (file)) {
-		if (NULL != fgets (line, 2048, file)) {
-			current_len += strlen (line); // +1 for \n at end
-			if (current_len >= max_len) {
-				gl_log_err (
-					"ERROR: shader length is longer than string buffer length %i\n",
-					max_len
-				);
-			}
-			strcat (shader_str, line);
-		}
+	size_t cnt = fread (shader_str, 1, max_len - 1, file);
+	if (cnt >= max_len - 1) {
+		gl_log_err ("WARNING: file %s too big - truncated.\n", file_name);
 	}
-	if (EOF == fclose (file)) { // probably unnecesssary validation
-		gl_log_err ("ERROR: closing file from reading %s\n", file_name);
+	if (ferror (file)) {
+		gl_log_err ("ERROR: reading shader file %s\n", file_name);
+		fclose (file);
 		return false;
 	}
+	// append \0 to end of file string
+	shader_str[cnt] = 0;
+	fclose (file);
 	return true;
 }
 

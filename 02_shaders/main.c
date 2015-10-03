@@ -92,13 +92,13 @@ void print_all (GLuint sp) {
 	printf ("--------------------\nshader programme %i info:\n", sp);
 	glGetProgramiv (sp, GL_LINK_STATUS, &params);
 	printf ("GL_LINK_STATUS = %i\n", params);
-	
+
 	glGetProgramiv (sp, GL_ATTACHED_SHADERS, &params);
 	printf ("GL_ATTACHED_SHADERS = %i\n", params);
-	
+
 	glGetProgramiv (sp, GL_ACTIVE_ATTRIBUTES, &params);
 	printf ("GL_ACTIVE_ATTRIBUTES = %i\n", params);
-	
+
 	for (i = 0; i < params; i++) {
 		char name[64];
 		int max_length = 64;
@@ -124,7 +124,7 @@ void print_all (GLuint sp) {
 				i, GL_type_to_string (type), name, location);
 		}
 	}
-	
+
 	glGetProgramiv (sp, GL_ACTIVE_UNIFORMS, &params);
 	printf ("GL_ACTIVE_UNIFORMS = %i\n", params);
 	for (i = 0; i < params; i++) {
@@ -152,41 +152,32 @@ void print_all (GLuint sp) {
 				i, GL_type_to_string (type), name, location);
 		}
 	}
-	
+
 	_print_programme_info_log (sp);
 }
 
 /* copy a shader from a plain text file into a character array */
-bool parse_file_into_str (
-	const char* file_name, char* shader_str, int max_len
-) {
+bool parse_file_into_str (const char* file_name, char* shader_str, int max_len
+	) {
 	FILE* file = fopen (file_name , "r");
-	int current_len = 0;
-	char line[2048];
-
-	shader_str[0] = '\0'; /* reset string */
 	if (!file) {
 		gl_log_err ("ERROR: opening file for reading: %s\n", file_name);
 		return false;
 	}
-	strcpy (line, ""); /* remember to clean up before using for first time! */
-	while (!feof (file)) {
-		if (NULL != fgets (line, 2048, file)) {
-			current_len += strlen (line); /* +1 for \n at end */
-			if (current_len >= max_len) {
-				gl_log_err ("ERROR: shader length is longer than string buffer"
-                            " length %i\n", max_len);
-			}
-			strcat (shader_str, line);
-		}
+	size_t cnt = fread (shader_str, 1, max_len - 1, file);
+	if (cnt >= max_len - 1) {
+		gl_log_err ("WARNING: file %s too big - truncated.\n", file_name);
 	}
-	if (EOF == fclose (file)) { /* probably unnecesssary validation */
-		gl_log_err ("ERROR: closing file from reading %s\n", file_name);
+	if (ferror (file)) {
+		gl_log_err ("ERROR: reading shader file %s\n", file_name);
+		fclose (file);
 		return false;
 	}
+	// append \0 to end of file string
+	shader_str[cnt] = 0;
+	fclose (file);
 	return true;
 }
-
 
 int main () {
 	GLfloat points[] = {
@@ -205,48 +196,48 @@ int main () {
 
 	assert (restart_gl_log ());
 	assert (start_gl ());
-	
+
 	/* tell GL to only draw onto a pixel if the shape is closer to the viewer*/
 	glEnable (GL_DEPTH_TEST); /* enable depth-testing */
 	glDepthFunc (GL_LESS); /* depth-testing interprets a smaller value as
                             "closer" */
-	
-	
+
+
 	glGenBuffers (1, &vbo);
 	glBindBuffer (GL_ARRAY_BUFFER, vbo);
 	glBufferData (GL_ARRAY_BUFFER, 9 * sizeof (GLfloat), points,
                   GL_STATIC_DRAW);
-	
+
 	glGenVertexArrays (1, &vao);
 	glBindVertexArray (vao);
 	glEnableVertexAttribArray (0);
 	glBindBuffer (GL_ARRAY_BUFFER, vbo);
 	glVertexAttribPointer (0, 3, GL_FLOAT, GL_FALSE, 0, NULL);
-	
+
 	/* load shaders from files here */
-	
+
 	assert (parse_file_into_str ("test_vs.glsl", vertex_shader, 1024 * 256));
 	assert (parse_file_into_str ("test_fs.glsl", fragment_shader, 1024 * 256));
-	
+
 	vs = glCreateShader (GL_VERTEX_SHADER);
 	p = (const GLchar*)vertex_shader;
 	glShaderSource (vs, 1, &p, NULL);
 	glCompileShader (vs);
-	
+
 	/* check for shader compile errors - very important! */
-	
+
 	glGetShaderiv (vs, GL_COMPILE_STATUS, &params);
 	if (GL_TRUE != params) {
 		fprintf (stderr, "ERROR: GL shader index %i did not compile\n", vs);
 		_print_shader_info_log (vs);
 		return 1; /* or exit or something */
 	}
-	
+
 	fs = glCreateShader (GL_FRAGMENT_SHADER);
 	p = (const GLchar*)fragment_shader;
 	glShaderSource (fs, 1, &p, NULL);
 	glCompileShader (fs);
-	
+
 	/* check for compile errors */
 	glGetShaderiv (fs, GL_COMPILE_STATUS, &params);
 	if (GL_TRUE != params) {
@@ -254,12 +245,12 @@ int main () {
 		_print_shader_info_log (fs);
 		return 1; /* or exit or something */
 	}
-	
+
 	shader_programme = glCreateProgram ();
 	glAttachShader (shader_programme, fs);
 	glAttachShader (shader_programme, vs);
 	glLinkProgram (shader_programme);
-	
+
 	/* check for shader linking errors - very important! */
 	glGetProgramiv (shader_programme, GL_LINK_STATUS, &params);
 	if (GL_TRUE != params) {
@@ -273,18 +264,18 @@ int main () {
 	}
 	print_all (shader_programme);
 	assert (is_valid (shader_programme));
-	
+
 	colour_loc = glGetUniformLocation (shader_programme, "inputColour");
 	assert (colour_loc > -1);
 	glUseProgram (shader_programme);
 	glUniform4f (colour_loc, 1.0f, 0.0f, 0.0f, 1.0f);
-	
+
 	while (!glfwWindowShouldClose (g_window)) {
 		_update_fps_counter (g_window);
 		/* wipe the drawing surface clear */
 		glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glViewport (0, 0, g_gl_width, g_gl_height);
-		
+
 		glUseProgram (shader_programme);
 		glBindVertexArray (vao);
 		/* draw points 0-3 from the currently bound VAO with current in-use
@@ -298,7 +289,7 @@ int main () {
 		/* put the stuff we've been drawing onto the display */
 		glfwSwapBuffers (g_window);
 	}
-	
+
 	/* close GL context and any other GLFW resources */
 	glfwTerminate();
 	return 0;
