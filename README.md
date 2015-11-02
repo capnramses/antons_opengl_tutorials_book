@@ -1,7 +1,7 @@
 #Anton's OpenGL 4 Tutorials book demo code#
 
 This series of demos accompanies the e-book "Anton's OpenGL 4 Tutorials":
-http://www.amazon.com/gp/product/B00LAMQYF2
+http://antongerdelan.net/opengl/
 
 Copyright Dr Anton Gerdelan, Trinity College Dublin, Ireland. June 2014.
 email: anton at antongerdelan dot net
@@ -10,19 +10,12 @@ email: anton at antongerdelan dot net
 
 See "LICENCE.txt" for licence information.
 
-For updated information about this demonstration code, see:
-http://antongerdelan.net/opengl/book_info.html
-
+Each chapter with major demonstration code has a corresponding demo here.
 There is also an example of code for "Hello Triangle" for OpenGL 2.1 for
-reference
+reference.
 
-All of these examples were built with a 64-bit Xubuntu Linux machine, so there
-are Makefiles for 64-bit linux. I'm also adding project files for 32-bit linux,
-32-bit windows (GCC and Visual Studio), and 64-bit Apple OS X but this will take
-a few days and I might introduce some bugs. Send me an e-mail for any queries or
-requests here.
-
-Anton Gerdelan, 2 July 2014.
+Each demo has easy-to-read Makefiles for Linux, OS X, and 32-bit Windows.
+There are also Visual Studio projects.
 
 ##Compiling##
 The libraries reside in the common/ folder
@@ -55,15 +48,13 @@ The libraries reside in the common/ folder
 
 `make -f Makefile.osx`
 
-* I just got an OS X machine and tweaked all the demos. See Issues tab for remaining tasks.
-
 ###Windows with GCC###
 
-I only provided 32-bit versions of the Makefile and libraries here. If you want
-to add a 64-bit build it's pretty easy to copy the 32-bit Makefile and change
-the folder. You will need to recompile GLFW, GLEW, AssImp, and Freetype though.
+I only provided 32-bit versions of the Makefile and libraries here.
 The 32-bit builds will run on all Windows machines - I use 32-bit builds on my
 64-bit Windows.
+If you want to add a 64-bit build it's pretty easy to copy the 32-bit Makefile and change
+the folder. You will need to recompile GLFW, GLEW, AssImp, and Freetype though.
 
 * install the GNU Compiler Collection - usually by installing the MinGW toolkit.
 http://www.mingw.org/
@@ -83,5 +74,4 @@ prefer.
 
 ##SDL2 Port##
 
-Dr Aidan Delaney at the University of Brighton has made an SDL2 port (as an alternative to using GLFW), which you can find on GitHub https://github.com/AidanDelaney/antons_opengl_tutorials_book/tree/sdl2-port/00_hello_triangle
-(see Makefile.linux64)
+Dr Aidan Delaney at the University of Brighton has made an SDL2 port (as an alternative to using GLFW), which you can find on GitHub https://github.com/AidanDelaney/antons_opengl_tutorials_book/
