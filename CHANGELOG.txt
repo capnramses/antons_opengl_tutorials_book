@@ -1,3 +1,6 @@
+12 Jan 2016 - anton
+* 18-spotlights angle calculation for spotlight was a bit strange. fixed.
+
 26 Nov 2014 - anton
 * changed shader version tags from #version 400 to #version 410 to properly
 support the layout (location=x) keyword

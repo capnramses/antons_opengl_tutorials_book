@@ -37,14 +37,17 @@ void main () {
 	
 	
 	/* Spotlight */
-	vec3 spot_direction = normalize (vec3 (0.5, 0.0, -1.0));
-	const float spot_arc = 1.0 - 5.0 / 90.0;
+	vec3 spot_direction = normalize (vec3 (0.0, 0.0, -1.0));
+	float spot_arc = 0.906; // cos(25 degrees)
 	float spot_dot = dot (spot_direction, -direction_to_light_eye);
+
+	// this is for a sharp cut-off of the spot
 	/*float spot_factor = 1.0;
 	if (spot_dot < spot_arc) {
 		spot_factor = 0.0;
 	}*/
 	
+	// this is for a linear roll-off of the spot
 	float spot_factor = (spot_dot - spot_arc) / (1.0 - spot_arc);
 	spot_factor = clamp (spot_factor, 0.0, 1.0);
 	
@@ -72,5 +75,4 @@ void main () {
 	
 	// final colour
 	fragment_colour = vec4 (Is + Id + Ia, 1.0);
-	//fragment_colour.rgb = spot_factor;
 }
