@@ -72,6 +72,9 @@ convert well to most versions of visual studio. I used 32-bit versions of the
 libraries, but there's no reason that you can't add 64-bit versions if you
 prefer.
 
+VS 2013 seems to work, but with 2015 you'll probably need to download a newer
+version of the libraries used to get around linking errors. 
+
 ##SDL2 Port##
 
 Dr Aidan Delaney at the University of Brighton has made an SDL2 port (as an
