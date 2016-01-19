@@ -41,7 +41,7 @@ The libraries reside in the common/ folder
 
 `make -f Makefile.linux32`
 
-###64-bit Apple OS X###
+###Apple OS X###
 
 * install the GNU Compiler Collection - usually by installing XCode
 * open a terminal and cd to the demo of choice
@@ -74,4 +74,6 @@ prefer.
 
 ##SDL2 Port##
 
-Dr Aidan Delaney at the University of Brighton has made an SDL2 port (as an alternative to using GLFW), which you can find on GitHub https://github.com/AidanDelaney/antons_opengl_tutorials_book/
+Dr Aidan Delaney at the University of Brighton has made an SDL2 port (as an
+alternative to using GLFW), which you can find on GitHub
+https://github.com/AidanDelaney/antons_opengl_tutorials_book/

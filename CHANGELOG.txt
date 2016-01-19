@@ -1,3 +1,8 @@
+18 Jan 2016 - anton
+* added ming32's std c++ lib, matching the other .dll files i have.
+should get around dependency complaints without you needing to build all
+the libraries from source
+
 12 Jan 2016 - anton
 * 18-spotlights angle calculation for spotlight was a bit strange. fixed.
 
