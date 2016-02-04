@@ -250,7 +250,7 @@ int main () {
 			cam_moved = true;
 			
 			// create a quaternion representing change in heading (the yaw)
-			float q_yaw[16];
+			float q_yaw[4];
 			create_versor (q_yaw, cam_yaw, up.v[0], up.v[1], up.v[2]);
 			// add yaw rotation to the camera's current orientation
 			mult_quat_quat (quaternion, q_yaw, quaternion);
@@ -264,7 +264,7 @@ int main () {
 		if (glfwGetKey (g_window, GLFW_KEY_RIGHT)) {
 			cam_yaw -= cam_heading_speed * elapsed_seconds;
 			cam_moved = true;
-			float q_yaw[16];
+			float q_yaw[4];
 			create_versor (q_yaw, cam_yaw, up.v[0], up.v[1], up.v[2]);
 			mult_quat_quat (quaternion, q_yaw, quaternion);
 			
@@ -277,7 +277,7 @@ int main () {
 		if (glfwGetKey (g_window, GLFW_KEY_UP)) {
 			cam_pitch += cam_heading_speed * elapsed_seconds;
 			cam_moved = true;
-			float q_pitch[16];
+			float q_pitch[4];
 			create_versor (q_pitch, cam_pitch, rgt.v[0], rgt.v[1], rgt.v[2]);
 			mult_quat_quat (quaternion, q_pitch, quaternion);
 			
@@ -290,7 +290,7 @@ int main () {
 		if (glfwGetKey (g_window, GLFW_KEY_DOWN)) {
 			cam_pitch -= cam_heading_speed * elapsed_seconds;
 			cam_moved = true;
-			float q_pitch[16];
+			float q_pitch[4];
 			create_versor (q_pitch, cam_pitch, rgt.v[0], rgt.v[1], rgt.v[2]);
 			mult_quat_quat (quaternion, q_pitch, quaternion);
 			
@@ -303,7 +303,7 @@ int main () {
 		if (glfwGetKey (g_window, GLFW_KEY_Z)) {
 			cam_roll -= cam_heading_speed * elapsed_seconds;
 			cam_moved = true;
-			float q_roll[16];
+			float q_roll[4];
 			create_versor (q_roll, cam_roll, fwd.v[0], fwd.v[1], fwd.v[2]);
 			mult_quat_quat (quaternion, q_roll, quaternion);
 			
@@ -316,7 +316,7 @@ int main () {
 		if (glfwGetKey (g_window, GLFW_KEY_C)) {
 			cam_roll += cam_heading_speed * elapsed_seconds;
 			cam_moved = true;
-			float q_roll[16];
+			float q_roll[4];
 			create_versor (q_roll, cam_roll, fwd.v[0], fwd.v[1], fwd.v[2]);
 			mult_quat_quat (quaternion, q_roll, quaternion);
 			
