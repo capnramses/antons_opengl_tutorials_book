@@ -10,7 +10,7 @@ you like. There are exceptions:
 * Skybox textures are from Emil Persson's website
 http://www.humus.name/index.php?page=Textures
 
-The have a Creative Commons Attribution 3.0 Unported Licence
+These have a Creative Commons Attribution 3.0 Unported Licence
 
 * GNU "freemono" font is from GNU FreeFont (GNU General Public Licence)
 https://www.gnu.org/software/freefont/
