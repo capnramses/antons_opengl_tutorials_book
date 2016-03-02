@@ -25,14 +25,15 @@
 #define true 1
 #define false 0
 
-void debug_gl_callback (
-	unsigned int source,
-	unsigned int type,
-	unsigned int id,
-	unsigned int severity,
+// Note: put APIENTRY keyword for consistency with GL 4.3 core spec
+void APIENTRY debug_gl_callback (
+	GLenum source,
+	GLuint type,
+	GLenum id,
+	GLsizei severity,
 	int length,
-	const char* message,
-	void* userParam
+	const GLchar *message,
+	void *userParam
 ) {
 	char src_str[2048]; /* source */
 	char type_str[2048]; /* type */
@@ -59,7 +60,6 @@ void debug_gl_callback (
 			break;
 		default:
 			strcpy (src_str, "undefined");
-			break;
 	}
 	
 	switch (type) {
@@ -92,7 +92,6 @@ void debug_gl_callback (
 			break;
 		default:
 			strcpy (type_str, "undefined");
-			break;
 	}
 	
 	switch (severity) {
@@ -110,19 +109,18 @@ void debug_gl_callback (
 			break;
 		default:
 			strcpy (sev_str, "undefined");
-			break;
 	}
 	
+	// Note: removed printing of userParam -bug with type of pointer in latest v.
 	fprintf (
 		stderr,
-		"source: %s type: %s id: %u severity: %s length: %i message: %s userParam: %i\n",
+		"source: %s type: %s id: %u severity: %s length: %i message: %s\n",
 		src_str,
 		type_str,
-		id,
+		(unsigned int)id,
 		sev_str,
 		length,
-		message,
-		*(int*)userParam
+		message
 	);
 }
 
@@ -174,6 +172,8 @@ int main () {
 	glfwWindowHint (GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 	glfwWindowHint (GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 #endif
+	// added this to get a proper debug context to start
+	glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GL_TRUE);
 	
 	window = glfwCreateWindow (
 		640, 480, "Hello Triangle", NULL, NULL
@@ -191,9 +191,8 @@ int main () {
 	
 	// note: this will probably not be available on Apple systems
 	if (GLEW_KHR_debug) { // or try GLEW_ARB_debug_output
-		int param = -1;
 		printf ("KHR_debug extension found\n");
-		glDebugMessageCallback ((GLDEBUGPROC)debug_gl_callback, &param);
+		glDebugMessageCallback ((GLDEBUGPROC)debug_gl_callback, NULL);
 		glEnable (GL_DEBUG_OUTPUT_SYNCHRONOUS);
 		printf ("debug callback engaged\n");
 	} else {
@@ -229,13 +228,14 @@ int main () {
 	glAttachShader (shader_programme, vs);
 	glLinkProgram (shader_programme);
 	
-	/* some errors */
-	/* calling invalid enum */
-	glEnable (GL_LINE);
-	/* value out of allowed range */
-	glEnableVertexAttribArray (GL_MAX_VERTEX_ATTRIBS + 1);
-	/* invalid buffer id */
-	glBindBuffer (GL_ARRAY_BUFFER, -1);
+	{ /* deliberate errors */
+		/* calling invalid enum */
+		glEnable (GL_LINE);
+		/* value out of allowed range */
+		glEnableVertexAttribArray (GL_MAX_VERTEX_ATTRIBS + 1);
+		/* invalid buffer id */
+		glBindBuffer (GL_ARRAY_BUFFER, -1);
+	}
 	
 	while (!glfwWindowShouldClose (window)) {
 		/* wipe the drawing surface clear */
