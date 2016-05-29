@@ -15,7 +15,6 @@
 #include <GL/glew.h> // include GLEW and new version of GL on Windows
 #include <GLFW/glfw3.h> // GLFW helper library
 #include <stdio.h>
-#include <assert.h>
 
 int g_viewport_width = 640;
 int g_viewport_height = 480;
@@ -78,11 +77,8 @@ void create_shaders () {
 	glLinkProgram (sp);
 	// get uniform locations of camera view and projection matrices
 	V_loc = glGetUniformLocation (sp, "V");
-	assert (V_loc > -1);
 	P_loc = glGetUniformLocation (sp, "P");
-	assert (P_loc > -1);
 	st_offset_loc = glGetUniformLocation (sp, "st_offset");
-	assert (P_loc > -1);
 	// set defaults for matrices
 	glUseProgram (sp);
 	glUniformMatrix4fv (V_loc, 1, GL_FALSE, V.m);
@@ -158,7 +154,7 @@ void glfw_window_size_callback (GLFWwindow* window, int width, int height) {
 
 int main () {
 	// start GL context with helper libraries
-	assert (glfwInit ());
+	glfwInit ();
 	
 	/* We must specify 3.2 core if on Apple OS X -- other O/S can specify
 	 anything here. I defined 'APPLE' in the makefile for OS X */
@@ -214,14 +210,14 @@ int main () {
 	// projection matrix
 	P = perspective (
 		67.0f, (float)g_viewport_width / (float)g_viewport_height, 0.1f, 100.0f);
-	const float cam_speed = 3.0f; // 1 unit per secondsprite_index
-	const float cam_heading_speed = 50.0f; // 30 degrees per second
+	const float cam_speed = 3.0f
+	const float cam_heading_speed = 50.0f;
 	
 	create_shaders ();
 	
 	// textures
 	GLuint tex;
-	assert (load_texture ("shark_anim.png", &tex));
+	load_texture ("shark_anim.png", &tex);
 	
 	// rendering defaults
 	glDepthFunc (GL_LESS); // set depth function
