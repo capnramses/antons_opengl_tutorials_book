@@ -1,7 +1,7 @@
 = Licences =
 
 If I have omitted something here, please let me know:
-anton at antongerdelan dot net
+antonofnote at gmail
 
 == Content ==
 Content is mostly drawn/modelled by me, and you are free to use in any way that
@@ -25,7 +25,7 @@ All code is written by Anton Gerdelan, except these libraries:
 http://www.opengl.org/
 
 * Sean Barrett's public domain stb_image and stb_image_write libraries
-http://nothings.org/
+https://github.com/nothings/stb
 
 * AssImp library
 http://assimp.sourceforge.net/
