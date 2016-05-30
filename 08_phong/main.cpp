@@ -29,9 +29,9 @@ int g_gl_height = 480;
 GLFWwindow* g_window = NULL;
 
 int main () {
-	assert (restart_gl_log ());
+	restart_gl_log ();
 	// start GL context and O/S window using the GLFW helper library
-	assert (start_gl ());
+	start_gl ();
 	// tell GL to only draw onto a pixel if the shape is closer to the viewer
 	glEnable (GL_DEPTH_TEST); // enable depth-testing
 	glDepthFunc (GL_LESS); // depth-testing interprets a smaller value as "closer"

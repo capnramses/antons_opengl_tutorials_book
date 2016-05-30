@@ -129,15 +129,15 @@ GLuint create_quad_program () {
 	GLuint vert_shader = glCreateShader (GL_VERTEX_SHADER);
 	glShaderSource (vert_shader, 1, &vert_shader_str, NULL);
 	glCompileShader (vert_shader);
-	assert (check_shader_errors (vert_shader)); // code moved to gl_utils.cpp
+	check_shader_errors (vert_shader); // code moved to gl_utils.cpp
 	glAttachShader (program, vert_shader);
 	GLuint frag_shader = glCreateShader (GL_FRAGMENT_SHADER);
 	glShaderSource (frag_shader, 1, &frag_shader_str, NULL);
 	glCompileShader (frag_shader);
-	assert (check_shader_errors (frag_shader)); // code moved to gl_utils.cpp
+	check_shader_errors (frag_shader); // code moved to gl_utils.cpp
 	glAttachShader (program, frag_shader);
 	glLinkProgram (program);
-	assert (check_program_errors (program)); // code moved to gl_utils.cpp
+	check_program_errors(program); // code moved to gl_utils.cpp
 	return program;
 }
 

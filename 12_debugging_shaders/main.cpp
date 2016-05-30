@@ -88,9 +88,9 @@ bool load_texture (const char* file_name, GLuint* tex) {
 
 int main () {
 	/*--------------------------------START OPENGL---------------------------*/
-	assert (restart_gl_log ());
+	restart_gl_log ();
 	// start GL context and O/S window using the GLFW helper library
-	assert (start_gl ());
+	start_gl ();
 	glEnable (GL_DEPTH_TEST); // enable depth-testing
     // depth-testing interprets a smaller value as "closer"
 	glDepthFunc (GL_LESS);

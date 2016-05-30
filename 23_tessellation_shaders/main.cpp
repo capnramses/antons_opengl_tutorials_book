@@ -28,7 +28,7 @@ float outer_tess_fac = 4.0;
 
 int main () {
 
-	assert (restart_gl_log ());
+	restart_gl_log ();
 	// start GL context and O/S window using the GLFW helper library
 	gl_log ("starting GLFW %s", glfwGetVersionString ());
 

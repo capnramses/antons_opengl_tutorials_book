@@ -151,8 +151,8 @@ bool load_texture (const char* file_name, GLuint* tex) {
 }
 
 int main () {
-	assert (restart_gl_log ());
-	assert (start_gl ());
+	restart_gl_log ();
+	start_gl ();
 	
 	reserve_video_memory ();
 

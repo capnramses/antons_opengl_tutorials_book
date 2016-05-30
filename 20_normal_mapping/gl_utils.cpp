@@ -203,7 +203,7 @@ void print_shader_info_log (GLuint shader_index) {
 bool create_shader (const char* file_name, GLuint* shader, GLenum type) {
 	gl_log ("creating shader from %s...\n", file_name);
 	char shader_string[MAX_SHADER_LENGTH];
-	assert (parse_file_into_str (file_name, shader_string, MAX_SHADER_LENGTH));
+	parse_file_into_str (file_name, shader_string, MAX_SHADER_LENGTH);
 	*shader = glCreateShader (type);
 	const GLchar* p = (const GLchar*)shader_string;
 	glShaderSource (*shader, 1, &p, NULL);

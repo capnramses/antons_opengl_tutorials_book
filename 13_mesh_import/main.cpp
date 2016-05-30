@@ -148,8 +148,8 @@ bool load_mesh (const char* file_name, GLuint* vao, int* point_count) {
 }
 
 int main () {
-	assert (restart_gl_log ());
-	assert (start_gl ());
+	restart_gl_log ();
+	start_gl ();
 	glEnable (GL_DEPTH_TEST); // enable depth-testing
 	glDepthFunc (GL_LESS); // depth-testing interprets a smaller value as "closer"
 	glEnable (GL_CULL_FACE); // cull face

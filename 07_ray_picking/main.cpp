@@ -151,7 +151,7 @@ int main () {
 	GLfloat* vt = NULL; // array of texture coordinates
 	int g_point_count = 0;
 	if (!load_obj_file (MESH_FILE, vp, vt, vn, g_point_count)) {
-		log_err ("ERROR: loading mesh file\n");
+		gl_log_err ("ERROR: loading mesh file\n");
 		return 1;
 	}
 

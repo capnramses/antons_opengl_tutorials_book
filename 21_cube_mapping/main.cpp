@@ -177,9 +177,9 @@ vec3 cam_pos (0.0f, 0.0f, 5.0f);
 
 int main () {
 /*--------------------------------START OPENGL--------------------------------*/
-	assert (restart_gl_log ());
+	restart_gl_log ();
 	// start GL context and O/S window using the GLFW helper library
-	assert (start_gl ());
+	start_gl ();
 	
 /*---------------------------------CUBE MAP-----------------------------------*/
 	GLuint cube_vao = make_big_cube ();
