@@ -70,9 +70,9 @@ GLuint gen_particles () {
 }
 
 int main () {
-	assert (restart_gl_log ());
+	restart_gl_log ();
 	// use GLFW and GLEW to start GL context. see gl_utils.cpp for details
-	assert (start_gl ());
+	start_gl ();
 
 	/* create buffer of particle initial attributes and a VAO */
 	GLuint vao = gen_particles ();
@@ -99,7 +99,6 @@ int main () {
 		0.0f, 0.0f, Pz, 0.0f
 	};
 	
-		
 	float cam_speed = 1.0f; // 1 unit per second
 	float cam_yaw_speed = 10.0f; // 10 degrees per second
 	float cam_pos[] = {0.0f, 0.0f, 2.0f}; // don't start at zero, or we will be too close
@@ -113,24 +112,29 @@ int main () {
 	
 	// locations of view and projection matrices
 	int V_loc = glGetUniformLocation (shader_programme, "V");
+	assert (V_loc > -1);
 	int P_loc = glGetUniformLocation (shader_programme, "P");
-	int emitter_pos_wor_loc = glGetUniformLocation (
-		shader_programme, "emitter_pos_wor");
-	int elapsed_system_time_loc = glGetUniformLocation (
-		shader_programme, "elapsed_system_time");
+	assert (P_loc > -1);
+	int emitter_pos_wor_loc = glGetUniformLocation (shader_programme,
+		"emitter_pos_wor");
+	assert (emitter_pos_wor_loc > -1);
+	int elapsed_system_time_loc = glGetUniformLocation (shader_programme,
+		"elapsed_system_time");
+	assert (elapsed_system_time_loc > -1);
 	glUseProgram (shader_programme);
 	glUniformMatrix4fv (V_loc, 1, GL_FALSE, view_mat.m);
 	glUniformMatrix4fv (P_loc, 1, GL_FALSE, proj_mat);
-	glUniform3f (
-		emitter_pos_wor_loc,
+	glUniform3f (emitter_pos_wor_loc,
 		emitter_world_pos.v[0],
 		emitter_world_pos.v[1],
-		emitter_world_pos.v[2]
-	);
+		emitter_world_pos.v[2]);
 	
 	// load texture
 	GLuint tex;
-	assert (load_texture ("Droplet.png", &tex));
+	if (!load_texture ("Droplet.png", &tex)) {
+		gl_log_err ("ERROR: loading Droplet.png texture\n");
+		return 1;
+	}
 	
 	glEnable (GL_CULL_FACE); // cull face
 	glCullFace (GL_BACK); // cull back face
@@ -231,3 +235,4 @@ int main () {
 	glfwTerminate();
 	return 0;
 }
+

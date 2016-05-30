@@ -89,6 +89,11 @@ bool start_gl () {
 		return false;
 	}
 
+	glfwWindowHint (GLFW_CONTEXT_VERSION_MAJOR, 4);
+	glfwWindowHint (GLFW_CONTEXT_VERSION_MINOR, 1);
+	glfwWindowHint (GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+	glfwWindowHint (GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+
 	/* We must specify 3.2 core if on Apple OS X -- other O/S can specify
 	 anything here. I defined 'APPLE' in the makefile for OS X */
 #ifdef APPLE
@@ -271,13 +276,21 @@ bool create_programme (GLuint vert, GLuint frag, GLuint* programme) {
 	return true;
 }
 
-GLuint create_programme_from_files (
-	const char* vert_file_name, const char* frag_file_name
-) {
+GLuint create_programme_from_files (const char* vert_file_name,
+	const char* frag_file_name) {
 	GLuint vert, frag, programme;
-	assert (create_shader (vert_file_name, &vert, GL_VERTEX_SHADER));
-	assert (create_shader (frag_file_name, &frag, GL_FRAGMENT_SHADER));
-	assert (create_programme (vert, frag, &programme));
+	if (!create_shader (vert_file_name, &vert, GL_VERTEX_SHADER)) {
+		gl_log_err ("ERROR: creating vertex shader from file\n");
+		return 0;
+	}
+	if (!create_shader (frag_file_name, &frag, GL_FRAGMENT_SHADER)) {
+		gl_log_err ("ERROR: creating frag shader from file\n");
+		return 0;
+	}
+	if (!create_programme (vert, frag, &programme)) {
+		gl_log_err ("ERROR: creating shader program from file\n");
+		return 0;
+	}
 	return programme;
 }
 
