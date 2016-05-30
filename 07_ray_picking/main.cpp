@@ -140,9 +140,9 @@ void glfw_mouse_click_callback (
 
 int main () {
 /*--------------------------------START OPENGL--------------------------------*/
-	assert (restart_gl_log ());
+	restart_gl_log ();
 	// start GL context and O/S window using the GLFW helper library
-	assert (start_gl ());
+	start_gl ();
 	// set a function to be called when the mouse is clicked
 	glfwSetMouseButtonCallback (g_window, glfw_mouse_click_callback);
 /*------------------------------CREATE GEOMETRY-------------------------------*/
@@ -150,7 +150,10 @@ int main () {
 	GLfloat* vn = NULL; // array of vertex normals
 	GLfloat* vt = NULL; // array of texture coordinates
 	int g_point_count = 0;
-	assert (load_obj_file (MESH_FILE, vp, vt, vn, g_point_count));
+	if (!load_obj_file (MESH_FILE, vp, vt, vn, g_point_count)) {
+		log_err ("ERROR: loading mesh file\n");
+		return 1;
+	}
 
 	GLuint vao;
 	glGenVertexArrays (1, &vao);

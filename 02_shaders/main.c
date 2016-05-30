@@ -194,8 +194,8 @@ int main () {
 	int params = -1;
 	GLint colour_loc;
 
-	assert (restart_gl_log ());
-	assert (start_gl ());
+	restart_gl_log ();
+	start_gl ();
 
 	/* tell GL to only draw onto a pixel if the shape is closer to the viewer*/
 	glEnable (GL_DEPTH_TEST); /* enable depth-testing */
@@ -216,8 +216,8 @@ int main () {
 
 	/* load shaders from files here */
 
-	assert (parse_file_into_str ("test_vs.glsl", vertex_shader, 1024 * 256));
-	assert (parse_file_into_str ("test_fs.glsl", fragment_shader, 1024 * 256));
+	parse_file_into_str ("test_vs.glsl", vertex_shader, 1024 * 256);
+	parse_file_into_str ("test_fs.glsl", fragment_shader, 1024 * 256);
 
 	vs = glCreateShader (GL_VERTEX_SHADER);
 	p = (const GLchar*)vertex_shader;
@@ -263,7 +263,8 @@ int main () {
 		return 1;
 	}
 	print_all (shader_programme);
-	assert (is_valid (shader_programme));
+	bool result = is_valid (shader_programme);
+	assert (result);
 
 	colour_loc = glGetUniformLocation (shader_programme, "inputColour");
 	assert (colour_loc > -1);

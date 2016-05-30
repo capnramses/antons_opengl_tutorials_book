@@ -199,7 +199,7 @@ int main () {
 	"}";
 	GLuint shader_programme, vs, fs;
 
-	assert (restart_gl_log ());
+	restart_gl_log ();
 	// start GL context and O/S window using the GLFW helper library
 	gl_log ("starting GLFW\n%s\n", glfwGetVersionString ());
 	// register the error call-back function that we wrote, above

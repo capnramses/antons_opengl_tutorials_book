@@ -25,9 +25,9 @@ int g_gl_height = 480;
 GLFWwindow* g_window = NULL;
 
 int main () {
-	assert (restart_gl_log ());
+	restart_gl_log ();
 	// all the start-up code for GLFW and GLEW is called here
-	assert (start_gl ());
+	start_gl ();
 
 	// tell GL to only draw onto a pixel if the shape is closer to the viewer
 	glEnable (GL_DEPTH_TEST); // enable depth-testing
@@ -77,8 +77,8 @@ int main () {
 	
 	char vertex_shader[1024 * 256];
 	char fragment_shader[1024 * 256];
-	assert (parse_file_into_str ("test_vs.glsl", vertex_shader, 1024 * 256));
-	assert (parse_file_into_str ("test_fs.glsl", fragment_shader, 1024 * 256));
+	parse_file_into_str ("test_vs.glsl", vertex_shader, 1024 * 256);
+	parse_file_into_str ("test_fs.glsl", fragment_shader, 1024 * 256);
 	
 	GLuint vs = glCreateShader (GL_VERTEX_SHADER);
 	const GLchar* p = (const GLchar*)vertex_shader;

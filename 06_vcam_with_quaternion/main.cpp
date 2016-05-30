@@ -115,15 +115,15 @@ vec3 sphere_pos_wor[] = {
 
 int main () {
 /*--------------------------------START OPENGL--------------------------------*/
-	assert (restart_gl_log ());
+	restart_gl_log ();
 	// start GL context and O/S window using the GLFW helper library
-	assert (start_gl ());
+	start_gl ();
 /*------------------------------CREATE GEOMETRY-------------------------------*/
 	GLfloat* vp = NULL; // array of vertex points
 	GLfloat* vn = NULL; // array of vertex normals
 	GLfloat* vt = NULL; // array of texture coordinates
 	int point_count = 0;
-	assert (load_obj_file (MESH_FILE, vp, vt, vn, point_count));
+	load_obj_file (MESH_FILE, vp, vt, vn, point_count);
 
 	GLuint vao;
 	glGenVertexArrays (1, &vao);
