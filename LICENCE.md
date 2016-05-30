@@ -1,9 +1,9 @@
-= Licences =
+#Licences
 
 If I have omitted something here, please let me know:
 antonofnote at gmail
 
-== Content ==
+##Content
 Content is mostly drawn/modelled by me, and you are free to use in any way that
 you like. There are exceptions:
 
@@ -18,7 +18,7 @@ https://www.gnu.org/software/freefont/
 * The "Suzanne" monkey mesh is from Blender software
 http://blender.org/
 
-== Code ==
+##Code
 All code is written by Anton Gerdelan, except these libraries:
 
 * OpenGL
