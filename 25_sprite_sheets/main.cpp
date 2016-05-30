@@ -210,7 +210,7 @@ int main () {
 	// projection matrix
 	P = perspective (
 		67.0f, (float)g_viewport_width / (float)g_viewport_height, 0.1f, 100.0f);
-	const float cam_speed = 3.0f
+	const float cam_speed = 3.0f;
 	const float cam_heading_speed = 50.0f;
 	
 	create_shaders ();
