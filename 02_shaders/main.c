@@ -32,23 +32,23 @@ int g_gl_height = 480;
 GLFWwindow* g_window = NULL;
 
 const char* GL_type_to_string (GLenum type) {
-  switch (type) {
-    case GL_BOOL: return "bool";
-    case GL_INT: return "int";
-    case GL_FLOAT: return "float";
-    case GL_FLOAT_VEC2: return "vec2";
-    case GL_FLOAT_VEC3: return "vec3";
-    case GL_FLOAT_VEC4: return "vec4";
-    case GL_FLOAT_MAT2: return "mat2";
-    case GL_FLOAT_MAT3: return "mat3";
-    case GL_FLOAT_MAT4: return "mat4";
-    case GL_SAMPLER_2D: return "sampler2D";
-    case GL_SAMPLER_3D: return "sampler3D";
-    case GL_SAMPLER_CUBE: return "samplerCube";
-    case GL_SAMPLER_2D_SHADOW: return "sampler2DShadow";
-    default: break;
-  }
-  return "other";
+	switch (type) {
+		case GL_BOOL: return "bool";
+		case GL_INT: return "int";
+		case GL_FLOAT: return "float";
+		case GL_FLOAT_VEC2: return "vec2";
+		case GL_FLOAT_VEC3: return "vec3";
+		case GL_FLOAT_VEC4: return "vec4";
+		case GL_FLOAT_MAT2: return "mat2";
+		case GL_FLOAT_MAT3: return "mat3";
+		case GL_FLOAT_MAT4: return "mat4";
+		case GL_SAMPLER_2D: return "sampler2D";
+		case GL_SAMPLER_3D: return "sampler3D";
+		case GL_SAMPLER_CUBE: return "samplerCube";
+		case GL_SAMPLER_2D_SHADOW: return "sampler2DShadow";
+		default: break;
+	}
+	return "other";
 }
 
 /* print errors in shader compilation */
@@ -157,15 +157,14 @@ void print_all (GLuint sp) {
 }
 
 /* copy a shader from a plain text file into a character array */
-bool parse_file_into_str (const char* file_name, char* shader_str, int max_len
-	) {
+bool parse_file_into_str (const char* file_name, char* shader_str, int max_len) {
 	FILE* file = fopen (file_name , "r");
 	if (!file) {
 		gl_log_err ("ERROR: opening file for reading: %s\n", file_name);
 		return false;
 	}
 	size_t cnt = fread (shader_str, 1, max_len - 1, file);
-	if (cnt >= max_len - 1) {
+	if ((int)cnt >= max_len - 1) {
 		gl_log_err ("WARNING: file %s too big - truncated.\n", file_name);
 	}
 	if (ferror (file)) {

@@ -1,5 +1,5 @@
 BIN = shaders
-CC = gcc
+CC = g++
 FLAGS = -Wall -pedantic
 INC = -I ../common/include
 LOC_LIB = ../common/linux_x86_64/libGLEW.a ../common/linux_x86_64/libglfw3.a

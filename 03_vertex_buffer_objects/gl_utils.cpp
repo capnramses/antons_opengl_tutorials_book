@@ -168,7 +168,7 @@ bool parse_file_into_str (const char* file_name, char* shader_str, int max_len
 		return false;
 	}
 	size_t cnt = fread (shader_str, 1, max_len - 1, file);
-	if (cnt >= max_len - 1) {
+	if ((int)cnt >= max_len - 1) {
 		gl_log_err ("WARNING: file %s too big - truncated.\n", file_name);
 	}
 	if (ferror (file)) {

@@ -114,11 +114,8 @@ int main () {
 	
 	glGetProgramiv (shader_programme, GL_LINK_STATUS, &params);
 	if (GL_TRUE != params) {
-		fprintf (
-			stderr,
-			"ERROR: could not link shader programme GL index %i\n",
-			shader_programme
-		);
+		fprintf (stderr, "ERROR: could not link shader programme GL index %i\n",
+			shader_programme);
 		print_programme_info_log (shader_programme);
 		return false;
 	}
@@ -150,3 +147,4 @@ int main () {
 	glfwTerminate();
 	return 0;
 }
+
