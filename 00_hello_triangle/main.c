@@ -99,6 +99,8 @@ int main () {
 	glGenVertexArrays (1, &vao);
 	glBindVertexArray (vao);
 	glEnableVertexAttribArray (0); // "attribute #0 should be enabled when this vao is bound"
+	// this VBO is already bound, but it's a good habit to explicitly specify which VBO's data the following
+	// vertex attribute pointer refers to
 	glBindBuffer (GL_ARRAY_BUFFER, vbo);
 	// "attribute #0 is created from every 3 variables in the above buffer, of type float (i.e. make me vec3s)"
 	glVertexAttribPointer (0, 3, GL_FLOAT, GL_FALSE, 0, NULL);
