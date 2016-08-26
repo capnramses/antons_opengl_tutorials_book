@@ -7,7 +7,7 @@
 | See individual libraries' separate legal notices                             |
 |******************************************************************************|
 | Commonly-used maths structures and functions                                 |
-| Simple-as-possible. No disgusting templates.                                 |
+| Simple-as-possible. No templates. Not optimised.                             |
 | Structs vec3, mat4, versor. just hold arrays of floats called "v","m","q",   |
 | respectively. So, for example, to get values from a mat4 do: my_mat.m        |
 | A versor is the proper name for a unit quaternion.                           |
