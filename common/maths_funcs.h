@@ -150,7 +150,7 @@ versor quat_from_axis_deg (float degrees, float x, float y, float z);
 mat4 quat_to_mat4 (const versor& q);
 float dot (const versor& q, const versor& r);
 versor slerp (const versor& q, const versor& r);
-// stupid overloading wouldn't let me use const
+// overloading wouldn't let me use const
 versor normalise (versor& q);
 void print (const versor& q);
 versor slerp (versor& q, versor& r, float t);
