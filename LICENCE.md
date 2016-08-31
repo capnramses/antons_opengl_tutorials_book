@@ -21,7 +21,7 @@ http://blender.org/
 ##Code
 All code is written by Anton Gerdelan, except the following libraries, which have their own restrictions.
 Feel free to fork, share, refer to, upload, and compile original example code into free or commercial applications.
-The only (unlikely) exceptions to this are commecrial sale of source code without copyright, incorrectly claiming copyright, or e.g. offering the source code as part of a for-profit educational course without making clear its free origin or copyright. Feel free to contact author in if you need to negotiate an exception.
+You are not permitted to sell this free source code as an educational resource, include it in consultancy fees, or incorrectly claim copyright, without negotiating a separate agreement. If in doubt refer to a URL back to this repository.
 
 * OpenGL
 http://www.opengl.org/
