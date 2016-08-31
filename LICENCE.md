@@ -1,10 +1,7 @@
 #Licences
 
-If I have omitted something here, please let me know:
-antonofnote at gmail
-
 ##Content
-Content is mostly drawn/modelled by me, and you are free to use in any way that
+Content is mostly drawn/modelled by Anton Gerdelan, and you are free to use in any way that
 you like. There are exceptions:
 
 * Skybox textures are from Emil Persson's website
@@ -22,7 +19,7 @@ http://blender.org/
 All code is written by Anton Gerdelan, except the following libraries, which have their own restrictions.
 Feel free to fork, share, refer to, upload, modify, and compile Anton Gerdelan's original example code into free or commercial programs.
 
-You are not permitted to sell this free source code as an educational resource, offer it as an included good or service as part of a for-profit course, include it in consultancy fees, or otherwise misrepresent copyright, without negotiating a separate agreement. If in doubt provide a referring URL back to this repository https://github.com/capnramses/antons_opengl_tutorials_book/, author's webpage http://antongerdelan.net, or an authorised retailer's page for Anton's OpenGL 4 Tutorials book.
+You are not permitted to sell this free source code as an educational resource, offer it as an included good or service as part of a for-profit course, include it in consultancy fees, or otherwise misrepresent copyright, without negotiating a separate agreement. If in doubt provide a referring URL or GitHub fork back to this repository https://github.com/capnramses/antons_opengl_tutorials_book/, author's webpage http://antongerdelan.net, or an authorised retailer's page for Anton's OpenGL 4 Tutorials book.
 If you believe you have paid to received this free code please contact author.
 
 ###Third-Party Libraries
