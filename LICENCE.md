@@ -25,6 +25,8 @@ Feel free to fork, share, refer to, upload, and compile Anton Gerdelan's origina
 You are not permitted to sell this free source code as an educational resource, offer it as a good or service as part of a for-profit course, include it in consultancy fees, or otherwise misrepresent copyright, without negotiating a separate agreement. If in doubt provide a referring URL back to this repository https://github.com/capnramses/antons_opengl_tutorials_book/, author's webpage http://antongerdelan.net, or an authorised retailer's page for Anton's OpenGL 4 Tutorials book.
 If you believe you have paid to received this free code please contact author.
 
+###Third-Party Libraries
+
 * OpenGL
 http://www.opengl.org/
 
