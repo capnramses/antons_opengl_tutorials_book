@@ -19,7 +19,9 @@ https://www.gnu.org/software/freefont/
 http://blender.org/
 
 ##Code
-All code is written by Anton Gerdelan, except these libraries:
+All code is written by Anton Gerdelan, except the following libraries, which have their own restrictions.
+Feel free to fork, share, refer to, upload, and compile original example code into free or commercial applications.
+The only (unlikely) exceptions to this are commecrial sale of source code without copyright, incorrectly claiming copyright, or e.g. offering the source code as part of a for-profit educational course without making clear its free origin or copyright. Feel free to contact author in if you need to negotiate an exception.
 
 * OpenGL
 http://www.opengl.org/
