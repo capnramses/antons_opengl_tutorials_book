@@ -17,9 +17,7 @@ http://blender.org/
 
 ##Code
 All code is written by Anton Gerdelan, except the following libraries, which have their own restrictions.
-Feel free to fork, share, refer to, upload, modify, and compile Anton Gerdelan's original example code into free or commercial programs.
-
-You are not permitted to sell this free source code as an educational resource, offer it as an included good or service as part of a for-profit course, include it in consultancy fees, or otherwise misrepresent copyright, without negotiating a separate agreement. If in doubt provide a referring URL or GitHub fork back to this repository https://github.com/capnramses/antons_opengl_tutorials_book/, author's webpage http://antongerdelan.net, or an authorised seller's page for Anton's OpenGL 4 Tutorials book (Amazon and Itch.io).
+Feel free to fork, share, refer to, upload, modify, and compile Anton Gerdelan's original example code into free or commercial programs with the exception that you are not permitted to charge money for the source code as an educational resource, offer it as an included good or service as part of a for-profit course, include it in consultancy fees, or otherwise misrepresent copyright, without negotiating a separate agreement. If in doubt provide a referring URL or GitHub fork back to this repository https://github.com/capnramses/antons_opengl_tutorials_book/, author's webpage http://antongerdelan.net, or an authorised seller's page for Anton's OpenGL 4 Tutorials book (Amazon and Itch.io).
 If you believe you have paid an unauthorised party to receive this free code or its non-free book please contact author.
 
 ###Third-Party Libraries
