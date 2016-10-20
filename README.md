@@ -43,7 +43,7 @@ The libraries reside in the common/ folder
 
 ###Apple OS X###
 
-* install the GNU Compiler Collection - usually by installing XCode
+* install Clang or GNU compiler and tools - usually by installing XCode
 * open a terminal and cd to the demo of choice
 
 `make -f Makefile.osx`
@@ -60,7 +60,7 @@ the folder. You will need to recompile GLFW, GLEW, AssImp, and Freetype though.
 http://www.mingw.org/
 * open a console and cd to the demo of choice
 
-`make -f Makefile.win32`
+`make -f Makefile.win32` (may have been renamed to mingw-make32 or similar)
 
 * copy the .dll files from the main folder to the demo folder
 
@@ -68,7 +68,7 @@ http://www.mingw.org/
 
 I provided some Visual Studio 2012 project files.
 You can find an overarching solution file in the main folder. This should
-convert well to most versions of visual studio. I used 32-bit versions of the
+convert well to most versions of Visual Studio. I used 32-bit versions of the
 libraries, but there's no reason that you can't add 64-bit versions if you
 prefer.
 
