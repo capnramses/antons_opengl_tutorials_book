@@ -15,9 +15,9 @@
 #include "gl_utils.h"
 #include <GL/glew.h>		/* include GLEW and new version of GL on Windows */
 #include <GLFW/glfw3.h> /* GLFW helper library */
+#include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <assert.h>
 #include <string.h>
 /* #include <stdbool.h> // for visual studio i had to comment this out and
  define pure-C bool :( */
@@ -120,8 +120,7 @@ void print_all( GLuint sp ) {
 		GLenum type;
 		glGetActiveAttrib( sp, i, max_length, &actual_length, &size, &type, name );
 		if ( size > 1 ) {
-			int j;
-			for ( j = 0; j < size; j++ ) {
+			for ( int j = 0; j < size; j++ ) {
 				char long_name[64];
 				int location;
 
@@ -147,8 +146,7 @@ void print_all( GLuint sp ) {
 		GLenum type;
 		glGetActiveUniform( sp, i, max_length, &actual_length, &size, &type, name );
 		if ( size > 1 ) {
-			int j;
-			for ( j = 0; j < size; j++ ) {
+			for ( int j = 0; j < size; j++ ) {
 				char long_name[64];
 				int location;
 
