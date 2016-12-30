@@ -202,6 +202,9 @@ int main() {
 	glfwWindowHint( GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE );
 	glfwWindowHint( GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE );
 #endif
+	// set anti-aliasing factor to make diagonal edges appear less jagged
+	glfwWindowHint( GLFW_SAMPLES, 4 );
+	
 	/* we can run a full-screen window here */
 
 	/*GLFWmonitor* mon = glfwGetPrimaryMonitor ();
@@ -220,7 +223,6 @@ int main() {
 	glfwSetWindowSizeCallback( window, glfw_window_size_callback );
 	glfwMakeContextCurrent( window );
 
-	glfwWindowHint( GLFW_SAMPLES, 4 );
 	// start GLEW extension handler
 	glewExperimental = GL_TRUE;
 	glewInit();
