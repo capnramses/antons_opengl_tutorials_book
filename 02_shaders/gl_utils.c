@@ -20,6 +20,8 @@
 #define GL_LOG_FILE "gl.log"
 #define MAX_SHADER_LENGTH 262144
 
+static double previous_seconds; // for use in fps timer
+
 /*--------------------------------LOG FUNCTIONS------------------------------*/
 bool restart_gl_log() {
 	time_t now;
@@ -122,6 +124,8 @@ bool start_gl() {
 	printf( "OpenGL version supported %s\n", version );
 	gl_log( "renderer: %s\nversion: %s\n", renderer, version );
 
+	previous_seconds = glfwGetTime();
+
 	return true;
 }
 
@@ -139,13 +143,7 @@ void glfw_window_size_callback( GLFWwindow *window, int width, int height ) {
 }
 
 void _update_fps_counter( GLFWwindow *window ) {
-	/* ANTON: 20 Mar 2017 BUGFIX: there was a bug here spotted by Jon where
-	I think the C89-compliant version had some rearrangement issues with timer
-	code. I changed these variables to static and declare=define which might
-	mess up C89 strict builds but is perfectly fine in C99 or C11 */
-
-	static int frame_count = 0;
-	static double previous_seconds = glfwGetTime();
+	static int frame_count;
 	double current_seconds = glfwGetTime();
 	double elapsed_seconds = current_seconds - previous_seconds;
 

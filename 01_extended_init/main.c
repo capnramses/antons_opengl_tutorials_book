@@ -21,6 +21,9 @@
 #define false 0
 #define GL_LOG_FILE "gl.log"
 
+// global to use in timer code later
+static double previous_seconds;
+
 /* start a new log file. put the time and date at the top */
 bool restart_gl_log() {
 	time_t now;
@@ -142,17 +145,14 @@ void log_gl_params() {
 	gl_log( "-----------------------------\n" );
 }
 
-double previous_seconds;
-int frame_count;
-
 /* we will use this function to update the window title with a frame rate */
 void _update_fps_counter( GLFWwindow *window ) {
-	double current_seconds;
-	double elapsed_seconds;
 	char tmp[128];
 
-	current_seconds = glfwGetTime();
-	elapsed_seconds = current_seconds - previous_seconds;
+	static int frame_count;
+
+	double current_seconds = glfwGetTime();
+	double elapsed_seconds = current_seconds - previous_seconds;
 	if ( elapsed_seconds > 0.25 ) {
 		previous_seconds = current_seconds;
 
@@ -259,6 +259,7 @@ int main() {
 	glAttachShader( shader_programme, vs );
 	glLinkProgram( shader_programme );
 
+	previous_seconds = glfwGetTime();
 	while ( !glfwWindowShouldClose( window ) ) {
 		_update_fps_counter( window );
 		// wipe the drawing surface clear
