@@ -138,16 +138,17 @@ void glfw_window_size_callback( GLFWwindow *window, int width, int height ) {
 	/* update any perspective matrices used here */
 }
 
-double previous_seconds;
-int frame_count;
-
 void _update_fps_counter( GLFWwindow *window ) {
-	double current_seconds;
-	double elapsed_seconds;
+	/* ANTON: 20 Mar 2017 BUGFIX: there was a bug here spotted by Jon where
+	I think the C89-compliant version had some rearrangement issues with timer
+	code. I changed these variables to static and declare=define which might
+	mess up C89 strict builds but is perfectly fine in C99 or C11 */
 
-	previous_seconds = glfwGetTime();
-	current_seconds = glfwGetTime();
-	elapsed_seconds = current_seconds - previous_seconds;
+	static int frame_count = 0;
+	static double previous_seconds = glfwGetTime();
+	double current_seconds = glfwGetTime();
+	double elapsed_seconds = current_seconds - previous_seconds;
+
 	if ( elapsed_seconds > 0.25 ) {
 		double fps;
 		char tmp[128];
