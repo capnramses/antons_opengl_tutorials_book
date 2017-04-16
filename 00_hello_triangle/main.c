@@ -50,7 +50,11 @@ int main() {
 	}
 
 /* We must specify 3.2 core if on Apple OS X -- other O/S can specify
-anything here. I defined 'APPLE' in the makefile for OS X */
+anything here. I defined 'APPLE' in the makefile for OS X
+
+Remove the #ifdef #endif and play around with this - you should be starting
+an explicit version anyway, and some non-Apple drivers will require this too.
+*/
 #ifdef APPLE
 	glfwWindowHint( GLFW_CONTEXT_VERSION_MAJOR, 3 );
 	glfwWindowHint( GLFW_CONTEXT_VERSION_MINOR, 2 );
