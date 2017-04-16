@@ -141,10 +141,10 @@ void load_sphere() {
 }
 
 int main() {
-	assert( restart_gl_log() );
-	assert( start_gl() );
+	( restart_gl_log() );
+	( start_gl() );
 	/* set up framebuffer with texture attachment */
-	assert( init_fb() );
+	( init_fb() );
 	init_ss_quad();
 	/* load the post-processing effect shaders */
 	GLuint post_sp = create_programme_from_files( POST_VS, POST_FS );

@@ -57,9 +57,9 @@ int main() {
 	char vertex_shader[1024 * 256];
 	char geometry_shader[1024 * 256];
 	char fragment_shader[1024 * 256];
-	assert( parse_file_into_str( "test_vs.glsl", vertex_shader, 1024 * 256 ) );
-	assert( parse_file_into_str( "test_gs.glsl", geometry_shader, 1024 * 256 ) );
-	assert( parse_file_into_str( "test_fs.glsl", fragment_shader, 1024 * 256 ) );
+	( parse_file_into_str( "test_vs.glsl", vertex_shader, 1024 * 256 ) );
+	( parse_file_into_str( "test_gs.glsl", geometry_shader, 1024 * 256 ) );
+	( parse_file_into_str( "test_fs.glsl", fragment_shader, 1024 * 256 ) );
 
 	GLuint vs = glCreateShader( GL_VERTEX_SHADER );
 	const GLchar *p = (const GLchar *)vertex_shader;
@@ -116,7 +116,7 @@ int main() {
 		print_programme_info_log( shader_programme );
 		return false;
 	}
-	assert( is_programme_valid( shader_programme ) );
+	( is_programme_valid( shader_programme ) );
 
 	glEnable( GL_CULL_FACE ); // cull face
 	glCullFace( GL_BACK );		// cull back face

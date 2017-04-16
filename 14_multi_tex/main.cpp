@@ -158,10 +158,10 @@ int main() {
 	// load textures
 	GLuint tex_a, tex_b;
 	glActiveTexture( GL_TEXTURE0 );
-	assert( load_texture( "skulluvmap.png", &tex_a ) );
+	( load_texture( "skulluvmap.png", &tex_a ) );
 	glBindTexture( GL_TEXTURE_2D, tex_a );
 	glActiveTexture( GL_TEXTURE1 );
-	assert( load_texture( "ship.png", &tex_b ) );
+	( load_texture( "ship.png", &tex_b ) );
 	glBindTexture( GL_TEXTURE_2D, tex_b );
 
 	glEnable( GL_CULL_FACE ); // cull face

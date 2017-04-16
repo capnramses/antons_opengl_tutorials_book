@@ -149,7 +149,7 @@ int main() {
 	/* load the mesh using assimp */
 	GLuint monkey_vao;
 	int monkey_point_count = 0;
-	assert( load_mesh( MESH_FILE, &monkey_vao, &monkey_point_count ) );
+	( load_mesh( MESH_FILE, &monkey_vao, &monkey_point_count ) );
 
 	/*-------------------------------CREATE
 	 * SHADERS-------------------------------*/

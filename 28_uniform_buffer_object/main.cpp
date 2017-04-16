@@ -121,12 +121,12 @@ void create_cube_map( const char *front, const char *back, const char *top,
 	glGenTextures( 1, tex_cube );
 
 	// load each image and copy into a side of the cube-map texture
-	assert( load_cube_map_side( *tex_cube, GL_TEXTURE_CUBE_MAP_NEGATIVE_Z, front ) );
-	assert( load_cube_map_side( *tex_cube, GL_TEXTURE_CUBE_MAP_POSITIVE_Z, back ) );
-	assert( load_cube_map_side( *tex_cube, GL_TEXTURE_CUBE_MAP_POSITIVE_Y, top ) );
-	assert( load_cube_map_side( *tex_cube, GL_TEXTURE_CUBE_MAP_NEGATIVE_Y, bottom ) );
-	assert( load_cube_map_side( *tex_cube, GL_TEXTURE_CUBE_MAP_NEGATIVE_X, left ) );
-	assert( load_cube_map_side( *tex_cube, GL_TEXTURE_CUBE_MAP_POSITIVE_X, right ) );
+	( load_cube_map_side( *tex_cube, GL_TEXTURE_CUBE_MAP_NEGATIVE_Z, front ) );
+	( load_cube_map_side( *tex_cube, GL_TEXTURE_CUBE_MAP_POSITIVE_Z, back ) );
+	( load_cube_map_side( *tex_cube, GL_TEXTURE_CUBE_MAP_POSITIVE_Y, top ) );
+	( load_cube_map_side( *tex_cube, GL_TEXTURE_CUBE_MAP_NEGATIVE_Y, bottom ) );
+	( load_cube_map_side( *tex_cube, GL_TEXTURE_CUBE_MAP_NEGATIVE_X, left ) );
+	( load_cube_map_side( *tex_cube, GL_TEXTURE_CUBE_MAP_POSITIVE_X, right ) );
 	// format cube map texture
 	glTexParameteri( GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR );
 	glTexParameteri( GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR );
@@ -143,9 +143,9 @@ vec3 cam_pos( 0.0f, 0.0f, 5.0f );
 int main() {
 	/*--------------------------------START
 	 * OPENGL--------------------------------*/
-	assert( restart_gl_log() );
+	( restart_gl_log() );
 	// start GL context and O/S window using the GLFW helper library
-	assert( start_gl() );
+	( start_gl() );
 
 	/*---------------------------------CUBE
 	 * MAP-----------------------------------*/
@@ -158,7 +158,7 @@ int main() {
 	GLfloat *vn = NULL; // array of vertex normals
 	GLfloat *vt = NULL; // array of texture coordinates
 	int g_point_count = 0;
-	assert( load_obj_file( MESH_FILE, vp, vt, vn, g_point_count ) );
+	( load_obj_file( MESH_FILE, vp, vt, vn, g_point_count ) );
 
 	GLuint vao;
 	glGenVertexArrays( 1, &vao );

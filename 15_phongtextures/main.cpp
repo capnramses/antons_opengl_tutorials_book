@@ -154,7 +154,7 @@ int main() {
 	// depth-testing interprets a smaller value as "closer"
 
 	glDepthFunc( GL_LESS );
-	assert( load_mesh( "monkey.obj" ) );
+	( load_mesh( "monkey.obj" ) );
 
 	GLuint vao;
 	glGenVertexArrays( 1, &vao );
@@ -215,13 +215,13 @@ int main() {
 	// load texture
 	GLuint tex_diff, tex_spec, tex_amb, tex_emiss;
 	glActiveTexture( GL_TEXTURE0 );
-	assert( load_texture( "boulder_diff.png", &tex_diff ) );
+	( load_texture( "boulder_diff.png", &tex_diff ) );
 	glActiveTexture( GL_TEXTURE1 );
-	assert( load_texture( "boulder_spec.png", &tex_spec ) );
+	( load_texture( "boulder_spec.png", &tex_spec ) );
 	glActiveTexture( GL_TEXTURE2 );
-	assert( load_texture( "ao.png", &tex_amb ) );
+	( load_texture( "ao.png", &tex_amb ) );
 	glActiveTexture( GL_TEXTURE3 );
-	assert( load_texture( "tileable9b_emiss.png", &tex_emiss ) );
+	( load_texture( "tileable9b_emiss.png", &tex_emiss ) );
 
 #define ONE_DEG_IN_RAD ( 2.0 * M_PI ) / 360.0 // 0.017444444
 	// input variables

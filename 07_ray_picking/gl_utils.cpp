@@ -246,7 +246,7 @@ bool create_programme( GLuint vert, GLuint frag, GLuint *programme ) {
 		print_programme_info_log( *programme );
 		return false;
 	}
-	assert( is_programme_valid( *programme ) );
+	( is_programme_valid( *programme ) );
 	// delete shaders here to free memory
 	glDeleteShader( vert );
 	glDeleteShader( frag );
@@ -256,8 +256,8 @@ bool create_programme( GLuint vert, GLuint frag, GLuint *programme ) {
 GLuint create_programme_from_files( const char *vert_file_name,
 																		const char *frag_file_name ) {
 	GLuint vert, frag, programme;
-	assert( create_shader( vert_file_name, &vert, GL_VERTEX_SHADER ) );
-	assert( create_shader( frag_file_name, &frag, GL_FRAGMENT_SHADER ) );
-	assert( create_programme( vert, frag, &programme ) );
+	( create_shader( vert_file_name, &vert, GL_VERTEX_SHADER ) );
+	( create_shader( frag_file_name, &frag, GL_FRAGMENT_SHADER ) );
+	( create_programme( vert, frag, &programme ) );
 	return programme;
 }

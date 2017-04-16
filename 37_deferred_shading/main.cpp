@@ -251,16 +251,16 @@ void draw_second_pass() {
 
 int main() {
 	/* initialise GL context and window */
-	assert( restart_gl_log() );
-	assert( start_gl() );
+	( restart_gl_log() );
+	( start_gl() );
 	/* initialise framebuffer and G-buffer */
 
 	/* object positions and matrices */
-	assert( load_plane() );
+	( load_plane() );
 	g_plane_M = scale( identity_mat4(), vec3( 200.0f, 1.0f, 200.0f ) );
 	g_plane_M = translate( g_plane_M, vec3( 0.0f, -2.0f, 0.0f ) );
 
-	assert( init_fb() );
+	( init_fb() );
 	/* load pre-pass shaders that write to the g-buffer */
 	g_first_pass_sp = create_programme_from_files( FIRST_PASS_VS, FIRST_PASS_FS );
 	g_first_pass_P_loc = glGetUniformLocation( g_first_pass_sp, "P" );
@@ -281,7 +281,7 @@ int main() {
 	glUniform1i( g_second_pass_n_tex_loc, 1 );
 
 	/* load sphere mesh */
-	assert( load_sphere() );
+	( load_sphere() );
 	/* light positions and matrices */
 	for ( int i = 0; i < NUM_LIGHTS; i++ ) {
 		float x = -sinf( (float)i * 0.5f ) * 25.0f; // between +- 10 x

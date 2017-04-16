@@ -235,7 +235,7 @@ void glfw_window_size_callback( GLFWwindow *window, int width, int height ) {
 
 int main() {
 	// start GL context with helper libraries
-	assert( glfwInit() );
+	( glfwInit() );
 
 /* We must specify 3.2 core if on Apple OS X -- other O/S can specify
  anything here. I defined 'APPLE' in the makefile for OS X */
@@ -258,7 +258,7 @@ int main() {
 	printf( "OpenGL version supported %s\n", version );
 
 	/* load font meta-data (spacings for each glyph) */
-	assert( load_meta_data( ATLAS_META ) );
+	( load_meta_data( ATLAS_META ) );
 
 	/* set a string of text for lower-case letters */
 	GLuint first_string_vp_vbo, first_string_vt_vbo, first_string_vao;
@@ -304,7 +304,7 @@ int main() {
 
 	// textures
 	GLuint tex;
-	assert( load_texture( ATLAS_IMAGE, &tex ) );
+	( load_texture( ATLAS_IMAGE, &tex ) );
 
 	// rendering defaults
 	// glDepthFunc (GL_LESS); // set depth function

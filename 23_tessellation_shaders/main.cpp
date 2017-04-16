@@ -110,10 +110,10 @@ int main() {
 	char tess_ctrl_shader[4096];
 	char tess_eval_shader[4096];
 	char fragment_shader[4096];
-	assert( parse_file_into_str( "test_vs.glsl", vertex_shader, 4096 ) );
-	assert( parse_file_into_str( "test_tcs.glsl", tess_ctrl_shader, 4096 ) );
-	assert( parse_file_into_str( "test_tes.glsl", tess_eval_shader, 4096 ) );
-	assert( parse_file_into_str( "test_fs.glsl", fragment_shader, 4096 ) );
+	( parse_file_into_str( "test_vs.glsl", vertex_shader, 4096 ) );
+	( parse_file_into_str( "test_tcs.glsl", tess_ctrl_shader, 4096 ) );
+	( parse_file_into_str( "test_tes.glsl", tess_eval_shader, 4096 ) );
+	( parse_file_into_str( "test_fs.glsl", fragment_shader, 4096 ) );
 
 	GLuint vs = glCreateShader( GL_VERTEX_SHADER );
 	const GLchar *p = (const GLchar *)vertex_shader;
@@ -185,7 +185,7 @@ int main() {
 		_print_programme_info_log( shader_programme );
 		return false;
 	}
-	assert( is_valid( shader_programme ) );
+	( is_valid( shader_programme ) );
 
 	glEnable( GL_CULL_FACE ); // cull face
 	glCullFace( GL_BACK );		// cull back face

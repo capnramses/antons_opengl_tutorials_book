@@ -286,7 +286,7 @@ void glfw_window_size_callback( GLFWwindow *window, int width, int height ) {
 
 int main() {
 	// start GL context with helper libraries
-	assert( glfwInit() );
+	( glfwInit() );
 
 /* We must specify 3.2 core if on Apple OS X -- other O/S can specify
  anything here. I defined 'APPLE' in the makefile for OS X */
@@ -354,7 +354,7 @@ int main() {
 
 	// textures
 	GLuint tex;
-	assert( load_texture( "handmade2.png", &tex ) );
+	( load_texture( "handmade2.png", &tex ) );
 
 	// rendering defaults
 	// glDepthFunc (GL_LESS); // set depth function

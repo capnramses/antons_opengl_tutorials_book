@@ -144,7 +144,7 @@ int main() {
 
 	// load texture
 	GLuint tex;
-	assert( load_texture( "skulluvmap.png", &tex ) );
+	( load_texture( "skulluvmap.png", &tex ) );
 
 	glClearColor( 0.2, 0.2, 0.2, 1.0 );
 	glEnable( GL_CULL_FACE ); // cull face

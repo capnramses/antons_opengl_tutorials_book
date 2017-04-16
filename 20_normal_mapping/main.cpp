@@ -135,7 +135,7 @@ int main() {
 	glEnable( GL_DEPTH_TEST ); // enable depth-testing
 	glDepthFunc( GL_LESS );		 // depth-testing interprets a smaller value as "closer"
 
-	assert( load_mesh( "suzanne.obj" ) );
+	( load_mesh( "suzanne.obj" ) );
 
 	GLuint vao;
 	glGenVertexArrays( 1, &vao );
@@ -219,7 +219,7 @@ int main() {
 
 	// load normal map image into texture
 	GLuint nmap_tex;
-	assert( load_texture( NMAP_IMG_FILE, &nmap_tex ) );
+	( load_texture( NMAP_IMG_FILE, &nmap_tex ) );
 
 	glEnable( GL_CULL_FACE ); // cull face
 	glCullFace( GL_BACK );		// cull back face

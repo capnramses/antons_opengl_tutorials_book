@@ -173,12 +173,12 @@ void draw_picker_colours( mat4 P, mat4 V, mat4 M[3] ) {
 int decode_id( int r, int g, int b ) { return b + g * 256 + r * 256 * 256; }
 
 int main() {
-	assert( restart_gl_log() );
-	assert( start_gl() );
+	( restart_gl_log() );
+	( start_gl() );
 	/* load a mesh to draw in the main scene */
 	load_sphere();
 	/* set up framebuffer with texture attachment */
-	assert( init_fb() );
+	( init_fb() );
 	/* load the picking shaders */
 	g_pick_sp = create_programme_from_files( PICK_VS, PICK_FS );
 	g_pick_unique_id_loc = glGetUniformLocation( g_pick_sp, "unique_id" );

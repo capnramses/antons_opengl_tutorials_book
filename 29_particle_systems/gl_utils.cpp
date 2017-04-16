@@ -250,7 +250,7 @@ bool create_programme( GLuint vert, GLuint frag, GLuint *programme ) {
 		print_programme_info_log( *programme );
 		return false;
 	}
-	assert( is_programme_valid( *programme ) );
+	( is_programme_valid( *programme ) );
 	// delete shaders here to free memory
 	glDeleteShader( vert );
 	glDeleteShader( frag );

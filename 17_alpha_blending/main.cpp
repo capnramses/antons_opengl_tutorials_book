@@ -144,9 +144,9 @@ int main() {
 
 	// load texture
 	GLuint texa;
-	assert( load_texture( "blob.png", &texa ) );
+	( load_texture( "blob.png", &texa ) );
 	GLuint texb;
-	assert( load_texture( "blob2.png", &texb ) );
+	( load_texture( "blob2.png", &texb ) );
 
 	glBlendFunc( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA );
 	glEnable( GL_BLEND );

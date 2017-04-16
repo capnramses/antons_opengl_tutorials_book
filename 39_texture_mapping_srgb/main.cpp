@@ -77,9 +77,9 @@ bool load_texture( const char *file_name, GLuint *tex ) {
 }
 
 int main() {
-	assert( restart_gl_log() );
+	( restart_gl_log() );
 	// use GLFW and GLEW to start GL context. see gl_utils.cpp for details
-	assert( start_gl() );
+	( start_gl() );
 
 	// tell GL to only draw onto a pixel if the shape is closer to the viewer
 	glEnable( GL_DEPTH_TEST ); // enable depth-testing
@@ -151,7 +151,7 @@ int main() {
 
 	// load texture
 	GLuint tex;
-	assert( load_texture( "skulluvmap.png", &tex ) );
+	( load_texture( "skulluvmap.png", &tex ) );
 
 	glEnable( GL_CULL_FACE ); // cull face
 	glCullFace( GL_BACK );		// cull back face

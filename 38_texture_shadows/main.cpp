@@ -112,7 +112,7 @@ void init_spheres() {
 	GLfloat *vp = NULL; // array of vertex points
 	GLfloat *vn = NULL; // array of vertex normals
 	GLfloat *vt = NULL; // array of texture coordinates
-	assert( load_obj_file( MESH_FILE, vp, vt, vn, g_sphere_point_count ) );
+	( load_obj_file( MESH_FILE, vp, vt, vn, g_sphere_point_count ) );
 
 	glGenVertexArrays( 1, &g_sphere_vao );
 	glBindVertexArray( g_sphere_vao );
@@ -228,9 +228,9 @@ vec3 sphere_pos_wor[] = { vec3( -2.0, 0.0, 0.0 ), vec3( 2.0, 0.0, 0.0 ),
 
 int main() {
 	/*--------------------------------START OPENGL--------------------------------*/
-	assert( restart_gl_log() );
+	( restart_gl_log() );
 	/* start GL context and O/S window using the GLFW helper library */
-	assert( start_gl() );
+	( start_gl() );
 	/*---------------------CREATE FRAMEBUFFER TO CAPTURE DEPTH--------------------*/
 	init_shadow_fb();
 	/*------------------------------CREATE GEOMETRY-------------------------------*/

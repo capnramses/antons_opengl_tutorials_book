@@ -40,7 +40,7 @@ if (bsqmc >= 0.0) {\n                                                         \
 }\n";
 
 int main() {
-	assert( start_gl() ); // just starts a 4.3 GL context+window
+	( start_gl() ); // just starts a 4.3 GL context+window
 
 	// set up shaders and geometry for full-screen quad
 	// moved code to gl_utils.cpp
@@ -52,11 +52,11 @@ int main() {
 		GLuint ray_shader = glCreateShader( GL_COMPUTE_SHADER );
 		glShaderSource( ray_shader, 1, &compute_shader_str, NULL );
 		glCompileShader( ray_shader );
-		assert( check_shader_errors( ray_shader ) ); // code moved to gl_utils.cpp
+		( check_shader_errors( ray_shader ) ); // code moved to gl_utils.cpp
 		ray_program = glCreateProgram();
 		glAttachShader( ray_program, ray_shader );
 		glLinkProgram( ray_program );
-		assert( check_program_errors( ray_program ) ); // code moved to gl_utils.cpp
+		( check_program_errors( ray_program ) ); // code moved to gl_utils.cpp
 	}
 
 	// texture handle and dimensions

@@ -472,8 +472,8 @@ bool load_mesh( const char *file_name, GLuint *vao, int *point_count,
 }
 
 int main() {
-	assert( restart_gl_log() );
-	assert( start_gl() );
+	( restart_gl_log() );
+	( start_gl() );
 	glEnable( GL_DEPTH_TEST ); // enable depth-testing
 	glDepthFunc( GL_LESS );		 // depth-testing interprets a smaller value as "closer"
 	glEnable( GL_CULL_FACE );	// cull face
@@ -495,7 +495,7 @@ int main() {
 	int monkey_bone_count = 0;
 	Skeleton_Node *monkey_root_node = NULL;
 	double monkey_anim_duration = 0.0;
-	assert( load_mesh( MESH_FILE, &monkey_vao, &monkey_point_count,
+	( load_mesh( MESH_FILE, &monkey_vao, &monkey_point_count,
 										 monkey_bone_offset_matrices, &monkey_bone_count,
 										 &monkey_root_node, &monkey_anim_duration ) );
 	printf( "monkey bone count %i\n", monkey_bone_count );
