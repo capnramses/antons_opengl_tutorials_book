@@ -103,7 +103,6 @@ version of the libraries used to get around linking errors.
 
 ## Caveats ##
 
-* There are some lazy `assert(call_some_function())` calls that will be wiped out if compiling in a release mode that removes asserts. Replace these with your own `if (!call_some_function()) { print error and do appropriate thing }`
 * Code is directly copy-pasted from book sections. This means that there will be redundant OpenGL calls to bind things etc. but I think it's easier to follow along like this.
 * Code explained in prior examples is moved to a file called `gl_utils.cpp` to avoid cluttering `main.cpp`. This means that `gl_utils.cpp` is not necessarily the same in each demo, but is built up gradually.
 
