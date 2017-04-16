@@ -27,17 +27,17 @@ int main() {
 	/* these are the strings of code for the shaders
 	the vertex shader positions each vertex point */
 	const char *vertex_shader = "#version 410\n"
-								"in vec3 vp;"
-								"void main () {"
-								"	gl_Position = vec4 (vp, 1.0);"
-								"}";
+															"in vec3 vp;"
+															"void main () {"
+															"	gl_Position = vec4 (vp, 1.0);"
+															"}";
 	/* the fragment shader colours each fragment (pixel-sized area of the
 	triangle) */
 	const char *fragment_shader = "#version 410\n"
-								"out vec4 frag_colour;"
-								"void main () {"
-								"	frag_colour = vec4 (0.5, 0.0, 0.5, 1.0);"
-								"}";
+																"out vec4 frag_colour;"
+																"void main () {"
+																"	frag_colour = vec4 (0.5, 0.0, 0.5, 1.0);"
+																"}";
 	/* GL shader objects for vertex and fragment shader [components] */
 	GLuint vert_shader, frag_shader;
 	/* GL shader programme object [combined, to link] */

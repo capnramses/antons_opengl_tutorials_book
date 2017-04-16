@@ -46,7 +46,17 @@ view
 27_font_atlas/atlas.meta
 27_font_atlas/atlas.png
 generate
+compute
+hellot
+exam*
+freefont-*
+*.ttf
+fbuffer*
+cubemap
+*.swp
+greek_*
 *.ilk
 *.exe
 *.pdb
 *.idb
+.vscode

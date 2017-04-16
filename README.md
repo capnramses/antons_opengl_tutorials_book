@@ -1,7 +1,7 @@
 # Anton's OpenGL 4 Tutorials book demo code #
 
 This series of demos accompanies the e-book "Anton's OpenGL 4 Tutorials":
-http://antongerdelan.net/opengl/
+[antongerdelan.net/opengl](http://antongerdelan.net/opengl/)
 
 Copyright Dr Anton Gerdelan, Trinity College Dublin, Ireland.
 email: antonofnote AT gmail
@@ -11,48 +11,68 @@ email: antonofnote AT gmail
 See "LICENCE.txt" for licence information.
 
 Each chapter with major demonstration code has a corresponding demo here.
-There is also an example of code for "Hello Triangle" for OpenGL 2.1 for
-reference.
+There is also an example of code for *Hello Triangle* for OpenGL 2.1 for reference.
 
 Each demo has easy-to-read Makefiles for Linux, OS X, and 32-bit Windows.
-There are also Visual Studio projects.
+There are also Visual Studio projects, but you may have to download newer
+versions of the libraries in the `common/` folder to match your version of VS.
+
+**This code is some years old now and builds may fall out of date**. I try to
+maintain this so that it functions but be aware that Makefiles and build details
+may differ slightly from book text for this reason.
+If you have a [tidy] CMake setup or updated build **feel free to submit a pull request here**.
 
 ## Compiling ##
 
+The demos here depend on the GLEW
+
 The libraries reside in the common/ folder
 
-* common/include - header files
-* common/linux_i386 - 32-bit linux libraries
-* common/linux_x86_64 - 64-bit linux libraries
-* common/msvc110 - 32-bit Windows visual studio libraries
-* common/osx_64 - 64-bit apple OS X libraries
-* common/win32 - 32-bit Windows GCC (mingw) libraries
+* `common/include` - header files
+* `common/linux_i386` - 32-bit linux libraries
+* `common/linux_x86_64` - 64-bit linux libraries
+* `common/msvc110` - 32-bit Windows visual studio libraries
+* `common/osx_64` - 64-bit apple OS X libraries
+* `common/win32` - 32-bit Windows GCC (mingw) libraries
 
 ### Linux ###
 
-* install the GNU Compiler Collection - usually by installing a
-"build-essential" bundle package via the package manager on your distribution:
+* Install a C and C++ compiler - usually by installing a "build-essential"
+bundle package via the package manager on your distribution:
 
 ```
 sudo apt-get install build-essential
 ```
 
-* open a terminal and cd to the demo of choice
+* Install the GLFW3 and FreeType libraries:
+
+```
+sudo apt-get install libglfw3-dev
+sudo apt-get install libfreetype6-dev
+```
+
+* Open a terminal and cd to the demo of choice, then
 
 64-bit systems:
 
-`make -f Makefile.linux64`
+```
+make -f Makefile.linux64
+```
 
 32-bit systems:
 
-`make -f Makefile.linux32`
+```
+make -f Makefile.linux32
+```
 
 ### Apple OS X ###
 
-* install Clang or GNU compiler and tools - usually by installing XCode
-* open a terminal and cd to the demo of choice
+* Install Clang or GNU compiler and tools - usually by installing Apple XCode through the App Store. It's free.
+* Open a terminal and cd to the demo of choice:
 
-`make -f Makefile.osx`
+```
+make -f Makefile.osx
+```
 
 ### Windows with GCC ###
 
@@ -92,3 +112,9 @@ version of the libraries used to get around linking errors.
 Dr Aidan Delaney at the University of Brighton has made an SDL2 port (as an
 alternative to using GLFW), which you can find on GitHub
 https://github.com/AidanDelaney/antons_opengl_tutorials_book/
+
+## Credits ##
+
+Special thanks to all the readers over the years that have submitted additions,
+bug reports, fixes, and feedback. If you have submitted a correction and don't
+mind having your name/@ printed here please let me know.

@@ -2,8 +2,8 @@ BIN = geomsh32
 CC = g++
 FLAGS = -Wall -pedantic
 INC = -I ../common/include
-LOC_LIB = ../common/linux_i386/libGLEW.a ../common/linux_i386/libglfw3.a
-SYS_LIB = -lGL -lX11 -lXxf86vm -lXrandr -lpthread -lXi
+LOC_LIB = ../common/linux_i386/libGLEW.a -lglfw
+SYS_LIB = -lGL 
 SRC = main.cpp gl_utils.cpp
 
 all:

@@ -13,10 +13,10 @@
 | it is really making life easier.                                            |
 \*****************************************************************************/
 #include "gl_utils.h"
-#include <stdio.h>
-#include <time.h>
-#include <string.h>
 #include <assert.h>
+#include <stdio.h>
+#include <string.h>
+#include <time.h>
 #define GL_LOG_FILE "gl.log"
 #define MAX_SHADER_LENGTH 262144
 
@@ -101,8 +101,7 @@ bool start_gl() {
 		vmode->width, vmode->height, "Extended GL Init", mon, NULL
 	);*/
 
-	g_window =
-		glfwCreateWindow( g_gl_width, g_gl_height, "Shaders", NULL, NULL );
+	g_window = glfwCreateWindow( g_gl_width, g_gl_height, "Shaders", NULL, NULL );
 	if ( !g_window ) {
 		fprintf( stderr, "ERROR: could not open window with GLFW3\n" );
 		glfwTerminate();

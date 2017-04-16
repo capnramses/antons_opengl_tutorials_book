@@ -10,12 +10,12 @@
 \******************************************************************************/
 #include <GL/glew.h>		// include GLEW and new version of GL on Windows
 #include <GLFW/glfw3.h> // GLFW helper library
-#include <stdio.h>
-#include <time.h>
 #include <assert.h>
 #include <stdarg.h> // for doing gl_log() functions that work like printf()
+#include <stdio.h>
+#include <time.h>
 //#include <stdbool.h> /* for visual studio i had to comment this out and define
-//pure-C bool :( */
+// pure-C bool :( */
 #define bool int
 #define true 1
 #define false 0
@@ -172,16 +172,16 @@ int main() {
 	GLuint vbo;
 	GLuint vao;
 	const char *vertex_shader = "#version 410\n"
-		"in vec3 vp;"
-		"void main () {"
-		"	gl_Position = vec4 (vp, 1.0);"
-		"}";
+															"in vec3 vp;"
+															"void main () {"
+															"	gl_Position = vec4 (vp, 1.0);"
+															"}";
 
 	const char *fragment_shader = "#version 410\n"
-		"out vec4 frag_colour;"
-		"void main () {"
-		"	frag_colour = vec4 (0.5, 0.0, 0.5, 1.0);"
-		"}";
+																"out vec4 frag_colour;"
+																"void main () {"
+																"	frag_colour = vec4 (0.5, 0.0, 0.5, 1.0);"
+																"}";
 	GLuint shader_programme, vs, fs;
 
 	restart_gl_log();
@@ -204,7 +204,7 @@ int main() {
 #endif
 	// set anti-aliasing factor to make diagonal edges appear less jagged
 	glfwWindowHint( GLFW_SAMPLES, 4 );
-	
+
 	/* we can run a full-screen window here */
 
 	/*GLFWmonitor* mon = glfwGetPrimaryMonitor ();

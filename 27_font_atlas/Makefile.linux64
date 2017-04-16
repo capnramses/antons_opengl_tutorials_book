@@ -1,12 +1,12 @@
 CC = g++
 FLAGS = -Wall -pedantic
 INC = -I ../common/include -I ../common/include/freetype
-SYS_LIB = -lGL -lX11 -lXxf86vm -lXrandr -lpthread -lXi
+SYS_LIB = -lGL 
 
 all: generator viewer
 
 generator:
-	${CC} ${FLAGS} -o generate generator_main.cpp stb_image_write.c ${INC} ../common/linux_x86_64/libfreetype.a ${SYS_LIB}
+	${CC} ${FLAGS} -o generate generator_main.cpp  ${INC} -lfreetype ${SYS_LIB}
 
 viewer:
-	${CC} ${FLAGS} -o view viewer_main.cpp maths_funcs.cpp stb_image.c ${INC} ../common/linux_x86_64/libGLEW.a ../common/linux_x86_64/libglfw3.a ${SYS_LIB}
+	${CC} ${FLAGS} -o view viewer_main.cpp maths_funcs.cpp  ${INC} ../common/linux_x86_64/libGLEW.a -lglfw ${SYS_LIB}
