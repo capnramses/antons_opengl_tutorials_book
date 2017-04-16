@@ -1,4 +1,4 @@
-#Anton's OpenGL 4 Tutorials book demo code#
+# Anton's OpenGL 4 Tutorials book demo code #
 
 This series of demos accompanies the e-book "Anton's OpenGL 4 Tutorials":
 http://antongerdelan.net/opengl/
@@ -17,7 +17,8 @@ reference.
 Each demo has easy-to-read Makefiles for Linux, OS X, and 32-bit Windows.
 There are also Visual Studio projects.
 
-##Compiling##
+## Compiling ##
+
 The libraries reside in the common/ folder
 
 * common/include - header files
@@ -27,10 +28,15 @@ The libraries reside in the common/ folder
 * common/osx_64 - 64-bit apple OS X libraries
 * common/win32 - 32-bit Windows GCC (mingw) libraries
 
-###Linux###
+### Linux ###
 
 * install the GNU Compiler Collection - usually by installing a
-"build-essentials" package via the package manager on your distribution.
+"build-essential" bundle package via the package manager on your distribution:
+
+```
+sudo apt-get install build-essential
+```
+
 * open a terminal and cd to the demo of choice
 
 64-bit systems:
@@ -41,14 +47,14 @@ The libraries reside in the common/ folder
 
 `make -f Makefile.linux32`
 
-###Apple OS X###
+### Apple OS X ###
 
 * install Clang or GNU compiler and tools - usually by installing XCode
 * open a terminal and cd to the demo of choice
 
 `make -f Makefile.osx`
 
-###Windows with GCC###
+### Windows with GCC ###
 
 I only provided 32-bit versions of the Makefile and libraries here.
 The 32-bit builds will run on all Windows machines - I use 32-bit builds on my
@@ -64,7 +70,7 @@ http://www.mingw.org/
 
 * copy the .dll files from the main folder to the demo folder
 
-###Windows with Visual Studio###
+### Windows with Visual Studio ###
 
 I provided some Visual Studio 2012 project files.
 You can find an overarching solution file in the main folder. This should
@@ -75,13 +81,13 @@ prefer.
 VS 2013 seems to work, but with 2015 you'll probably need to download a newer
 version of the libraries used to get around linking errors. 
 
-##Caveats##
+## Caveats ##
 
 * There are some lazy `assert(call_some_function())` calls that will be wiped out if compiling in a release mode that removes asserts. Replace these with your own `if (!call_some_function()) { print error and do appropriate thing }`
 * Code is directly copy-pasted from book sections. This means that there will be redundant OpenGL calls to bind things etc. but I think it's easier to follow along like this.
 * Code explained in prior examples is moved to a file called `gl_utils.cpp` to avoid cluttering `main.cpp`. This means that `gl_utils.cpp` is not necessarily the same in each demo, but is built up gradually.
 
-##SDL2 Port##
+## SDL2 Port ##
 
 Dr Aidan Delaney at the University of Brighton has made an SDL2 port (as an
 alternative to using GLFW), which you can find on GitHub
