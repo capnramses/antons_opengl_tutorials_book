@@ -39,6 +39,6 @@ void log_gl_params();
 
 void _update_fps_counter( GLFWwindow *window );
 
-void glfw_window_size_callback( GLFWwindow *window, int width, int height );
+void glfw_framebuffer_size_callback( GLFWwindow *window, int width, int height );
 
 #endif

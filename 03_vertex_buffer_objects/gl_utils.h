@@ -36,7 +36,7 @@ void _update_fps_counter( GLFWwindow *window );
 
 const char *GL_type_to_string( unsigned int type );
 
-void glfw_window_size_callback( GLFWwindow *window, int width, int height );
+void glfw_framebuffer_size_callback( GLFWwindow *window, int width, int height );
 
 void print_shader_info_log( GLuint shader_index );
 

@@ -133,9 +133,10 @@ bool load_texture( const char *file_name, GLuint *tex ) {
 }
 
 /* we will tell GLFW to run this function whenever the window is resized */
-void glfw_window_size_callback( GLFWwindow *window, int width, int height ) {
+void glfw_framebuffer_size_callback( GLFWwindow *window, int width, int height ) {
 	g_viewport_width = width;
 	g_viewport_height = height;
+
 	/* update any perspective matrices used here */
 	P = perspective( 67.0f, (float)g_viewport_width / (float)g_viewport_height, 0.1f,
 									 100.0f );
@@ -157,7 +158,7 @@ int main() {
 
 	GLFWwindow *window = glfwCreateWindow( g_viewport_width, g_viewport_height,
 																				 "Sprite Sheets", NULL, NULL );
-	glfwSetWindowSizeCallback( window, glfw_window_size_callback );
+	glfwSetFramebufferSizeCallback( window, glfw_framebuffer_size_callback );
 	glfwMakeContextCurrent( window );
 	glewExperimental = GL_TRUE;
 	glewInit();

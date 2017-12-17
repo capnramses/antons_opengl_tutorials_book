@@ -58,7 +58,7 @@ void glfw_error_callback( int error, const char *description ) {
 }
 
 // a call-back function
-void glfw_window_size_callback( GLFWwindow *window, int width, int height ) {
+void glfw_framebuffer_size_callback( GLFWwindow *window, int width, int height ) {
 	g_gl_width = width;
 	g_gl_height = height;
 	printf( "width %i height %i\n", width, height );
