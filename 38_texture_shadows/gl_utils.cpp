@@ -106,7 +106,7 @@ bool start_gl() {
 		glfwTerminate();
 		return false;
 	}
-	glfwSetWindowSizeCallback( g_window, glfw_window_size_callback );
+	glfwSetFramebufferSizeCallback( g_window, glfw_framebuffer_size_callback );
 	glfwMakeContextCurrent( g_window );
 
 	glfwWindowHint( GLFW_SAMPLES, 16 );
@@ -130,9 +130,10 @@ void glfw_error_callback( int error, const char *description ) {
 	gl_log_err( "%s\n", description );
 }
 // a call-back function
-void glfw_window_size_callback( GLFWwindow *window, int width, int height ) {
+void glfw_framebuffer_size_callback( GLFWwindow *window, int width, int height ) {
 	g_gl_width = width;
 	g_gl_height = height;
+	glfwGetFramebufferSize( window, &g_gl_width, &g_gl_height );
 	printf( "width %i height %i\n", width, height );
 	/* update any perspective matrices used here */
 }

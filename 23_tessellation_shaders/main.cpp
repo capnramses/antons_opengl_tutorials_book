@@ -60,7 +60,7 @@ int main() {
 		glfwTerminate();
 		return 1;
 	}
-	glfwSetWindowSizeCallback( window, glfw_window_size_callback );
+	glfwSetFramebufferSizeCallback( window, glfw_framebuffer_size_callback );
 	glfwMakeContextCurrent( window );
 
 	glfwWindowHint( GLFW_SAMPLES, 4 );

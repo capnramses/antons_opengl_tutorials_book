@@ -32,7 +32,7 @@ bool gl_log_err( const char *message, ... );
 void glfw_error_callback( int error, const char *description );
 
 // a call-back function
-void glfw_window_size_callback( GLFWwindow *window, int width, int height );
+void glfw_framebuffer_size_callback( GLFWwindow *window, int width, int height );
 
 void log_gl_params();
 

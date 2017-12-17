@@ -31,7 +31,7 @@ bool gl_log_err( const char *message, ... );
 /*--------------------------------GLFW3 and GLEW------------------------------*/
 bool start_gl();
 void glfw_error_callback( int error, const char *description );
-void glfw_window_size_callback( GLFWwindow *window, int width, int height );
+void glfw_framebuffer_size_callback( GLFWwindow *window, int width, int height );
 void _update_fps_counter( GLFWwindow *window );
 /*-----------------------------------SHADERS----------------------------------*/
 bool parse_file_into_str( const char *file_name, char *shader_str, int max_len );
