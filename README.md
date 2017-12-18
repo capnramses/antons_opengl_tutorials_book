@@ -117,3 +117,8 @@ https://github.com/AidanDelaney/antons_opengl_tutorials_book/
 Special thanks to all the readers over the years that have submitted additions,
 bug reports, fixes, and feedback. If you have submitted a correction and don't
 mind having your name/@ printed here please let me know.
+
+### PRs
+
+* julien
+* define-private-public
