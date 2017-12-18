@@ -34,19 +34,22 @@ float specular_exponent = 100.0; // specular 'power'
 void main() {
 	vec3 light_pos_eye = (view * vec4 (light_position_world, 1.0)).xyz;
 
+	// normalize in case interpolation has upset normals' lengths
+	vec3 n_eye = normalize( norm_eye );
+
 	vec3 Ka = texture (ambient_map, st).rgb;
 	vec3 Ia = vec3 (0.2, 0.2, 0.2) * Ka;
 
 	vec4 texel = texture (diffuse_map, st);
 	vec3 Kd = texel.rgb;
 	vec3 surface_to_light_eye = normalize (light_pos_eye - pos_eye);
-	float dp = max (0.0, dot (norm_eye, surface_to_light_eye));
+	float dp = max (0.0, dot (n_eye, surface_to_light_eye));
 	vec3 Id = Kd * Ld * dp; 
 
 	vec3 Ks = texture (specular_map, st).rgb;
 	vec3 surface_to_viewer_eye = normalize (-pos_eye);
 	vec3 half_way_eye = normalize (surface_to_viewer_eye + surface_to_light_eye);
-	float dot_prod_specular = max (dot (half_way_eye, norm_eye), 0.0);
+	float dot_prod_specular = max (dot (half_way_eye, n_eye), 0.0);
 	float specular_factor = pow (dot_prod_specular, specular_exponent);
 	vec3 Is = Ls * Ks * specular_factor; // final specular intensity
 
