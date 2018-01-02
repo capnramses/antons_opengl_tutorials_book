@@ -129,3 +129,4 @@ Contributors via GitHub:
 * guysherman
 * 24kwakahana
 * battila7
+* Gnimuc
