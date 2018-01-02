@@ -60,3 +60,5 @@ greek_*
 *.pdb
 *.idb
 .vscode
+*.gcda
+*.gcno
