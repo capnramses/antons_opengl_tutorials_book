@@ -118,8 +118,9 @@ Special thanks to all the readers over the years that have submitted additions,
 bug reports, fixes, and feedback. If you have submitted a correction and don't
 mind having your name/@ printed here please let me know.
 
-Contributors via GitHub:
+Contributors (mostly via GitHub):
 
+* Olivier Nivoix
 * sarangbaheti
 * kevin
 * Jon
