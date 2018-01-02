@@ -1,5 +1,13 @@
 #!/bin/bash
 
+## determine if should use 64-bit or 32-bit makefiles
+ARCH=`uname -m`
+MAKEFILE=Makefile.linux32
+if [ ${ARCH} == 'x86_64' ]; then
+  MAKEFILE=Makefile.linux64
+fi
+
+## list of all the demo folders
 declare -a demo_folders=(
 "00_hello_triangle"
 "00_hello_triangle_gl2.1"
@@ -45,11 +53,12 @@ declare -a demo_folders=(
 "40_compute_shader"
 )
 
+## call make inside each folder
 for i in "${demo_folders[@]}" ; do
   if [ -d "$i" ]; then
     echo "$i"
     cd $i
-    make -f Makefile.linux64
+    make -f $MAKEFILE
     cd ..
   fi
 done
