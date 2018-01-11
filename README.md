@@ -24,13 +24,11 @@ If you have a [tidy] CMake setup or updated build **feel free to submit a pull r
 
 ## Compiling ##
 
-The demos here depend on the GLEW
-
-The libraries reside in the common/ folder
+The libraries depended on reside in the common/ folder
 
 * `common/include` - header files
-* `common/linux_i386` - 32-bit linux libraries
-* `common/linux_x86_64` - 64-bit linux libraries
+* `common/linux_i386` - 32-bit Linux libraries
+* `common/linux_x86_64` - 64-bit Linux libraries
 * `common/msvc110` - 32-bit Windows visual studio libraries
 * `common/osx_64` - 64-bit apple OS X libraries
 * `common/win32` - 32-bit Windows GCC (mingw) libraries
