@@ -2,5 +2,20 @@ language: cpp
 compiler:
   - clang
   - gcc
-install: sudo apt-get install libglfw-dev
+os:
+  - linux
+  - osx
+notifications:
+    email: false
+matrix:
+exclude:
+  - os: osx
+    compiler: gcc
+
+sudo: required
+before_install:
+    - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo add-apt-repository 'deb http://archive.ubuntu.com/ubuntu xenial main universe'; fi
+    - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get -qq update; fi
+    - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install -y libglfw3-dev libfreetype6-dev; fi
+    - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install glfw freetype; fi
 script: ./build_all_linux.sh
