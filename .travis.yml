@@ -2,5 +2,5 @@ language: cpp
 compiler:
   - clang
   - gcc
-install: sudo apt-get install libglew3-dev
+install: sudo apt-get install libglfw3-dev
 script: ./build_all_linux.sh
