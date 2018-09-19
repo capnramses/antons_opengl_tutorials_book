@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# any error code causes script to exit with error code
+ set -e 
+
 ## determine if should use 64-bit or 32-bit makefiles
 ARCH=`uname -m`
 MAKEFILE=Makefile.linux32
