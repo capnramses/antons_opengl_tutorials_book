@@ -2,5 +2,5 @@ language: cpp
 compiler:
   - clang
   - gcc
-install: git clone https://github.com/glfw/glfw && mkdir build && cd build && cmake ../glfw && make -j4 && sudo make install
+install: sudo apt-get install libglfw-dev
 script: ./build_all_linux.sh
