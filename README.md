@@ -1,5 +1,7 @@
 # Anton's OpenGL 4 Tutorials book demo code #
 
+[![Build Status](https://travis-ci.com/capnramses/antons_opengl_tutorials_book.svg?branch=master)](https://travis-ci.com/capnramses/antons_opengl_tutorials_book)
+
 This series of demos accompanies the e-book "Anton's OpenGL 4 Tutorials":
 [antongerdelan.net/opengl](http://antongerdelan.net/opengl/)
 
