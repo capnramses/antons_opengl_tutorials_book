@@ -1,13 +1,18 @@
 #!/bin/bash
 
 # any error code causes script to exit with error code
- set -e 
+set -e
 
 ## determine if should use 64-bit or 32-bit makefiles
 ARCH=`uname -m`
-MAKEFILE=Makefile.linux32
-if [ ${ARCH} == 'x86_64' ]; then
-  MAKEFILE=Makefile.linux64
+MAKEFILE="unknown"
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+	MAKEFILE=Makefile.linux32
+	if [ ${ARCH} == 'x86_64' ]; then
+		MAKEFILE=Makefile.linux64
+	fi
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+	MAKEFILE=Makefile.osx
 fi
 
 ## list of all the demo folders
