@@ -17,4 +17,4 @@ before_install:
     - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get -qq update; fi
     - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install -y libglfw3-dev libfreetype6-dev; fi
     - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install glfw freetype; fi
-script: ./build_all_linux.sh
+script: ./build_all_linux_osx.sh
