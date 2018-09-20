@@ -4,7 +4,6 @@ compiler:
   - gcc
 os:
   - linux
-  - osx
 notifications:
     email: false
 matrix:
