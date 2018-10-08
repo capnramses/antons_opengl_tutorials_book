@@ -121,13 +121,14 @@ mind having your name/@ printed here please let me know.
 Contributors (mostly via GitHub):
 
 * Olivier Nivoix
-* sarangbaheti
+* Sarang Baheti https://github.com/sarangbaheti
 * kevin
 * Jon
-* julien
-* define-private-public
+* Julien Castelain https://github.com/julien
+* Benjamin Summerton https://github.com/define-private-public
 * Fwjrei
 * guysherman
 * 24kwakahana
 * battila7
-* Gnimuc
+* Gnimuc https://github.com/Gnimuc
+* Peter G https://github.com/postfixNotation
