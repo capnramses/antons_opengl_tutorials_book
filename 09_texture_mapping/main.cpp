@@ -32,6 +32,9 @@ GLFWwindow *g_window = NULL;
 bool load_texture( const char *file_name, GLuint *tex ) {
 	int x, y, n;
 	int force_channels = 4;
+	// the following function call flips the image
+	// needs to be called before each stbi_load(...);
+	stbi_set_flip_vertically_on_load(true);
 	unsigned char *image_data = stbi_load( file_name, &x, &y, &n, force_channels );
 	if ( !image_data ) {
 		fprintf( stderr, "ERROR: could not load %s\n", file_name );
@@ -42,23 +45,25 @@ bool load_texture( const char *file_name, GLuint *tex ) {
 		fprintf( stderr, "WARNING: texture %s is not power-of-2 dimensions\n",
 						 file_name );
 	}
-	int width_in_bytes = x * 4;
-	unsigned char *top = NULL;
-	unsigned char *bottom = NULL;
-	unsigned char temp = 0;
-	int half_height = y / 2;
 
-	for ( int row = 0; row < half_height; row++ ) {
-		top = image_data + row * width_in_bytes;
-		bottom = image_data + ( y - row - 1 ) * width_in_bytes;
-		for ( int col = 0; col < width_in_bytes; col++ ) {
-			temp = *top;
-			*top = *bottom;
-			*bottom = temp;
-			top++;
-			bottom++;
-		}
-	}
+	// uncomment the following lines if you don't use 'stbi_set_flip_vertically_on_load(true);'
+	//int width_in_bytes = x * 4;
+	//unsigned char *top = NULL;
+	//unsigned char *bottom = NULL;
+	//unsigned char temp = 0;
+	//int half_height = y / 2;
+
+	//for ( int row = 0; row < half_height; row++ ) {
+	//	top = image_data + row * width_in_bytes;
+	//	bottom = image_data + ( y - row - 1 ) * width_in_bytes;
+	//	for ( int col = 0; col < width_in_bytes; col++ ) {
+	//		temp = *top;
+	//		*top = *bottom;
+	//		*bottom = temp;
+	//		top++;
+	//		bottom++;
+	//	}
+	//}
 	glGenTextures( 1, tex );
 	glActiveTexture( GL_TEXTURE0 );
 	glBindTexture( GL_TEXTURE_2D, *tex );
