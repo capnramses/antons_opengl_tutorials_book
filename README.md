@@ -131,4 +131,4 @@ Contributors (mostly via GitHub):
 * 24kwakahana
 * battila7
 * Gnimuc https://github.com/Gnimuc
-* Peter G https://github.com/postfixNotation
+* Peter Getek https://github.com/postfixNotation
