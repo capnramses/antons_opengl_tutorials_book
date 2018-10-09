@@ -46,24 +46,6 @@ bool load_texture( const char *file_name, GLuint *tex ) {
 						 file_name );
 	}
 
-	// uncomment the following lines if you don't use 'stbi_set_flip_vertically_on_load(true);'
-	//int width_in_bytes = x * 4;
-	//unsigned char *top = NULL;
-	//unsigned char *bottom = NULL;
-	//unsigned char temp = 0;
-	//int half_height = y / 2;
-
-	//for ( int row = 0; row < half_height; row++ ) {
-	//	top = image_data + row * width_in_bytes;
-	//	bottom = image_data + ( y - row - 1 ) * width_in_bytes;
-	//	for ( int col = 0; col < width_in_bytes; col++ ) {
-	//		temp = *top;
-	//		*top = *bottom;
-	//		*bottom = temp;
-	//		top++;
-	//		bottom++;
-	//	}
-	//}
 	glGenTextures( 1, tex );
 	glActiveTexture( GL_TEXTURE0 );
 	glBindTexture( GL_TEXTURE_2D, *tex );
