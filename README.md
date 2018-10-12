@@ -118,7 +118,7 @@ Special thanks to all the readers over the years that have submitted additions,
 bug reports, fixes, and feedback. If you have submitted a correction and don't
 mind having your name/@ printed here please let me know (or if you'd like to change these details).
 
-Contributors (mostly via GitHub):
+Contributors
 
 * Olivier Nivoix
 * Sarang Baheti https://github.com/sarangbaheti
