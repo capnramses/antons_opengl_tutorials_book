@@ -12,7 +12,23 @@
 | This uses the libraries GLEW and GLFW3 to start GL. Download and compile     |
 | these first. Linking them might be a pain, but you'll need to master this.   |
 \******************************************************************************/
-#include <GL/glew.h>		/* include GLEW and new version of GL on Windows */
+
+/* NOTE(Anton) for OS X Mojave users:
+I updated this .c file and Makefile.osx to compile and run on Mojave
+The older compiled libraries in this repository will not link, so I modified the Makefile to
+link against dynamic libraries installed on the system.
+
+I suggest you:
+1. Download and install Homebrew
+2. brew install glfw and brew install glew
+
+- I also had to delete and reinstall XCode to update the c build tools.
+- Note that you may get a black screen until the window is moved or resized. I understand both GLFW
+and SDL libraries have this problem since Mojave and may require a patch to access the context in a
+different order than previous versions of OS X.
+*/
+
+#include <GL/glew.h>	/* include GLEW and new version of GL on Windows */
 #include <GLFW/glfw3.h> /* GLFW helper library */
 #include <stdio.h>
 
@@ -22,22 +38,26 @@ int main() {
 	const GLubyte *version;
 	GLuint vao;
 	GLuint vbo;
+
 	/* geometry to use. these are 3 xyz points (9 floats total) to make a triangle */
 	GLfloat points[] = { 0.0f, 0.5f, 0.0f, 0.5f, -0.5f, 0.0f, -0.5f, -0.5f, 0.0f };
+
 	/* these are the strings of code for the shaders
 	the vertex shader positions each vertex point */
 	const char *vertex_shader = "#version 410\n"
-		"in vec3 vp;"
-		"void main () {"
-		"  gl_Position = vec4 (vp, 1.0);"
-		"}";
+															"in vec3 vp;"
+															"void main () {"
+															"  gl_Position = vec4(vp, 1.0);"
+															"}";
+
 	/* the fragment shader colours each fragment (pixel-sized area of the
 	triangle) */
 	const char *fragment_shader = "#version 410\n"
-		"out vec4 frag_colour;"
-		"void main () {"
-		"  frag_colour = vec4 (0.5, 0.0, 0.5, 1.0);"
-		"}";
+																"out vec4 frag_colour;"
+																"void main () {"
+																"  frag_colour = vec4(0.5, 0.0, 0.5, 1.0);"
+																"}";
+
 	/* GL shader objects for vertex and fragment shader [components] */
 	GLuint vert_shader, frag_shader;
 	/* GL shader programme object [combined, to link] */
@@ -49,18 +69,10 @@ int main() {
 		return 1;
 	}
 
-/* We must specify 3.2 core if on Apple OS X -- other O/S can specify
-anything here. I defined 'APPLE' in the makefile for OS X
-
-Remove the #ifdef #endif and play around with this - you should be starting
-an explicit version anyway, and some non-Apple drivers will require this too.
-*/
-#ifdef APPLE
-	glfwWindowHint( GLFW_CONTEXT_VERSION_MAJOR, 3 );
-	glfwWindowHint( GLFW_CONTEXT_VERSION_MINOR, 2 );
+	glfwWindowHint( GLFW_CONTEXT_VERSION_MAJOR, 4 );
+	glfwWindowHint( GLFW_CONTEXT_VERSION_MINOR, 1 );
 	glfwWindowHint( GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE );
 	glfwWindowHint( GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE );
-#endif
 
 	window = glfwCreateWindow( 640, 480, "Hello Triangle", NULL, NULL );
 	if ( !window ) {
@@ -69,6 +81,7 @@ an explicit version anyway, and some non-Apple drivers will require this too.
 		return 1;
 	}
 	glfwMakeContextCurrent( window );
+
 	/* start GLEW extension handler */
 	glewExperimental = GL_TRUE;
 	glewInit();
@@ -84,6 +97,7 @@ an explicit version anyway, and some non-Apple drivers will require this too.
 	glEnable( GL_DEPTH_TEST ); /* enable depth-testing */
 	/* with LESS depth-testing interprets a smaller depth value as meaning "closer" */
 	glDepthFunc( GL_LESS );
+
 	/* a vertex buffer object (VBO) is created here. this stores an array of
 	data on the graphics adapter's memory. in our case - the vertex points */
 	glGenBuffers( 1, &vbo );
@@ -96,14 +110,13 @@ an explicit version anyway, and some non-Apple drivers will require this too.
 	variable' */
 	glGenVertexArrays( 1, &vao );
 	glBindVertexArray( vao );
-	// "attribute #0 should be enabled when this vao is bound"
+	/* "attribute #0 should be enabled when this vao is bound" */
 	glEnableVertexAttribArray( 0 );
-	// this VBO is already bound, but it's a good habit to explicitly specify which
-	// VBO's data the following
-	// vertex attribute pointer refers to
+	/* this VBO is already bound, but it's a good habit to explicitly specify which
+	VBO's data the following vertex attribute pointer refers to */
 	glBindBuffer( GL_ARRAY_BUFFER, vbo );
-	// "attribute #0 is created from every 3 variables in the above buffer, of type
-	// float (i.e. make me vec3s)"
+	/* "attribute #0 is created from every 3 variables in the above buffer, of type
+	float (i.e. make me vec3s)" */
 	glVertexAttribPointer( 0, 3, GL_FLOAT, GL_FALSE, 0, NULL );
 
 	/* here we copy the shader strings into GL shaders, and compile them. we
