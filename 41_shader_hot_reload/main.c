@@ -165,44 +165,26 @@ GLuint create_shader_program_from_files( const char* vertex_shader_filename, con
   char vs_shader_str[MAX_SHADER_SZ];
   char fs_shader_str[MAX_SHADER_SZ];
   vs_shader_str[0] = fs_shader_str[0] = '\0';
-  {
+  { // read vertex shader file into a buffer
     FILE* fp = fopen( vertex_shader_filename, "r" );
     if ( !fp ) {
       fprintf( stderr, "ERROR: could not open vertex shader file `%s`\n", vertex_shader_filename );
       return 0;
     }
-    char line[1024];
-    line[0]                = '\0';
-    int num_bytes_appended = 0;
-    while ( fgets( line, 1024, fp ) ) {
-      int len = strlen( line );
-      if ( ( len + num_bytes_appended ) > ( MAX_SHADER_SZ - 1 ) ) {
-        fprintf( stderr, "ERROR: shader is too long for buffer\n" );
-        return 0;
-      }
-      strncat( vs_shader_str, line, MAX_SHADER_SZ - num_bytes_appended - 1 );
-      num_bytes_appended += len;
-    }
+    size_t count = fread( vs_shader_str, 1, MAX_SHADER_SZ - 1, fp );
+    assert( count < MAX_SHADER_SZ - 1 ); // file was too long
+    vs_shader_str[count] = '\0';
     fclose( fp );
   }
-  {
+  { // read fragment shader file into a buffer
     FILE* fp = fopen( fragment_shader_filename, "r" );
     if ( !fp ) {
       fprintf( stderr, "ERROR: could not open fragment shader file `%s`\n", fragment_shader_filename );
       return 0;
     }
-    char line[1024];
-    line[0]                = '\0';
-    int num_bytes_appended = 0;
-    while ( fgets( line, 1024, fp ) ) {
-      int len = strlen( line );
-      if ( ( len + num_bytes_appended ) > ( MAX_SHADER_SZ - 1 ) ) {
-        fprintf( stderr, "ERROR: shader is too long for buffer\n" );
-        return 0;
-      }
-      strncat( fs_shader_str, line, MAX_SHADER_SZ - num_bytes_appended - 1 );
-      num_bytes_appended += len;
-    }
+    size_t count = fread( fs_shader_str, 1, MAX_SHADER_SZ - 1, fp );
+    assert( count < MAX_SHADER_SZ - 1 ); // file was too long
+    fs_shader_str[count] = '\0';
     fclose( fp );
   }
 

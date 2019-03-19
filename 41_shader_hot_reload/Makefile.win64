@@ -1,0 +1,11 @@
+BIN = hotreload.exe
+CC = gcc
+FLAGS = -Wall -pedantic -DGLEW_STATIC
+INC = -I ../common -I ../common/include
+LOC_LIB = ../common/GL/glew.c ../common/win64_gcc/libglfw3.a
+SYS_LIB = -lOpenGL32 -lgdi32 -lws2_32 -lm
+SRC = main.c
+
+all:
+	${CC} ${FLAGS} -o ${BIN} ${SRC} ${INC} ${LOC_LIB} ${SYS_LIB}
+
