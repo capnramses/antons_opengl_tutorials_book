@@ -3,7 +3,7 @@
 // Article: http://antongerdelan.net/opengl/shader_hot_reload.html
 // This code is C99.
 // To compile on Windows with gcc:
-// gcc -std=c99 -Wall -DGLEW_STATIC .\main_starting_point.c ..\common\GL\glew.c  ..\common\win64_gcc\libglfw3.a -I ..\common\ -I ..\common\include -lOpenGL32 -lgdi32 -lws2_32
+// gcc -std=c99 -Wall -DGLEW_STATIC .\main.c ..\common\GL\glew.c  ..\common\win64_gcc\libglfw3.a -I ..\common\ -I ..\common\include -lOpenGL32 -lgdi32 -lws2_32
 
 #include <GL/glew.h>    // or use another OpenGL header/function pointer wrangler eg glad
 #include <GLFW/glfw3.h> // or use another OpenGL context/window creator eg SDL2
@@ -209,6 +209,17 @@ GLint create_shader_program_from_files( const char* vertex_shader_filename, cons
   return create_shader_program_from_strings( vs_shader_str, fs_shader_str );
 }
 
+void reload_shader_program_from_files( GLuint* program, const char* vertex_shader_filename, const char* fragment_shader_filename ) {
+  assert( program && vertex_shader_filename && fragment_shader_filename );
+
+  GLuint reloaded_program = create_shader_program_from_files( vertex_shader_filename, fragment_shader_filename );
+
+  if ( reloaded_program ) {
+    glDeleteProgram( *program );
+    *program = reloaded_program;
+  }
+}
+
 int main() {
   if ( !start_opengl() ) { return 1; }
 
@@ -222,6 +233,7 @@ int main() {
 
   glEnable( GL_DEPTH_TEST );
   glDepthFunc( GL_LESS );
+  // drawing loop
   while ( !glfwWindowShouldClose( window ) ) {
     glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT ); // wipe the drawing surface clear
 
@@ -235,9 +247,20 @@ int main() {
       glUseProgram( 0 );
     }
 
-    glfwWaitEvents();          // update other events like input handling. Wait events only updates on demand. Poll events updates as fast as possible frame.
+    glfwPollEvents();          // update other events like input handling. Wait events only updates on demand. Poll events updates as fast as possible frame.
     glfwSwapBuffers( window ); // put the stuff we've been drawing onto the display
-  }
+
+    if ( glfwGetKey( window, GLFW_KEY_ESCAPE ) ) { glfwSetWindowShouldClose( window, 1 ); }
+
+    static bool reload_key_pressed = false;
+    bool down                      = glfwGetKey( window, GLFW_KEY_R );
+    if ( down && !reload_key_pressed ) {
+      reload_key_pressed = true;
+    } else if ( !down && reload_key_pressed ) {
+      reload_key_pressed = false;
+      reload_shader_program_from_files( &shader_program, "myshader.vert", "myshader.frag" );
+    }
+  } // endwhile
 
   stop_opengl();
   return 0;
