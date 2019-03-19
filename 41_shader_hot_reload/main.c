@@ -87,7 +87,7 @@ void create_geometry() {
 // fragment_shader_str - a null-terminated string of text containing a fragment shader
 // returns a new, valid shader program handle, or 0 if there was a problem finding/loading/compiling/linking
 // asserts on NULL parameters
-GLint create_shader_program_from_strings( const char* vertex_shader_str, const char* fragment_shader_str ) {
+GLuint create_shader_program_from_strings( const char* vertex_shader_str, const char* fragment_shader_str ) {
   assert( vertex_shader_str && fragment_shader_str );
 
   GLuint shader_program         = glCreateProgram();
@@ -157,7 +157,7 @@ GLint create_shader_program_from_strings( const char* vertex_shader_str, const c
   return shader_program;
 }
 
-GLint create_shader_program_from_files( const char* vertex_shader_filename, const char* fragment_shader_filename ) {
+GLuint create_shader_program_from_files( const char* vertex_shader_filename, const char* fragment_shader_filename ) {
   assert( vertex_shader_filename && fragment_shader_filename );
 
   printf( "loading shader from files `%s` and `%s`\n", vertex_shader_filename, fragment_shader_filename );
