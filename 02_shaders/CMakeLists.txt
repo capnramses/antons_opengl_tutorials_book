@@ -13,26 +13,26 @@ file(GLOB HEADERS
 
 #Main
 set(SOURCE_FILES main.c)
-add_executable(main ${SOURCE_FILES} ${HEADERS})
+add_executable(shaders ${SOURCE_FILES} ${HEADERS})
 
 #OpenGL
 find_package(OpenGL REQUIRED)
 include_directories(${OPENGL_INCLUDE_DIR})
 
-target_link_libraries(main ${OPENGL_gl_LIBRARY})
+target_link_libraries(shaders ${OPENGL_gl_LIBRARY})
 
 
 #GLFW
 find_package(PkgConfig REQUIRED)
 pkg_search_module(GLFW REQUIRED glfw3)
 include_directories(${GLFW_INCLUDE_DIRS})
-target_link_libraries(main ${GLFW_LIBRARIES})
+target_link_libraries(shaders ${GLFW_LIBRARIES})
 
 #GLEW
 find_package(GLEW REQUIRED)
 if (GLEW_FOUND)
     include_directories(${GLEW_INCLUDE_DIRS})
-    target_link_libraries(main ${GLEW_LIBRARIES})
+    target_link_libraries(shaders ${GLEW_LIBRARIES})
 endif()
 
 
