@@ -132,3 +132,4 @@ Contributors
 * battila7
 * Gnimuc https://github.com/Gnimuc
 * Peter Getek https://github.com/postfixNotation
+* Mikel Losada https://github.com/Workshoft
