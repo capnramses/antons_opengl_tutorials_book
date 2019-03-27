@@ -92,7 +92,7 @@ static void _window_size_callback( GLFWwindow* window, int width, int height ) {
 static void _glfw_error_callback( int error, const char* description ) { gl_log_err( "%s\n", description ); }
 
 bool start_gl() {
-  gl_log( "starting GLFW %s", glfwGetVersionString() );
+  gl_log( "starting GLFW %s\n", glfwGetVersionString() );
 
   glfwSetErrorCallback( _glfw_error_callback );
   if ( !glfwInit() ) {

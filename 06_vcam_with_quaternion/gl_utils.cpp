@@ -74,7 +74,7 @@ bool gl_log_err( const char *message, ... ) {
 
 /*--------------------------------GLFW3 and GLEW------------------------------*/
 bool start_gl() {
-	gl_log( "starting GLFW %s", glfwGetVersionString() );
+	gl_log( "starting GLFW %s\n", glfwGetVersionString() );
 
 	glfwSetErrorCallback( glfw_error_callback );
 	if ( !glfwInit() ) {
