@@ -20,8 +20,12 @@
 #include <stdarg.h>			// used by log functions to have variable number of args
 
 /*------------------------------GLOBAL VARIABLES------------------------------*/
-extern int g_gl_width;
-extern int g_gl_height;
+extern int g_gl_window_width;
+extern int g_gl_window_height;
+extern int g_gl_framebuffer_width;
+extern int g_gl_framebuffer_height;
+// flag raised when window size changes so app can update camera. app should then set this flag to false
+extern bool g_frambuffer_changed;
 extern GLFWwindow *g_window;
 /*--------------------------------LOG FUNCTIONS-------------------------------*/
 bool restart_gl_log();
@@ -30,8 +34,6 @@ bool gl_log( const char *message, ... );
 bool gl_log_err( const char *message, ... );
 /*--------------------------------GLFW3 and GLEW------------------------------*/
 bool start_gl();
-void glfw_error_callback( int error, const char *description );
-void glfw_framebuffer_size_callback( GLFWwindow *window, int width, int height );
 void _update_fps_counter( GLFWwindow *window );
 /*-----------------------------------SHADERS----------------------------------*/
 bool parse_file_into_str( const char *file_name, char *shader_str, int max_len );
