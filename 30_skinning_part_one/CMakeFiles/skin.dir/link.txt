@@ -1,1 +1,0 @@
-/usr/bin/c++     CMakeFiles/skin.dir/main.cpp.o CMakeFiles/skin.dir/maths_funcs.cpp.o CMakeFiles/skin.dir/gl_utils.cpp.o  -o skin /usr/lib/x86_64-linux-gnu/libGL.so -lglfw -lassimp /usr/lib/x86_64-linux-gnu/libGLEW.so 
