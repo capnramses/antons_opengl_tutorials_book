@@ -13,29 +13,29 @@ file(GLOB HEADERS
 
 #Main
 set(SOURCE_FILES main.cpp)
-add_executable(vbuffs ${SOURCE_FILES} ${HEADERS})
+add_executable(nmap ${SOURCE_FILES} ${HEADERS})
 
 #OpenGL
 find_package(OpenGL REQUIRED)
 include_directories(${OPENGL_INCLUDE_DIR})
-target_link_libraries(vbuffs ${OPENGL_gl_LIBRARY})
+target_link_libraries(nmap ${OPENGL_gl_LIBRARY})
 
 #ASSIMP
 find_package(Assimp REQUIRED)
 include_directories(${ASSIMP_INCLUDE_DIR})
-target_link_libraries(vbuffs ${ASSIMP_LIBRARIES})
+target_link_libraries(nmap ${ASSIMP_LIBRARIES})
 
 #GLFW
 find_package(PkgConfig REQUIRED)
 pkg_search_module(GLFW REQUIRED glfw3)
 include_directories(${GLFW_INCLUDE_DIRS})
-target_link_libraries(vbuffs ${GLFW_LIBRARIES})
+target_link_libraries(nmap ${GLFW_LIBRARIES})
 
 #GLEW
 find_package(GLEW REQUIRED)
 if (GLEW_FOUND)
     include_directories(${GLEW_INCLUDE_DIRS})
-    target_link_libraries(vbuffs ${GLEW_LIBRARIES})
+    target_link_libraries(nmap ${GLEW_LIBRARIES})
 endif()
 
 

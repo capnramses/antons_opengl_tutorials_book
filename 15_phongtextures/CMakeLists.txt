@@ -23,20 +23,20 @@ target_link_libraries(vbuffs ${OPENGL_gl_LIBRARY})
 #ASSIMP
 find_package(Assimp REQUIRED)
 include_directories(${ASSIMP_INCLUDE_DIR})
-target_link_libraries(vbuffs ${ASSIMP_LIBRARIES})
+target_link_libraries(phongtex ${ASSIMP_LIBRARIES})
 
 
 #GLFW
 find_package(PkgConfig REQUIRED)
 pkg_search_module(GLFW REQUIRED glfw3)
 include_directories(${GLFW_INCLUDE_DIRS})
-target_link_libraries(vbuffs ${GLFW_LIBRARIES})
+target_link_libraries(phongtex ${GLFW_LIBRARIES})
 
 #GLEW
 find_package(GLEW REQUIRED)
 if (GLEW_FOUND)
     include_directories(${GLEW_INCLUDE_DIRS})
-    target_link_libraries(vbuffs ${GLEW_LIBRARIES})
+    target_link_libraries(phongtex ${GLEW_LIBRARIES})
 endif()
 
 
