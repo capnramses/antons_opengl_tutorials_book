@@ -1,6 +1,6 @@
 BIN = raypick
-CC = g++
-FLAGS = -DAPPLE -Wall -pedantic -Werror
+CC = clang++
+FLAGS = -DAPPLE -Wall -pedantic
 INC = -I ../common/include -I/sw/include -I/usr/local/include
 LIB_PATH = ../common/osx_64/
 LOC_LIB = $(LIB_PATH)libGLEW.a $(LIB_PATH)libglfw3.a
