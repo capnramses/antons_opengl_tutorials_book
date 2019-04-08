@@ -12,26 +12,26 @@ file(GLOB HEADERS
 
 #Main
 set(SOURCE_FILES viewer_main.cpp)
-add_executable(g++ ${SOURCE_FILES} ${HEADERS})
+add_executable(font_atlas ${SOURCE_FILES} ${HEADERS})
 
 #OpenGL
 find_package(OpenGL REQUIRED)
 include_directories(${OPENGL_INCLUDE_DIR})
 
-target_link_libraries(g++ ${OPENGL_gl_LIBRARY})
+target_link_libraries(font_atlas ${OPENGL_gl_LIBRARY})
 
 
 #GLFW
 find_package(PkgConfig REQUIRED)
 pkg_search_module(GLFW REQUIRED glfw3)
 include_directories(${GLFW_INCLUDE_DIRS})
-target_link_libraries(g++ ${GLFW_LIBRARIES})
+target_link_libraries(font_atlas ${GLFW_LIBRARIES})
 
 #GLEW
 find_package(GLEW REQUIRED)
 if (GLEW_FOUND)
     include_directories(${GLEW_INCLUDE_DIRS})
-    target_link_libraries(g++ ${GLEW_LIBRARIES})
+    target_link_libraries(font_atlas ${GLEW_LIBRARIES})
 endif()
 
 
