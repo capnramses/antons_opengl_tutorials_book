@@ -13,12 +13,12 @@ file(GLOB HEADERS
 
 #Main
 set(SOURCE_FILES main.cpp)
-add_executable(vbuffs ${SOURCE_FILES} ${HEADERS})
+add_executable(phongtex ${SOURCE_FILES} ${HEADERS})
 
 #OpenGL
 find_package(OpenGL REQUIRED)
 include_directories(${OPENGL_INCLUDE_DIR})
-target_link_libraries(vbuffs ${OPENGL_gl_LIBRARY})
+target_link_libraries(phongtex ${OPENGL_gl_LIBRARY})
 
 #ASSIMP
 find_package(Assimp REQUIRED)
