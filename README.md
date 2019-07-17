@@ -129,3 +129,4 @@ Contributors
 * Gnimuc https://github.com/Gnimuc
 * Peter Getek https://github.com/postfixNotation
 * Mikel Losada https://github.com/Workshoft
+* Kevin Moran https://github.com/kevinmoran
