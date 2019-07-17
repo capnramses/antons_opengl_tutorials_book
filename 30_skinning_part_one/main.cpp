@@ -251,9 +251,9 @@ int main() {
 	float fov = 67.0f * ONE_DEG_IN_RAD; // convert 67 degrees to radians
 	float aspect = (float)g_gl_width / (float)g_gl_height; // aspect ratio
 	// matrix components
-	float range = tan( fov * 0.5f ) * near;
-	float Sx = ( 2.0f * near ) / ( range * aspect + range * aspect );
-	float Sy = near / range;
+	float inverse_range = 1.0f / tan( fov * 0.5f );
+	float Sx = inverse_range / aspect;
+	float Sy = inverse_range;
 	float Sz = -( far + near ) / ( far - near );
 	float Pz = -( 2.0f * far * near ) / ( far - near );
 	GLfloat proj_mat[] = { Sx,	 0.0f, 0.0f, 0.0f,	0.0f, Sy,		0.0f, 0.0f,
