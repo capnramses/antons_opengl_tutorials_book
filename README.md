@@ -28,7 +28,7 @@ If you have a [tidy] CMake setup or updated build **feel free to submit a pull r
 
 The libraries depended on reside in the common/ folder
 
-* `common/include` - Geader files.
+* `common/include` - Header files.
 * `common/linux_i386` - 32-bit GNU/Linux libraries.
 * `common/linux_x86_64` - 64-bit GNU/Linux libraries.
 * `common/msvc110` - 32-bit Windows Visual Studio libraries.
