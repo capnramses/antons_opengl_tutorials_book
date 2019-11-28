@@ -13,6 +13,7 @@
 #include <GL/glew.h>		// include GLEW and new version of GL on Windows
 #include <GLFW/glfw3.h> // GLFW helper library
 #include <assert.h>
+#include <string.h> // assimp forgot to include this
 #include <assimp/cimport.h>			// C importer
 #include <assimp/postprocess.h> // various extra operations
 #include <assimp/scene.h>				// collects data
