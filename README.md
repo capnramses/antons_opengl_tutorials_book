@@ -130,3 +130,4 @@ Contributors
 * Peter Getek https://github.com/postfixNotation
 * Mikel Losada https://github.com/Workshoft
 * Kevin Moran https://github.com/kevinmoran
+* Jon https://github.com/0xBAMA
