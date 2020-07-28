@@ -3,7 +3,7 @@
 // Article: http://antongerdelan.net/opengl/shader_hot_reload.html
 // This code is C99.
 // To compile on Windows with gcc:
-// gcc -std=c99 -Wall -DGLEW_STATIC .\main.c ..\common\GL\glew.c  ..\common\win64_gcc\libglfw3.a -I ..\common\ -I ..\common\include -lOpenGL32 -lgdi32 -lws2_32
+// gcc -Wall -DGLEW_STATIC .\main.c ..\common\GL\glew.c  ..\common\win64_gcc\libglfw3.a -I ..\common\ -I ..\common\include -lOpenGL32 -lgdi32
 
 #include <GL/glew.h>    // or use another OpenGL header/function pointer wrangler eg glad
 #include <GLFW/glfw3.h> // or use another OpenGL context/window creator eg SDL2
