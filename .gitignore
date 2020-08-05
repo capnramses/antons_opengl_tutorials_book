@@ -1,8 +1,8 @@
 # binary output
 *log
+screenshot_*
 # compiled binaries
-00_hello_triangle/hellot
-00_hello_triangle_gl2.1/hellot
+hellot
 01_extended_init/extinit
 02_shaders/shaders
 03_vertex_buffer_objects/vbuffs
@@ -13,7 +13,6 @@
 08_phong/phong
 09_texture_mapping/texmap
 10_screen_capture/scrcap
-screenshot_*
 11_video_capture/vidcap
 12_debugging_shaders/debugshdrs
 13_mesh_import/meshimp
@@ -24,35 +23,30 @@ screenshot_*
 18_spotlights/spotlights
 19_fog/fog
 20_normal_mapping/nmap
-21_cube_mapping/cubemap
+cubemap
 22_geom_shaders/geomsh
 23_tessellation_shaders/tess
+24_gui_panels/overlays
+25_sprite_sheets/sprites
+26_bitmap_fonts/fonts
+generate
+view
+29_particle_systems/particles
+32_skinning_part_three/skin
+skin
+fbuffer*
+35_image_kernel/kernel
 37_deferred_shading/deferred
 38_texture_shadows/shads
 38_texture_shadows/apple_notes/command_line
 39_texture_mapping_srgb/texmap
+41_shader_hot_reload/hotreload
 pick
-24_gui_panels/overlays
-25_sprite_sheets/sprites
-26_bitmap_fonts/fonts
-29_particle_systems/particles
-30_skinning_part_one/skin
-31_skinning_part_two/skin
-32_skinnng_part_three/skin
-34_framebuffer_switch/fbuffer
-35_image_kernel/kernel
-00_hello_triangle/Makefile.osx-e
-00_hello_triangle_gl2.1/Makefile.osx-e
-view
-27_font_atlas/atlas.meta
-27_font_atlas/atlas.png
-generate
 compute
-hellot
 exam*
-fbuffer*
-cubemap
 # custom user data
+atlas.meta
+atlas.png
 freefont-*
 *.ttf
 greek_*
@@ -68,4 +62,3 @@ build/
 *.exe
 *.pdb
 *.idb
-
