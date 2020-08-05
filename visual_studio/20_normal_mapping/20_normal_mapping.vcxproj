@@ -68,7 +68,6 @@
     <ClCompile Include="..\..\20_normal_mapping\gl_utils.cpp" />
     <ClCompile Include="..\..\20_normal_mapping\main.cpp" />
     <ClCompile Include="..\..\20_normal_mapping\maths_funcs.cpp" />
-    <ClCompile Include="..\..\20_normal_mapping\stb_image.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\20_normal_mapping\gl_utils.h" />

@@ -29,9 +29,6 @@
     <ClCompile Include="..\..\15_phongtextures\maths_funcs.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\15_phongtextures\stb_image.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\15_phongtextures\gl_utils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

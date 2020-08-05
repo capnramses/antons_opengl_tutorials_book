@@ -67,7 +67,6 @@
     <ClCompile Include="..\..\17_alpha_blending\gl_utils.cpp" />
     <ClCompile Include="..\..\17_alpha_blending\main.cpp" />
     <ClCompile Include="..\..\17_alpha_blending\maths_funcs.cpp" />
-    <ClCompile Include="..\..\17_alpha_blending\stb_image.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\17_alpha_blending\gl_utils.h" />

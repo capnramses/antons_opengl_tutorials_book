@@ -27,9 +27,6 @@
     <ClCompile Include="..\..\17_alpha_blending\maths_funcs.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\17_alpha_blending\stb_image.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\17_alpha_blending\stb_image.h">

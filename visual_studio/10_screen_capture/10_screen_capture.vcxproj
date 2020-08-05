@@ -67,7 +67,6 @@
     <ClCompile Include="..\..\10_screen_capture\gl_utils.cpp" />
     <ClCompile Include="..\..\10_screen_capture\main.cpp" />
     <ClCompile Include="..\..\10_screen_capture\maths_funcs.cpp" />
-    <ClCompile Include="..\..\10_screen_capture\stb_image.c" />
     <ClCompile Include="..\..\10_screen_capture\stb_image_write.c" />
   </ItemGroup>
   <ItemGroup>

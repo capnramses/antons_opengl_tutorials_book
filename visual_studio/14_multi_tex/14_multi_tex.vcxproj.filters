@@ -21,9 +21,6 @@
     <ClCompile Include="..\..\14_multi_tex\maths_funcs.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\14_multi_tex\stb_image.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\14_multi_tex\gl_utils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

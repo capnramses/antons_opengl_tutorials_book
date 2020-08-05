@@ -72,7 +72,6 @@
     <ClCompile Include="..\..\15_phongtextures\gl_utils.cpp" />
     <ClCompile Include="..\..\15_phongtextures\main.cpp" />
     <ClCompile Include="..\..\15_phongtextures\maths_funcs.cpp" />
-    <ClCompile Include="..\..\15_phongtextures\stb_image.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\15_phongtextures\gl_utils.h" />

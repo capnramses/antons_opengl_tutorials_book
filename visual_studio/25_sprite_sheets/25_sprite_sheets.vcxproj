@@ -66,7 +66,6 @@
   <ItemGroup>
     <ClCompile Include="..\..\25_sprite_sheets\main.cpp" />
     <ClCompile Include="..\..\25_sprite_sheets\maths_funcs.cpp" />
-    <ClCompile Include="..\..\25_sprite_sheets\stb_image.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\25_sprite_sheets\maths_funcs.h" />

@@ -30,9 +30,6 @@
     <ClCompile Include="..\..\28_uniform_buffer_object\obj_parser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\28_uniform_buffer_object\stb_image.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\28_uniform_buffer_object\gl_utils.h">

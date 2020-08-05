@@ -67,7 +67,6 @@
     <ClCompile Include="..\..\29_particle_systems\gl_utils.cpp" />
     <ClCompile Include="..\..\29_particle_systems\main.cpp" />
     <ClCompile Include="..\..\29_particle_systems\maths_funcs.cpp" />
-    <ClCompile Include="..\..\29_particle_systems\stb_image.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\29_particle_systems\gl_utils.h" />

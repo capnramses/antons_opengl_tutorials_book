@@ -67,7 +67,6 @@
     <ClCompile Include="..\..\14_multi_tex\gl_utils.cpp" />
     <ClCompile Include="..\..\14_multi_tex\main.cpp" />
     <ClCompile Include="..\..\14_multi_tex\maths_funcs.cpp" />
-    <ClCompile Include="..\..\14_multi_tex\stb_image.c" />
   </ItemGroup>
   <ItemGroup>
     <None Include="test_fs.glsl" />

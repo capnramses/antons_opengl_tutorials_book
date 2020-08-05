@@ -68,7 +68,6 @@
     <ClCompile Include="..\..\28_uniform_buffer_object\main.cpp" />
     <ClCompile Include="..\..\28_uniform_buffer_object\maths_funcs.cpp" />
     <ClCompile Include="..\..\28_uniform_buffer_object\obj_parser.cpp" />
-    <ClCompile Include="..\..\28_uniform_buffer_object\stb_image.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\28_uniform_buffer_object\gl_utils.h" />

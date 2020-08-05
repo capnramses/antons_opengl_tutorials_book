@@ -21,9 +21,6 @@
     <ClCompile Include="..\..\16_frag_reject\maths_funcs.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\16_frag_reject\stb_image.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\16_frag_reject\gl_utils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

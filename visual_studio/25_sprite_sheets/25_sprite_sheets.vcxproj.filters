@@ -21,9 +21,6 @@
     <ClCompile Include="..\..\25_sprite_sheets\maths_funcs.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\25_sprite_sheets\stb_image.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\25_sprite_sheets\maths_funcs.h">

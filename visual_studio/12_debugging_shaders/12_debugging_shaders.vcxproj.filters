@@ -30,9 +30,6 @@
     <ClCompile Include="..\..\12_debugging_shaders\obj_parser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\12_debugging_shaders\stb_image.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\12_debugging_shaders\obj_parser.h">

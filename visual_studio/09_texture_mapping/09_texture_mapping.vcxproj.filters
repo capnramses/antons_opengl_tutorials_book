@@ -27,9 +27,6 @@
     <ClCompile Include="..\..\09_texture_mapping\maths_funcs.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\09_texture_mapping\stb_image.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\09_texture_mapping\gl_utils.h">

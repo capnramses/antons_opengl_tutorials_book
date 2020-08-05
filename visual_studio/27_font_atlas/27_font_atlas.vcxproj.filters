@@ -18,9 +18,6 @@
     <ClCompile Include="..\..\27_font_atlas\maths_funcs.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\27_font_atlas\stb_image.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\27_font_atlas\stb_image_write.c">
       <Filter>Source Files</Filter>
     </ClCompile>

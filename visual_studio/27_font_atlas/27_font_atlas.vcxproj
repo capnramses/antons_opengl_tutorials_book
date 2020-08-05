@@ -69,7 +69,6 @@
   <ItemGroup>
     <ClCompile Include="..\..\27_font_atlas\generator_main.cpp" />
     <ClCompile Include="..\..\27_font_atlas\maths_funcs.cpp" />
-    <ClCompile Include="..\..\27_font_atlas\stb_image.c" />
     <ClCompile Include="..\..\27_font_atlas\stb_image_write.c" />
   </ItemGroup>
   <ItemGroup>

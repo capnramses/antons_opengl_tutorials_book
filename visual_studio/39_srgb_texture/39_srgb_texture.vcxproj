@@ -72,7 +72,6 @@
     <ClCompile Include="..\..\39_texture_mapping_srgb\gl_utils.cpp" />
     <ClCompile Include="..\..\39_texture_mapping_srgb\main.cpp" />
     <ClCompile Include="..\..\39_texture_mapping_srgb\maths_funcs.cpp" />
-    <ClCompile Include="..\..\39_texture_mapping_srgb\stb_image.c" />
   </ItemGroup>
   <ItemGroup>
     <None Include="test_fs.glsl" />

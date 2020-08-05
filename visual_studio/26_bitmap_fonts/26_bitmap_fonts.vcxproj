@@ -66,7 +66,6 @@
   <ItemGroup>
     <ClCompile Include="..\..\26_bitmap_fonts\main.cpp" />
     <ClCompile Include="..\..\26_bitmap_fonts\maths_funcs.cpp" />
-    <ClCompile Include="..\..\26_bitmap_fonts\stb_image.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\26_bitmap_fonts\maths_funcs.h" />

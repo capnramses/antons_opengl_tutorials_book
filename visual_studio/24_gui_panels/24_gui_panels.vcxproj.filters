@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\24_gui_panels\stb_image.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\24_gui_panels\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

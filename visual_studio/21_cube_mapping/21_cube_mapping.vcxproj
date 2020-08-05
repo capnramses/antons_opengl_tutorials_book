@@ -68,7 +68,6 @@
     <ClCompile Include="..\..\21_cube_mapping\main.cpp" />
     <ClCompile Include="..\..\21_cube_mapping\maths_funcs.cpp" />
     <ClCompile Include="..\..\21_cube_mapping\obj_parser.cpp" />
-    <ClCompile Include="..\..\21_cube_mapping\stb_image.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\21_cube_mapping\gl_utils.h" />

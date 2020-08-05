@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\26_bitmap_fonts\stb_image.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\26_bitmap_fonts\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

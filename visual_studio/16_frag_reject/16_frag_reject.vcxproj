@@ -67,7 +67,6 @@
     <ClCompile Include="..\..\16_frag_reject\gl_utils.cpp" />
     <ClCompile Include="..\..\16_frag_reject\main.cpp" />
     <ClCompile Include="..\..\16_frag_reject\maths_funcs.cpp" />
-    <ClCompile Include="..\..\16_frag_reject\stb_image.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\16_frag_reject\gl_utils.h" />

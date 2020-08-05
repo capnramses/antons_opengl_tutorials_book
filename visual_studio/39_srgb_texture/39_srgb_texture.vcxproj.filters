@@ -38,9 +38,6 @@
     <ClCompile Include="..\..\39_texture_mapping_srgb\gl_utils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\39_texture_mapping_srgb\stb_image.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="test_vs.glsl">
