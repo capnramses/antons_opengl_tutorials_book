@@ -20,4 +20,4 @@ bool check_program_errors( GLuint program );
 GLuint create_quad_vao();
 GLuint create_quad_program();
 
-extern GLFWwindow *window;
+extern GLFWwindow* window;

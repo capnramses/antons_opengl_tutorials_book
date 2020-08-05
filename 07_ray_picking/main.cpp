@@ -126,15 +126,13 @@ void update_perspective() {
 }
 
 int main() {
-  /*--------------------------------START
-   * OPENGL--------------------------------*/
+  /*--------------------------------START OPENGL--------------------------------*/
   restart_gl_log();
   // start GL context and O/S window using the GLFW helper library
   start_gl();
   // set a function to be called when the mouse is clicked
   glfwSetMouseButtonCallback( g_window, glfw_mouse_click_callback );
-  /*------------------------------CREATE
-   * GEOMETRY-------------------------------*/
+  /*------------------------------CREATE GEOMETRY-------------------------------*/
   GLfloat* vp       = NULL; // array of vertex points
   GLfloat* vn       = NULL; // array of vertex normals
   GLfloat* vt       = NULL; // array of texture coordinates

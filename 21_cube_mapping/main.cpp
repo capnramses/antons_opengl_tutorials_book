@@ -38,32 +38,24 @@
 #define RIGHT "posx.jpg"
 
 // keep track of window size for things like the viewport and the mouse cursor
-int g_gl_width      = 640;
-int g_gl_height     = 480;
+int g_gl_width       = 640;
+int g_gl_height      = 480;
 GLFWwindow* g_window = NULL;
 
 /* big cube. returns Vertex Array Object */
 GLuint make_big_cube() {
-  float points[] = {
-		-10.0f, 10.0f,	-10.0f, -10.0f, -10.0f, -10.0f, 10.0f,	-10.0f, -10.0f,
-		10.0f,	-10.0f, -10.0f, 10.0f,	10.0f,	-10.0f, -10.0f, 10.0f,	-10.0f,
+  float points[] = { -10.0f, 10.0f, -10.0f, -10.0f, -10.0f, -10.0f, 10.0f, -10.0f, -10.0f, 10.0f, -10.0f, -10.0f, 10.0f, 10.0f, -10.0f, -10.0f, 10.0f, -10.0f,
 
-		-10.0f, -10.0f, 10.0f,	-10.0f, -10.0f, -10.0f, -10.0f, 10.0f,	-10.0f,
-		-10.0f, 10.0f,	-10.0f, -10.0f, 10.0f,	10.0f,	-10.0f, -10.0f, 10.0f,
+    -10.0f, -10.0f, 10.0f, -10.0f, -10.0f, -10.0f, -10.0f, 10.0f, -10.0f, -10.0f, 10.0f, -10.0f, -10.0f, 10.0f, 10.0f, -10.0f, -10.0f, 10.0f,
 
-		10.0f,	-10.0f, -10.0f, 10.0f,	-10.0f, 10.0f,	10.0f,	10.0f,	10.0f,
-		10.0f,	10.0f,	10.0f,	10.0f,	10.0f,	-10.0f, 10.0f,	-10.0f, -10.0f,
+    10.0f, -10.0f, -10.0f, 10.0f, -10.0f, 10.0f, 10.0f, 10.0f, 10.0f, 10.0f, 10.0f, 10.0f, 10.0f, 10.0f, -10.0f, 10.0f, -10.0f, -10.0f,
 
-		-10.0f, -10.0f, 10.0f,	-10.0f, 10.0f,	10.0f,	10.0f,	10.0f,	10.0f,
-		10.0f,	10.0f,	10.0f,	10.0f,	-10.0f, 10.0f,	-10.0f, -10.0f, 10.0f,
+    -10.0f, -10.0f, 10.0f, -10.0f, 10.0f, 10.0f, 10.0f, 10.0f, 10.0f, 10.0f, 10.0f, 10.0f, 10.0f, -10.0f, 10.0f, -10.0f, -10.0f, 10.0f,
 
-		-10.0f, 10.0f,	-10.0f, 10.0f,	10.0f,	-10.0f, 10.0f,	10.0f,	10.0f,
-		10.0f,	10.0f,	10.0f,	-10.0f, 10.0f,	10.0f,	-10.0f, 10.0f,	-10.0f,
+    -10.0f, 10.0f, -10.0f, 10.0f, 10.0f, -10.0f, 10.0f, 10.0f, 10.0f, 10.0f, 10.0f, 10.0f, -10.0f, 10.0f, 10.0f, -10.0f, 10.0f, -10.0f,
 
-		-10.0f, -10.0f, -10.0f, -10.0f, -10.0f, 10.0f,	10.0f,	-10.0f, -10.0f,
-		10.0f,	-10.0f, -10.0f, -10.0f, -10.0f, 10.0f,	10.0f,	-10.0f, 10.0f
-	};
-	GLuint vbo;
+    -10.0f, -10.0f, -10.0f, -10.0f, -10.0f, 10.0f, 10.0f, -10.0f, -10.0f, 10.0f, -10.0f, -10.0f, -10.0f, -10.0f, 10.0f, 10.0f, -10.0f, 10.0f };
+  GLuint vbo;
   glGenBuffers( 1, &vbo );
   glBindBuffer( GL_ARRAY_BUFFER, vbo );
   glBufferData( GL_ARRAY_BUFFER, 3 * 36 * sizeof( GLfloat ), &points, GL_STATIC_DRAW );
@@ -126,8 +118,7 @@ mat4 proj_mat;
 vec3 cam_pos( 0.0f, 0.0f, 5.0f );
 
 int main() {
-  /*--------------------------------START
-   * OPENGL--------------------------------*/
+  /*--------------------------------START OPENGL--------------------------------*/
   restart_gl_log();
   // start GL context and O/S window using the GLFW helper library
   start_gl();
@@ -137,8 +128,7 @@ int main() {
   GLuint cube_vao = make_big_cube();
   GLuint cube_map_texture;
   create_cube_map( FRONT, BACK, TOP, BOTTOM, LEFT, RIGHT, &cube_map_texture );
-  /*------------------------------CREATE
-   * GEOMETRY-------------------------------*/
+  /*------------------------------create geometry-------------------------------*/
   GLfloat* vp       = NULL; // array of vertex points
   GLfloat* vn       = NULL; // array of vertex normals
   GLfloat* vt       = NULL; // array of texture coordinates
@@ -165,8 +155,7 @@ int main() {
     glEnableVertexAttribArray( 1 );
   }
 
-  /*-------------------------------CREATE
-   * SHADERS-------------------------------*/
+  /*-------------------------------CREATE SHADERS-------------------------------*/
   // shaders for "Suzanne" mesh
   GLuint monkey_sp      = create_programme_from_files( MONKEY_VERT_FILE, MONKEY_FRAG_FILE );
   int monkey_M_location = glGetUniformLocation( monkey_sp, "M" );
@@ -182,9 +171,9 @@ int main() {
 /*-------------------------------CREATE CAMERA--------------------------------*/
 #define ONE_DEG_IN_RAD ( 2.0 * M_PI ) / 360.0 // 0.017444444
   // input variables
-  float cam_near = 0.1f;                                     // clipping plane
-  float cam_far  = 100.0f;                                   // clipping plane
-  float fovy     = 67.0f;                                    // 67 degrees
+  float cam_near = 0.1f;                                   // clipping plane
+  float cam_far  = 100.0f;                                 // clipping plane
+  float fovy     = 67.0f;                                  // 67 degrees
   float aspect   = (float)g_gl_width / (float)g_gl_height; // aspect ratio
   proj_mat       = perspective( fovy, aspect, cam_near, cam_far );
 
@@ -200,8 +189,7 @@ int main() {
   vec4 rgt( 1.0f, 0.0f, 0.0f, 0.0f );
   vec4 up( 0.0f, 1.0f, 0.0f, 0.0f );
 
-  /*---------------------------SET RENDERING
-   * DEFAULTS---------------------------*/
+  /*---------------------------SET RENDERING DEFAULTS---------------------------*/
   glUseProgram( monkey_sp );
   glUniformMatrix4fv( monkey_V_location, 1, GL_FALSE, view_mat.m );
   glUniformMatrix4fv( monkey_P_location, 1, GL_FALSE, proj_mat.m );
@@ -218,8 +206,7 @@ int main() {
   glFrontFace( GL_CCW );              // set counter-clock-wise vertex order to mean the front
   glClearColor( 0.2, 0.2, 0.2, 1.0 ); // grey background to help spot mistakes
 
-  /*-------------------------------RENDERING
-   * LOOP-------------------------------*/
+  /*-------------------------------RENDERING LOOP-------------------------------*/
   while ( !glfwWindowShouldClose( g_window ) ) {
     // update timers
     static double previous_seconds = glfwGetTime();
@@ -240,7 +227,7 @@ int main() {
     // render a sky-box using the cube-map texture
     glDepthMask( GL_FALSE );
     glUseProgram( cube_sp );
-  	glUniformMatrix4fv( cube_P_location, 1, GL_FALSE, proj_mat.m );
+    glUniformMatrix4fv( cube_P_location, 1, GL_FALSE, proj_mat.m );
     glActiveTexture( GL_TEXTURE0 );
     glBindTexture( GL_TEXTURE_CUBE_MAP, cube_map_texture );
     glBindVertexArray( cube_vao );
@@ -250,7 +237,7 @@ int main() {
     glUseProgram( monkey_sp );
     glBindVertexArray( vao );
     glUniformMatrix4fv( monkey_M_location, 1, GL_FALSE, model_mat.m );
-  	glUniformMatrix4fv( monkey_P_location, 1, GL_FALSE, proj_mat.m );
+    glUniformMatrix4fv( monkey_P_location, 1, GL_FALSE, proj_mat.m );
     glDrawArrays( GL_TRIANGLES, 0, g_point_count );
     // update other events like input handling
     glfwPollEvents();

@@ -24,136 +24,131 @@ static double previous_seconds; // for use in fps timer
 
 /*--------------------------------LOG FUNCTIONS------------------------------*/
 bool restart_gl_log() {
-	time_t now;
-	char *date;
-	FILE *file = fopen( GL_LOG_FILE, "w" );
+  time_t now;
+  char* date;
+  FILE* file = fopen( GL_LOG_FILE, "w" );
 
-	if ( !file ) {
-		fprintf( stderr, "ERROR: could not open GL_LOG_FILE log file %s for writing\n",
-						 GL_LOG_FILE );
-		return false;
-	}
-	now = time( NULL );
-	date = ctime( &now );
-	fprintf( file, "GL_LOG_FILE log. local time %s\n", date );
-	fclose( file );
-	return true;
+  if ( !file ) {
+    fprintf( stderr, "ERROR: could not open GL_LOG_FILE log file %s for writing\n", GL_LOG_FILE );
+    return false;
+  }
+  now  = time( NULL );
+  date = ctime( &now );
+  fprintf( file, "GL_LOG_FILE log. local time %s\n", date );
+  fclose( file );
+  return true;
 }
 
-bool gl_log( const char *message, ... ) {
-	va_list argptr;
-	FILE *file = fopen( GL_LOG_FILE, "a" );
-	if ( !file ) {
-		fprintf( stderr, "ERROR: could not open GL_LOG_FILE %s file for appending\n",
-						 GL_LOG_FILE );
-		return false;
-	}
-	va_start( argptr, message );
-	vfprintf( file, message, argptr );
-	va_end( argptr );
-	fclose( file );
-	return true;
+bool gl_log( const char* message, ... ) {
+  va_list argptr;
+  FILE* file = fopen( GL_LOG_FILE, "a" );
+  if ( !file ) {
+    fprintf( stderr, "ERROR: could not open GL_LOG_FILE %s file for appending\n", GL_LOG_FILE );
+    return false;
+  }
+  va_start( argptr, message );
+  vfprintf( file, message, argptr );
+  va_end( argptr );
+  fclose( file );
+  return true;
 }
 
 /* same as gl_log except also prints to stderr */
-bool gl_log_err( const char *message, ... ) {
-	va_list argptr;
-	FILE *file = fopen( GL_LOG_FILE, "a" );
-	if ( !file ) {
-		fprintf( stderr, "ERROR: could not open GL_LOG_FILE %s file for appending\n",
-						 GL_LOG_FILE );
-		return false;
-	}
-	va_start( argptr, message );
-	vfprintf( file, message, argptr );
-	va_end( argptr );
-	va_start( argptr, message );
-	vfprintf( stderr, message, argptr );
-	va_end( argptr );
-	fclose( file );
-	return true;
+bool gl_log_err( const char* message, ... ) {
+  va_list argptr;
+  FILE* file = fopen( GL_LOG_FILE, "a" );
+  if ( !file ) {
+    fprintf( stderr, "ERROR: could not open GL_LOG_FILE %s file for appending\n", GL_LOG_FILE );
+    return false;
+  }
+  va_start( argptr, message );
+  vfprintf( file, message, argptr );
+  va_end( argptr );
+  va_start( argptr, message );
+  vfprintf( stderr, message, argptr );
+  va_end( argptr );
+  fclose( file );
+  return true;
 }
 
 /*--------------------------------GLFW3 and GLEW-----------------------------*/
 bool start_gl() {
-	const GLubyte *renderer;
-	const GLubyte *version;
+  const GLubyte* renderer;
+  const GLubyte* version;
 
-	gl_log( "starting GLFW %s", glfwGetVersionString() );
+  gl_log( "starting GLFW %s", glfwGetVersionString() );
 
-	glfwSetErrorCallback( glfw_error_callback );
-	if ( !glfwInit() ) {
-		fprintf( stderr, "ERROR: could not start GLFW3\n" );
-		return false;
-	}
+  glfwSetErrorCallback( glfw_error_callback );
+  if ( !glfwInit() ) {
+    fprintf( stderr, "ERROR: could not start GLFW3\n" );
+    return false;
+  }
 
+  glfwWindowHint( GLFW_CONTEXT_VERSION_MAJOR, 4 );
+  glfwWindowHint( GLFW_CONTEXT_VERSION_MINOR, 1 );
+  glfwWindowHint( GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE );
+  glfwWindowHint( GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE );
 
-	glfwWindowHint( GLFW_CONTEXT_VERSION_MAJOR, 4 );
-	glfwWindowHint( GLFW_CONTEXT_VERSION_MINOR, 1 );
-	glfwWindowHint( GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE );
-	glfwWindowHint( GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE );
+  /*GLFWmonitor* mon = glfwGetPrimaryMonitor ();
+  const GLFWvidmode* vmode = glfwGetVideoMode (mon);
+  g_window = glfwCreateWindow (
+    vmode->width, vmode->height, "Extended GL Init", mon, NULL
+  );*/
 
+  g_window = glfwCreateWindow( g_gl_width, g_gl_height, "Shaders", NULL, NULL );
+  if ( !g_window ) {
+    fprintf( stderr, "ERROR: could not open window with GLFW3\n" );
+    glfwTerminate();
+    return false;
+  }
+  glfwSetFramebufferSizeCallback( g_window, glfw_framebuffer_size_callback );
+  glfwMakeContextCurrent( g_window );
 
-	/*GLFWmonitor* mon = glfwGetPrimaryMonitor ();
-	const GLFWvidmode* vmode = glfwGetVideoMode (mon);
-	g_window = glfwCreateWindow (
-		vmode->width, vmode->height, "Extended GL Init", mon, NULL
-	);*/
+  glfwWindowHint( GLFW_SAMPLES, 4 );
 
-	g_window = glfwCreateWindow( g_gl_width, g_gl_height, "Shaders", NULL, NULL );
-	if ( !g_window ) {
-		fprintf( stderr, "ERROR: could not open window with GLFW3\n" );
-		glfwTerminate();
-		return false;
-	}
-	glfwSetFramebufferSizeCallback( g_window, glfw_framebuffer_size_callback );
-	glfwMakeContextCurrent( g_window );
+  /* start GLEW extension handler */
+  glewExperimental = GL_TRUE;
+  glewInit();
 
-	glfwWindowHint( GLFW_SAMPLES, 4 );
+  /* get version info */
+  renderer = glGetString( GL_RENDERER ); /* get renderer string */
+  version  = glGetString( GL_VERSION );  /* version as a string */
+  printf( "Renderer: %s\n", renderer );
+  printf( "OpenGL version supported %s\n", version );
+  gl_log( "renderer: %s\nversion: %s\n", renderer, version );
 
-	/* start GLEW extension handler */
-	glewExperimental = GL_TRUE;
-	glewInit();
+  previous_seconds = glfwGetTime();
 
-	/* get version info */
-	renderer = glGetString( GL_RENDERER ); /* get renderer string */
-	version = glGetString( GL_VERSION );	 /* version as a string */
-	printf( "Renderer: %s\n", renderer );
-	printf( "OpenGL version supported %s\n", version );
-	gl_log( "renderer: %s\nversion: %s\n", renderer, version );
-
-	previous_seconds = glfwGetTime();
-
-	return true;
+  return true;
 }
 
-void glfw_error_callback( int error, const char *description ) {
-	fputs( description, stderr );
-	gl_log_err( "%s\n", description );
+void glfw_error_callback( int error, const char* description ) {
+  fputs( description, stderr );
+  gl_log_err( "%s\n", description );
 }
 
 /* a call-back function */
-void glfw_framebuffer_size_callback( GLFWwindow *window, int width, int height ) {
-	g_gl_width = width;
-	g_gl_height = height;
-	printf( "width %i height %i\n", width, height );
-	/* update any perspective matrices used here */
+void glfw_framebuffer_size_callback( GLFWwindow* window, int width, int height ) {
+  g_gl_width  = width;
+  g_gl_height = height;
+  printf( "width %i height %i\n", width, height );
+  /* update any perspective matrices used here */
 }
 
-void _update_fps_counter( GLFWwindow *window ) {
-	static int frame_count;
-	double current_seconds = glfwGetTime();
-	double elapsed_seconds = current_seconds - previous_seconds;
+void _update_fps_counter( GLFWwindow* window ) {
+  static int frame_count;
+  double current_seconds = glfwGetTime();
+  double elapsed_seconds = current_seconds - previous_seconds;
 
-	if ( elapsed_seconds > 0.25 ) {
-		double fps;
-		char tmp[128];
+  if ( elapsed_seconds > 0.25 ) {
+    double fps;
+    char tmp[128];
 
-		previous_seconds = current_seconds;
-		fps = (double)frame_count / elapsed_seconds;
-		sprintf( tmp, "opengl @ fps: %.2f", fps );
-		glfwSetWindowTitle( window, tmp );
-		frame_count = 0;
-	}
-	frame_count++;
+    previous_seconds = current_seconds;
+    fps              = (double)frame_count / elapsed_seconds;
+    sprintf( tmp, "opengl @ fps: %.2f", fps );
+    glfwSetWindowTitle( window, tmp );
+    frame_count = 0;
+  }
+  frame_count++;
 }
