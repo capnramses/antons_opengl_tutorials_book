@@ -102,12 +102,6 @@ version of the supporting libraries used to get around linking errors.
 * Code is directly copy-pasted from book sections. This means that there will be redundant OpenGL calls to bind things etc. but I think it's easier to follow along like this.
 * Code explained in prior examples is moved to a file called `gl_utils.cpp` to avoid cluttering `main.cpp`. This means that `gl_utils.cpp` is not necessarily the same in each demo, but is built up gradually.
 
-## SDL2 Port ##
-
-Dr Aidan Delaney at the University of Brighton has made an SDL2 port (as an
-alternative to using GLFW), which you can find on GitHub
-https://github.com/AidanDelaney/antons_opengl_tutorials_book/
-
 ## Credits ##
 
 Special thanks to all the readers over the years that have submitted additions,
