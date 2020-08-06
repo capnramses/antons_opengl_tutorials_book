@@ -30,7 +30,7 @@ The libraries depended on reside in the common/ folder
 * `common/include` - Header files.
 * `common/linux_i386` - 32-bit GNU/Linux libraries.
 * `common/linux_x86_64` - 64-bit GNU/Linux libraries.
-* `common/osx_64` - 64-bit Apple OS X libraries.
+* `common/osx_64` - 64-bit Apple macOS libraries.
 * `common/win32` - 32-bit Windows GCC (MinGW) libraries.
 * `common/win64_gcc` - 64-bit Windows GCC (MinGW-w64) libraries.
 
@@ -64,7 +64,7 @@ make -f Makefile.linux64
 make -f Makefile.linux32
 ```
 
-### Apple OS X ###
+### Apple macOS ###
 
 * Install Clang or GNU compiler and tools - usually by installing Apple XCode through the App Store. It's free.
 * Open a terminal and `cd` to the demo of choice:
