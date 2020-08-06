@@ -13,21 +13,6 @@
 | these first. Linking them might be a pain, but you'll need to master this.   |
 \******************************************************************************/
 
-/* NOTE(Anton) for OS X Mojave users:
-I updated this .c file and Makefile.osx to compile and run on Mojave
-The older compiled libraries in this repository will not link, so I modified the Makefile to
-link against dynamic libraries installed on the system.
-
-I suggest you:
-1. Download and install Homebrew
-2. brew install glfw and brew install glew
-
-- I also had to delete and reinstall XCode to update the c build tools.
-- Note that you may get a black screen until the window is moved or resized. I understand both GLFW
-and SDL libraries have this problem since Mojave and may require a patch to access the context in a
-different order than previous versions of OS X.
-*/
-
 #include <GL/glew.h>    /* include GLEW and new version of GL on Windows */
 #include <GLFW/glfw3.h> /* GLFW helper library */
 #include <stdio.h>
@@ -71,6 +56,7 @@ int main() {
     return 1;
   }
 
+  /* Version 4.1 Core is a good default that should run on just about everything. Adjust later to suit project requirements. */
   glfwWindowHint( GLFW_CONTEXT_VERSION_MAJOR, 4 );
   glfwWindowHint( GLFW_CONTEXT_VERSION_MINOR, 1 );
   glfwWindowHint( GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE );
