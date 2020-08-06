@@ -3,7 +3,7 @@
 | Accompanies written series "Anton's OpenGL 4 Tutorials"                      |
 | Email: anton at antongerdelan dot net                                        |
 | First version 7 Nov 2013                                                     |
-| Dr Anton Gerdelan, Trinity College Dublin, Ireland.                |
+| Dr Anton Gerdelan, Trinity College Dublin, Ireland.                          |
 | See individual libraries' separate legal notices                             |
 |******************************************************************************|
 | Anton's lazy Wavefront OBJ parser                                            |

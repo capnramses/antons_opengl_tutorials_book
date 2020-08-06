@@ -3,7 +3,7 @@
 | Accompanies written series "Anton's OpenGL 4 Tutorials"                      |
 | Email: anton at antongerdelan dot net                                        |
 | First version 5 Feb 2014                                                     |
-| Dr Anton Gerdelan, Trinity College Dublin, Ireland.                |
+| Dr Anton Gerdelan, Trinity College Dublin, Ireland.                          |
 | See individual libraries and assets for respective legal notices             |
 |******************************************************************************|
 | Font Atlas Generator example                                                 |
