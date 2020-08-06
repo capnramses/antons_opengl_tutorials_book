@@ -5,7 +5,7 @@
 This series of demos accompanies the e-book "Anton's OpenGL 4 Tutorials":
 [antongerdelan.net/opengl](http://antongerdelan.net/opengl/)
 
-Copyright Dr Anton Gerdelan, Trinity College Dublin, Ireland.
+Anton Gerdelan
 email: antonofnote AT gmail
 
 ## Info ##
