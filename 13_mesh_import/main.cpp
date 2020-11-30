@@ -158,7 +158,7 @@ int main() {
   float fov    = 67.0f * ONE_DEG_IN_RAD;                 // convert 67 degrees to radians
   float aspect = (float)g_gl_width / (float)g_gl_height; // aspect ratio
   // matrix components
-  float inverse_range = 1.0f / tan( fov * 0.5f );
+  float inverse_range = 1.0f / tanf( fov * 0.5f );
   float Sx            = inverse_range / aspect;
   float Sy            = inverse_range;
   float Sz            = -( far + near ) / ( far - near );
