@@ -163,7 +163,12 @@ int main() {
   float Sy            = inverse_range;
   float Sz            = -( far + near ) / ( far - near );
   float Pz            = -( 2.0f * far * near ) / ( far - near );
-  GLfloat proj_mat[]  = { Sx, 0.0f, 0.0f, 0.0f, 0.0f, Sy, 0.0f, 0.0f, 0.0f, 0.0f, Sz, -1.0f, 0.0f, 0.0f, Pz, 0.0f };
+  GLfloat proj_mat[]  = {
+    Sx, 0.0f, 0.0f, 0.0f,  // first column
+    0.0f, Sy, 0.0f, 0.0f,  // second column
+    0.0f, 0.0f, Sz, -1.0f, // third column
+    0.0f, 0.0f, Pz, 0.0f   // fourth column
+  };
 
   float cam_speed     = 1.0f;                 // 1 unit per second
   float cam_yaw_speed = 10.0f;                // 10 degrees per second
