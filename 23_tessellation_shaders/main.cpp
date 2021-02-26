@@ -41,6 +41,7 @@ int main() {
   glfwWindowHint( GLFW_CONTEXT_VERSION_MINOR, 1 );
   glfwWindowHint( GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE );
   glfwWindowHint( GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE );
+  glfwWindowHint( GLFW_SAMPLES, 4 );
 
   /*GLFWmonitor* mon = glfwGetPrimaryMonitor ();
   const GLFWvidmode* vmode = glfwGetVideoMode (mon);
@@ -57,7 +58,6 @@ int main() {
   glfwSetFramebufferSizeCallback( window, glfw_framebuffer_size_callback );
   glfwMakeContextCurrent( window );
 
-  glfwWindowHint( GLFW_SAMPLES, 4 );
 
   // start GLEW extension handler
   glewExperimental = GL_TRUE;

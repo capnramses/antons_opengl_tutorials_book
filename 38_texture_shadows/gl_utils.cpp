@@ -85,12 +85,14 @@ bool start_gl() {
   glfwWindowHint( GLFW_CONTEXT_VERSION_MINOR, 1 );
   glfwWindowHint( GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE );
   glfwWindowHint( GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE );
+  glfwWindowHint( GLFW_SAMPLES, 16 );
 
   /*GLFWmonitor* mon = glfwGetPrimaryMonitor ();
   const GLFWvidmode* vmode = glfwGetVideoMode (mon);
   g_window = glfwCreateWindow (
     vmode->width, vmode->height, "Extended GL Init", mon, NULL
   );*/
+
 
   g_window = glfwCreateWindow( g_gl_width, g_gl_height, "Extended Init.", NULL, NULL );
   if ( !g_window ) {
@@ -100,8 +102,6 @@ bool start_gl() {
   }
   glfwSetFramebufferSizeCallback( g_window, glfw_framebuffer_size_callback );
   glfwMakeContextCurrent( g_window );
-
-  glfwWindowHint( GLFW_SAMPLES, 16 );
 
   // start GLEW extension handler
   glewExperimental = GL_TRUE;
