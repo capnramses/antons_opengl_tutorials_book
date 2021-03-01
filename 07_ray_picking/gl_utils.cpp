@@ -104,6 +104,7 @@ bool start_gl() {
   glfwWindowHint( GLFW_CONTEXT_VERSION_MINOR, 1 );
   glfwWindowHint( GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE );
   glfwWindowHint( GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE );
+  glfwWindowHint( GLFW_SAMPLES, 4 );
 
   /*GLFWmonitor* mon = glfwGetPrimaryMonitor ();
   const GLFWvidmode* vmode = glfwGetVideoMode (mon);
@@ -126,7 +127,6 @@ bool start_gl() {
   glfwGetFramebufferSize( g_window, &g_gl_framebuffer_width, &g_gl_framebuffer_height );
   gl_log( "initial framebuffer dims %ix%i\n", g_gl_framebuffer_width, g_gl_framebuffer_height );
 
-  glfwWindowHint( GLFW_SAMPLES, 4 );
 
   // start GLEW extension handler
   glewExperimental = GL_TRUE;
