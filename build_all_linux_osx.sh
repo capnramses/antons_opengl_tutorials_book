@@ -59,6 +59,7 @@ declare -a demo_folders=(
 "38_texture_shadows"
 "39_texture_mapping_srgb"
 "40_compute_shader"
+"41_shader_hot_reload"
 )
 
 ## call make inside each folder
