@@ -2,19 +2,21 @@
 
 ## Digital Content
 
-Asset content is mostly drawn/modelled by Anton Gerdelan, and you are free to use in any way that
-you like. There are exceptions:
+Asset content is mostly created by Anton Gerdelan, and you are free to use in any way that
+you like, without restriction, and are released world-wide into the public domain https://creativecommons.org/share-your-work/public-domain/pdm/.
 
-* Skybox textures are from Emil Persson's website
+There are exceptions:
+
+* Skybox textures are from Emil Persson's website.
 [http://www.humus.name/index.php?page=Textures](http://www.humus.name/index.php?page=Textures)
 
-These have a Creative Commons Attribution 3.0 Unported Licence.
+These have a [Creative Commons Attribution 3.0 Unported Licence](https://creativecommons.org/licenses/by/3.0/).
 
-* GNU "freemono" font is from GNU FreeFont (GNU General Public Licence)
+* GNU "freemono" font is from GNU FreeFont (GNU General Public Licence).
 [https://www.gnu.org/software/freefont/](https://www.gnu.org/software/freefont/)
 
-* The "Suzanne" monkey mesh is from Blender software
-[http://blender.org/](http://blender.org/)
+* The "Suzanne" monkey mesh is a primitive exported from Blender software.
+[https://www.blender.org/](https://www.blender.org/)
 
 ## Source Code
 
