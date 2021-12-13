@@ -3,7 +3,7 @@
 ## Digital Content
 
 Asset content is mostly created by Anton Gerdelan, and you are free to use in any way that
-you like, without restriction, and are released world-wide into the public domain https://creativecommons.org/share-your-work/public-domain/pdm/.
+you like, without restriction, and are released world-wide into the [public domain](https://creativecommons.org/share-your-work/public-domain/pdm/).
 
 There are exceptions:
 
