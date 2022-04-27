@@ -76,7 +76,18 @@ code is licensed under the Modified BSD License, the Mesa 3-D License
 (MIT License), and the Khronos License (MIT License). The automatic code
 generation scripts are released under the GNU GPL. 
 
-* GLFW library http://www.glfw.org/
+* GLFW library http://www.glfw.org/ is under the zlib/libpng license, which permits modification, distribution and use in closed source software.
 
-GLFW is licensed under the zlib/libpng license, a simple license that permits
-modification, distribution and use in closed source software.
+> Copyright © 2002-2006 Marcus Geelnard
+> 
+> Copyright © 2006-2019 Camilla Löwy
+> 
+> This software is provided ‘as-is’, without any express or implied warranty. In no event will the authors be held liable for any damages arising from the use of this software.
+> 
+> Permission is granted to anyone to use this software for any purpose, including commercial applications, and to alter it and redistribute it freely, subject to the following restrictions:
+> 
+> The origin of this software must not be misrepresented; you must not claim that you wrote the original software. If you use this software in a product, > an acknowledgment in the product documentation would be appreciated but is not required.
+> 
+> Altered source versions must be plainly marked as such, and must not be misrepresented as being the original software.
+> 
+> This notice may not be removed or altered from any source distribution.
