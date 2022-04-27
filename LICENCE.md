@@ -2,10 +2,9 @@
 
 ## Digital Content
 
-Asset content is mostly created by Anton Gerdelan, and you are free to use in any way that
-you like, without restriction, and are released world-wide into the [public domain](https://creativecommons.org/share-your-work/public-domain/pdm/).
+Original asset content is created by Anton Gerdelan, and you are free to use in any way that you like, without restriction, and are released world-wide into the [public domain](https://creativecommons.org/share-your-work/public-domain/pdm/).
 
-There are exceptions:
+### Third-Party Digital Assets
 
 * Skybox textures are from [Emil Persson's website](http://www.humus.name/index.php?page=Textures). These have a [Creative Commons Attribution 3.0 Unported Licence](https://creativecommons.org/licenses/by/3.0/).
 
