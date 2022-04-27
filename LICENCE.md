@@ -21,10 +21,7 @@ Original asset content is created by Anton Gerdelan, and you are free to use in 
 
 ### Third-Party Libraries
 
-* Sean Barrett's public domain stb_image and stb_image_write libraries https://github.com/nothings/stb
-
-These are used here under the terms of the Public Domain licence, but it is also possible to use them under the terms of the MIT licence.
-
+* Sean Barrett's public domain _stb_image_ and _stb_image_write_ libraries https://github.com/nothings/stb are used here under the terms of the Public Domain licence, but it is also possible to use them under the terms of the MIT licence. See header comments in those libraries for details.
 * AssImp library http://assimp.sourceforge.net/
 
 > Copyright (c) 2006-2012 assimp team
