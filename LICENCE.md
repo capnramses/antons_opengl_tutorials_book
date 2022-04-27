@@ -26,6 +26,8 @@ All code is written by Anton Gerdelan, except for the libraries detailed in the 
 
 * Sean Barrett's public domain stb_image and stb_image_write libraries https://github.com/nothings/stb
 
+These are used here under the terms of the Public Domain licence, but it is also possible to use them under the terms of the MIT licence.
+
 * AssImp library http://assimp.sourceforge.net/
 
 Copyright (c) 2006-2012 assimp team
