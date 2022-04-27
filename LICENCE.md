@@ -7,13 +7,9 @@ you like, without restriction, and are released world-wide into the [public doma
 
 There are exceptions:
 
-* Skybox textures are from Emil Persson's website.
-[http://www.humus.name/index.php?page=Textures](http://www.humus.name/index.php?page=Textures)
+* Skybox textures are from [Emil Persson's website](http://www.humus.name/index.php?page=Textures). These have a [Creative Commons Attribution 3.0 Unported Licence](https://creativecommons.org/licenses/by/3.0/).
 
-These have a [Creative Commons Attribution 3.0 Unported Licence](https://creativecommons.org/licenses/by/3.0/).
-
-* GNU "freemono" font is from GNU FreeFont [GNU General Public Licence](https://www.gnu.org/licenses/gpl-3.0.html).
-[https://www.gnu.org/software/freefont/](https://www.gnu.org/software/freefont/)
+* GNU "freemono" font is from [GNU FreeFont](https://www.gnu.org/software/freefont/), under the terms of the [GNU General Public Licence](https://www.gnu.org/licenses/gpl-3.0.html).
 
 * The "Suzanne" monkey mesh is a primitive exported from Blender software.
 [https://www.blender.org/](https://www.blender.org/)
