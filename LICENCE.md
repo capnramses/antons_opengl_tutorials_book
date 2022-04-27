@@ -11,8 +11,7 @@ There are exceptions:
 
 * GNU "freemono" font is from [GNU FreeFont](https://www.gnu.org/software/freefont/), under the terms of the [GNU General Public Licence](https://www.gnu.org/licenses/gpl-3.0.html).
 
-* The "Suzanne" monkey mesh is a primitive exported from Blender software.
-[https://www.blender.org/](https://www.blender.org/)
+* The "Suzanne" monkey mesh is a primitive exported from the [Blender](https://www.blender.org/) 3D modelling software.
 
 ## Source Code
 
