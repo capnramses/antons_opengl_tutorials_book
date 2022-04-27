@@ -14,7 +14,10 @@ Original asset content is created by Anton Gerdelan, and you are free to use in 
 
 ## Source Code
 
-All code is written by Anton Gerdelan, except for the libraries detailed in the following subsection, which have their own licences. You are free to fork, share, refer to, upload, modify, and compile the original example code into free or commercial programs. **You are not permitted to charge money for the source code as an educational resource**, offer it as an included good or service as part of a for-profit course, include it as an educational service in return for consultancy fees, or otherwise misrepresent copyright. If in doubt provide a referring URL or GitHub fork back to this repository https://github.com/capnramses/antons_opengl_tutorials_book/, author's webpage http://antongerdelan.net, or an authorised distributor's page for Anton's OpenGL 4 Tutorials book - Amazon and Itch.io. If you believe you have paid an unauthorised party to receive this free code or its non-free book please contact the author.
+* Except for the libraries detailed in the following subsection, which have their own licences, you are free to fork, share, refer to, upload, modify, and compile the source code in this project into free or commercial programs.
+* **You are not permitted to charge money for the source code as an educational resource**, offer it as an included good or service as part of a for-profit course, include it as an educational service in return for consultancy fees, or otherwise misrepresent copyright.
+* If in doubt, provide a referring URL or GitHub fork back to this repository https://github.com/capnramses/antons_opengl_tutorials_book/, the author's webpage http://antongerdelan.net, or an authorised distributor's page for _Anton's OpenGL 4 Tutorials_ book - Amazon and Itch.io.
+* If you believe you have paid an unauthorised party to receive this free code or its non-free book please contact the author.
 
 ### Third-Party Libraries
 
