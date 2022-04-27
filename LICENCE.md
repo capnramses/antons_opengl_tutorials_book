@@ -22,6 +22,45 @@ Original asset content is created by Anton Gerdelan, and you are free to use in 
 ### Third-Party Libraries
 
 * Sean Barrett's public domain _stb_image_ and _stb_image_write_ libraries https://github.com/nothings/stb are used here under the terms of the Public Domain licence, but it is also possible to use them under the terms of the MIT licence. See header comments in those libraries for details.
+
+> This software is available under 2 licenses -- choose whichever you prefer.
+> ------------------------------------------------------------------------------
+> ALTERNATIVE A - MIT License
+> Copyright (c) 2017 Sean Barrett
+> Permission is hereby granted, free of charge, to any person obtaining a copy of
+> this software and associated documentation files (the "Software"), to deal in
+> the Software without restriction, including without limitation the rights to
+> use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+> of the Software, and to permit persons to whom the Software is furnished to do
+> so, subject to the following conditions:
+> The above copyright notice and this permission notice shall be included in all
+> copies or substantial portions of the Software.
+> THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+> IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+> FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+> AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+> LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+> OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+> SOFTWARE.
+> ------------------------------------------------------------------------------
+> ALTERNATIVE B - Public Domain (www.unlicense.org)
+> This is free and unencumbered software released into the public domain.
+> Anyone is free to copy, modify, publish, use, compile, sell, or distribute this
+> software, either in source code form or as a compiled binary, for any purpose,
+> commercial or non-commercial, and by any means.
+> In jurisdictions that recognize copyright laws, the author or authors of this
+> software dedicate any and all copyright interest in the software to the public
+> domain. We make this dedication for the benefit of the public at large and to
+> the detriment of our heirs and successors. We intend this dedication to be an
+> overt act of relinquishment in perpetuity of all present and future rights to
+> this software under copyright law.
+> THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+> IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+> FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+> AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
+> ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+> WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
 * AssImp library http://assimp.sourceforge.net/
 
 > Copyright (c) 2006-2012 assimp team
@@ -71,10 +110,15 @@ Original asset content is created by Anton Gerdelan, and you are free to use in 
 
 * GLEW library http://glew.sourceforge.net/
 
-GLEW is originally derived from the EXTGL project by Lev Povalahev. The source
-code is licensed under the Modified BSD License, the Mesa 3-D License
-(MIT License), and the Khronos License (MIT License). The automatic code
-generation scripts are released under the GNU GPL. 
+> GLEW is originally derived from the EXTGL project by Lev Povalahev.
+> The source code is licensed under the
+[Modified BSD License](http://glew.sourceforge.net/glew.txt), the
+[Mesa 3-D License](http://glew.sourceforge.net/mesa.txt) (MIT) and the
+[Khronos License](http://glew.sourceforge.net/khronos.txt) (MIT).
+> 
+> The automatic code generation scripts are released under the
+[GNU GPL](http://glew.sourceforge.net/gpl.txt).
+
 
 * GLFW library http://www.glfw.org/ is under the zlib/libpng license, which permits modification, distribution and use in closed source software.
 
