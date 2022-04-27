@@ -24,7 +24,7 @@ Original asset content is created by Anton Gerdelan, and you are free to use in 
 * Sean Barrett's public domain _stb_image_ and _stb_image_write_ libraries https://github.com/nothings/stb are used here under the terms of the Public Domain licence, but it is also possible to use them under the terms of the MIT licence. See header comments in those libraries for details.
 
 > This software is available under 2 licenses -- choose whichever you prefer.
-> ------------------------------------------------------------------------------
+> 
 > ALTERNATIVE A - MIT License
 > Copyright (c) 2017 Sean Barrett
 > Permission is hereby granted, free of charge, to any person obtaining a copy of
@@ -42,7 +42,7 @@ Original asset content is created by Anton Gerdelan, and you are free to use in 
 > LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 > OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 > SOFTWARE.
-> ------------------------------------------------------------------------------
+> 
 > ALTERNATIVE B - Public Domain (www.unlicense.org)
 > This is free and unencumbered software released into the public domain.
 > Anyone is free to copy, modify, publish, use, compile, sell, or distribute this
