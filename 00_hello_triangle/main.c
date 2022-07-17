@@ -42,7 +42,7 @@ int main() {
     "#version 410\n"
     "out vec4 frag_colour;"
     "void main () {"
-    "  frag_colour = vec4(0.5, 0.0, 0.5, 1.0);"
+    "  frag_colour = vec4(0.5, 0.0, 0.0, 1.0);"
     "}";
 
   /* GL shader objects for vertex and fragment shader [components] */
