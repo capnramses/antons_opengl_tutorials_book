@@ -53,6 +53,8 @@ greek_*
 *.save
 # IDE and build systems temporary files
 build/
+build-*/
+.vs/
 *.osx-e
 .vscode
 *.gcda
