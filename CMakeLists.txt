@@ -5,6 +5,8 @@
 cmake_minimum_required(VERSION 3.6)
 project (antons_opengl_tutorials_book)
 
+set(CMAKE_CXX_STANDARD 11)            # Enable c++11 standard
+
 #OpenGL
 find_package(OpenGL REQUIRED)
 
@@ -24,10 +26,22 @@ endif()
 #if (NOT GLEW_FOUND)
     find_path(GLFW_INCLUDE_DIRS NAMES "GL/glew.h")
     find_path(GLFW_INCLUDE_DIR NAMES "GL/glew.h")
-    find_library(GLEW_LIBRARIES NAMES "glew32s.lib") # static
+    find_library(GLEW_LIBRARIES NAMES "glew32.lib") # static
 #endif()
 
+macro (add_gl_executable target sources)
+    include_directories(${CMAKE_SOURCE_DIR})
 
+    add_executable(${target} ${sources})
+    if (WIN32)
+	    target_compile_definitions(${target} PRIVATE  _CRT_SECURE_NO_WARNINGS)
+    endif()
+    target_include_directories(${target} PRIVATE ${GLFW_INCLUDE_DIRS})
+    target_include_directories(${target} PRIVATE ${GLEW_INCLUDE_DIRS})
+    target_link_libraries(${target} ${GLFW_LIBRARIES})
+    target_link_libraries(${target} ${GLEW_LIBRARIES})
+    target_link_libraries(${target} ${OPENGL_gl_LIBRARY})
+endmacro(add_gl_executable)
 
 add_subdirectory(00_hello_triangle)
 add_subdirectory(01_extended_init)
