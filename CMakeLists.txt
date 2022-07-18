@@ -7,6 +7,8 @@ project (antons_opengl_tutorials_book)
 
 set(CMAKE_CXX_STANDARD 11)            # Enable c++11 standard
 
+set_property(GLOBAL PROPERTY USE_FOLDERS ON)
+
 #OpenGL
 find_package(OpenGL REQUIRED)
 
@@ -41,6 +43,10 @@ macro (add_gl_executable target sources)
     target_link_libraries(${target} ${GLFW_LIBRARIES})
     target_link_libraries(${target} ${GLEW_LIBRARIES})
     target_link_libraries(${target} ${OPENGL_gl_LIBRARY})
+
+    set_target_properties(${target}
+                      PROPERTIES FOLDER
+                      "examples")
 endmacro(add_gl_executable)
 
 add_subdirectory(00_hello_triangle)

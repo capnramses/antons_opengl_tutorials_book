@@ -9,4 +9,5 @@ file(GLOB HEADERS
 
 #Main
 set(SOURCE_FILES main.c)
-add_gl_executable(extinit ${SOURCE_FILES};${HEADERS})
+get_filename_component(TARGET ${CMAKE_CURRENT_SOURCE_DIR} NAME)
+add_gl_executable(${TARGET} ${SOURCE_FILES};${HEADERS})
