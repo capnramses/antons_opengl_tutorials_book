@@ -130,6 +130,8 @@ int main() {
       surface. hence the 'swap' idea. in a single-buffering system we would see
       stuff being drawn one-after-the-other */
   while ( !glfwWindowShouldClose( window ) ) {
+    /* experimenting... */
+    glClearColor( 0.6f, 0.6f, 0.6f, 1.0f );
     /* wipe the drawing surface clear */
     glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
     glUseProgram( shader_programme );
