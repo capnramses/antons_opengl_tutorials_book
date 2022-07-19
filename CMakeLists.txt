@@ -18,18 +18,30 @@ if (UNIX)
     pkg_search_module(GLFW REQUIRED glfw3)
 else()
     #find_package(GLFW)
-    find_path(GLFW_INCLUDE_DIR NAMES "GLFW/glfw3.h" HINTS "C:/opt/glfw-3.3.7.bin.WIN64/include" )
+    find_path(GLFW_INCLUDE_DIR NAMES "GLFW/glfw3.h" HINTS 
+        "C:/opt/glfw-3.3.7.bin.WIN64/include" 
+        "C:/opt/GLFW/include"
+        )
     set (GLFW_INCLUDE_DIRS ${GLFW_INCLUDE_DIR})
-    find_library(GLFW_LIBRARIES NAMES "glfw3.lib" HINTS "C:/opt/glfw-3.3.7.bin.WIN64/lib-vc2019" )
+    find_library(GLFW_LIBRARIES NAMES "glfw3.lib" HINTS 
+        "C:/opt/glfw-3.3.7.bin.WIN64/lib-vc2019" 
+        "C:/opt/GLFW/lib"
+        )
 endif()
 
 #GLEW
 #set (GLEW_VERBOSE YES)
 #find_package(GLEW )
 if (NOT GLEW_FOUND)
-    find_path(GLEW_INCLUDE_DIR NAMES "GL/glew.h"  HINTS "C:/opt/glew-2.1.0/include" )
+    find_path(GLEW_INCLUDE_DIR NAMES "GL/glew.h"  HINTS 
+        "C:/opt/glew-2.1.0/include" 
+        "C:/opt/glew-2.2.0/include"
+        )
     set(GLEW_INCLUDE_DIRS ${GLEW_INCLUDE_DIR})
-    find_library(GLEW_LIBRARIES NAMES "glew32.lib"  HINTS "C:/opt/glew-2.1.0/lib/Release/x64" )
+    find_library(GLEW_LIBRARIES NAMES "glew32.lib"  HINTS 
+        "C:/opt/glew-2.1.0/lib/Release/x64" 
+        "C:/opt/glew-2.2.0/lib/Release/x64"
+        )
 endif()
 
 macro (add_gl_executable target sources)
