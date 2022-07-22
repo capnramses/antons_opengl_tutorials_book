@@ -14,8 +14,8 @@ add_gl_executable(${TARGET} ${SOURCE_FILES};${HEADERS})
 
 # Load the shader strings from text files called test.vertand test.frag(a naming convention is handy).
 # Gerdelan, Anton. Anton's OpenGL 4 Tutorials . Kindle Edition.
-set (SOURCE_FILES_EXP1 main_exp1.c fragment.shader.cmake vertex.shader.cmake)
-add_gl_executable(${TARGET}_exp1 ${SOURCE_FILES_EXP1};${HEADERS})
+list (APPEND SOURCE_FILES_EXP1 main_exp1.c fragment.shader.cmake vertex.shader.cmake ${HEADERS})
+add_gl_executable(${TARGET}_exp1 "${SOURCE_FILES_EXP1}")
 
 configure_file(fragment.shader.cmake fragment.shader)
 configure_file(vertex.shader.cmake vertex.shader)

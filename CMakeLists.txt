@@ -47,6 +47,7 @@ endif()
 macro (add_gl_executable target sources)
     include_directories(${CMAKE_SOURCE_DIR})
 
+    message(STATUS "Adding ${target} -> ${sources}")
     add_executable(${target} ${sources})
     if (WIN32)
 	    target_compile_definitions(${target} PRIVATE  _CRT_SECURE_NO_WARNINGS)

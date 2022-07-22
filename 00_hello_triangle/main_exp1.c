@@ -20,6 +20,8 @@
 #include <string.h>
 #include <stdlib.h>
 
+#include <assert.h>
+
 char* read_from_file( const char* filename ) {
 
   FILE* text_file = fopen( filename, "rb" );
@@ -31,9 +33,15 @@ char* read_from_file( const char* filename ) {
   fseek( text_file, 0, SEEK_END );
   long size = ftell( text_file );
 
+  char* buffer = malloc(size + 1);
+  assert( buffer );
+  fseek( text_file, 0, SEEK_SET );
+  size_t n = fread( buffer, 1, size, text_file );
+  assert( n == size );
+  buffer[size] = 0;
 
   fclose( text_file );
-  return 0;
+  return buffer;
 }
 
 int main() {
@@ -50,7 +58,7 @@ int main() {
 
   /* these are the strings of code for the shaders
   the vertex shader positions each vertex point */
-  const char* vertex_shader = read_from_file( "vertex2.shader" );
+  const char* vertex_shader = read_from_file( "vertex.shader" );
 #if 0
     "#version 410\n"
     "in vec3 vp;"
@@ -85,7 +93,7 @@ int main() {
   glfwWindowHint( GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE );
   glfwWindowHint( GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE );
 
-  window = glfwCreateWindow( 640, 480, "Hello Triangle", NULL, NULL );
+  window = glfwCreateWindow( 640, 480, "Hello Triangle (Experiments)", NULL, NULL );
   if ( !window ) {
     fprintf( stderr, "ERROR: could not open window with GLFW3\n" );
     glfwTerminate();
