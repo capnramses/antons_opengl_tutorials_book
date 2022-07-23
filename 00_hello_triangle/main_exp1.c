@@ -22,6 +22,31 @@
 
 #include <assert.h>
 
+/*
+Load the shader strings from text files called test.vertand test.frag(a naming convention is handy). 
+
+Change the colour of the triangle in the fragment shader. 
+
+Try to move the shape in the vertex
+shader e.g. vec4 (vp.x, vp.y + 1.0, vp.z, 1.0); 
+
+Try to add another triangle to the list of points and make a square shape. You will have to change several 
+variables when setting up the buffer and drawing the shape. Which variables do you need to keep track of 
+for each triangle? (hint: not much...). 
+
+Try drawing with GL_LINE_STRIP or GL_LINESor GL_POINTSinstead of triangles. Does it put the lines
+where you expect? How big are the points by default? 
+
+Try changing the background colour by using glClearColor ()before the rendering loop. Something grey-ish is usually fairly neutral; 0.6f, 0.6f,
+0.8f, 1.0f. 
+
+Try creating a second VAO, and drawing 2 shapes (remember to bind the second VAO before drawing again). 
+
+Try creating a second shader programme, and draw the second shape a different colour
+(remember to "use" the second shader programme before drawing again).
+
+Gerdelan, Anton. Anton's OpenGL 4 Tutorials . Kindle Edition. */
+
 char* read_from_file( const char* filename ) {
 
   FILE* text_file = fopen( filename, "rb" );
