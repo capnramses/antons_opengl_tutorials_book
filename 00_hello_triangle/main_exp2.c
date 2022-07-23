@@ -17,6 +17,58 @@
 #include <GLFW/glfw3.h> /* GLFW helper library */
 #include <stdio.h>
 
+#include <string.h>
+#include <stdlib.h>
+
+#include <assert.h>
+
+/*
+Load the shader strings from text files called test.vertand test.frag(a naming convention is handy). 
+
+Change the colour of the triangle in the fragment shader. 
+
+Try to move the shape in the vertex
+shader e.g. vec4 (vp.x, vp.y + 1.0, vp.z, 1.0); 
+
+Try to add another triangle to the list of points and make a square shape. You will have to change several 
+variables when setting up the buffer and drawing the shape. Which variables do you need to keep track of 
+for each triangle? (hint: not much...). 
+
+Try drawing with GL_LINE_STRIP or GL_LINES or GL_POINTS instead of triangles. Does it put the lines
+where you expect? How big are the points by default? 
+
+Try changing the background colour by using glClearColor ()before the rendering loop. Something grey-ish is usually fairly neutral; 0.6f, 0.6f,
+0.8f, 1.0f. 
+
+Try creating a second VAO, and drawing 2 shapes (remember to bind the second VAO before drawing again). 
+
+Try creating a second shader programme, and draw the second shape a different colour
+(remember to "use" the second shader programme before drawing again).
+
+Gerdelan, Anton. Anton's OpenGL 4 Tutorials . Kindle Edition. */
+
+char* read_from_file( const char* filename ) {
+
+  FILE* text_file = fopen( filename, "rb" );
+  if ( text_file == NULL) {
+    fprintf( stderr, "Cannot open input file: %s. %s\n", filename, strerror( errno ) );
+    exit( 2 );
+  }
+
+  fseek( text_file, 0, SEEK_END );
+  long size = ftell( text_file );
+
+  char* buffer = malloc(size + 1);
+  assert( buffer );
+  fseek( text_file, 0, SEEK_SET );
+  size_t n = fread( buffer, 1, size, text_file );
+  assert( n == size );
+  buffer[size] = 0;
+
+  fclose( text_file );
+  return buffer;
+}
+
 int main() {
   GLFWwindow* window = NULL;
   const GLubyte* renderer;
@@ -28,12 +80,15 @@ int main() {
   GLfloat points[] = { 
       0.0f, 0.5f, 0.0f, 
       0.5f, -0.5f, 0.0f,
-      -0.5f, -0.5f, 0.0f,
+      0.0f, -0.5f, 0.0f,
+      -0.5f, -0.5f, 0.0f,  
   };
+
+  /* Load the shader strings from text files called test.vertand test.frag( a naming convention is handy ).*/
 
   /* these are the strings of code for the shaders
   the vertex shader positions each vertex point */
-  const char* vertex_shader =
+  const char* vertex_shader = 
     "#version 410\n"
     "in vec3 vp;"
     "void main () {"
@@ -42,7 +97,7 @@ int main() {
 
   /* the fragment shader colours each fragment (pixel-sized area of the
   triangle) */
-  const char* fragment_shader =
+  const char* fragment_shader = 
     "#version 410\n"
     "out vec4 frag_colour;"
     "void main () {"
@@ -66,7 +121,7 @@ int main() {
   glfwWindowHint( GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE );
   glfwWindowHint( GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE );
 
-  window = glfwCreateWindow( 640, 480, "Hello Triangle", NULL, NULL );
+  window = glfwCreateWindow( 640, 480, "Hello Triangle (Experiments)", NULL, NULL );
   if ( !window ) {
     fprintf( stderr, "ERROR: could not open window with GLFW3\n" );
     glfwTerminate();
@@ -94,7 +149,10 @@ int main() {
   data on the graphics adapter's memory. in our case - the vertex points */
   glGenBuffers( 1, &vbo );
   glBindBuffer( GL_ARRAY_BUFFER, vbo );
-  glBufferData( GL_ARRAY_BUFFER, 9 * sizeof( GLfloat ), points, GL_STATIC_DRAW );
+  fprintf( stderr, "%d\n", (int)(9 * sizeof( GLfloat )) );
+  fprintf( stderr, "%d\n", (int)sizeof( GLfloat ) );
+  fprintf( stderr, "%d\n", (int)sizeof( points ) );
+  glBufferData( GL_ARRAY_BUFFER, sizeof( points ), points, GL_STATIC_DRAW );
 
   /* the vertex array object (VAO) is a little descriptor that defines which
   data from vertex buffer objects should be used as input variables to vertex
@@ -109,7 +167,7 @@ int main() {
   glBindBuffer( GL_ARRAY_BUFFER, vbo );
   /* "attribute #0 is created from every 3 variables in the above buffer, of type
   float (i.e. make me vec3s)" */
-  glVertexAttribPointer( 0, 3, GL_FLOAT, GL_FALSE, 0, NULL );
+  glVertexAttribPointer( 0, 4, GL_FLOAT, GL_FALSE, 0, NULL );
 
   /* here we copy the shader strings into GL shaders, and compile them. we
   then create an executable shader 'program' and attach both of the compiled
@@ -140,8 +198,12 @@ int main() {
     glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
     glUseProgram( shader_programme );
     glBindVertexArray( vao );
-    /* draw points 0-3 from the currently bound VAO with current in-use shader */
-    glDrawArrays( GL_TRIANGLES, 0, 3 );
+    /* draw points 0-4 from the currently bound VAO with current in-use shader */
+#if 1
+    glDrawArrays( GL_LINE_STRIP, 0, 4 );
+#else
+    glDrawArrays( GL_TRIANGLES, 0, 4 );
+#endif
     /* update other events like input handling */
     glfwPollEvents();
     /* put the stuff we've been drawing onto the display */

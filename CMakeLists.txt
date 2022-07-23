@@ -57,6 +57,7 @@ macro (add_gl_executable target sources)
     target_link_libraries(${target} ${GLFW_LIBRARIES})
     target_link_libraries(${target} ${GLEW_LIBRARIES})
     target_link_libraries(${target} ${OPENGL_gl_LIBRARY})
+    #target_link_options(${target} PRIVATE "/NODEFAULTLIB:MSVCRT")
 
     set_target_properties(${target}
                       PROPERTIES FOLDER
