@@ -96,6 +96,10 @@ int main() {
       0.5f, -0.5f, 0.0f,
       -0.5f, -0.5f, 0.0f,
 #else
+      0.0f, 0.5f, 0.0f, 
+      0.5f, -0.5f, 0.0f,
+      -0.5f, -0.5f, 0.0f,
+
       1.0f, 1.5f, 0.0f,
       1.5f, 0.5f, 0.0f,
       0.5f, 0.5f, 0.0f,
@@ -110,7 +114,7 @@ int main() {
     "#version 410\n"
     "in vec3 vp;"
     "void main () {"
-    "  gl_Position = vec4(vp, 1.0);"
+    "  gl_Position = vec4(vp, 1.7);"
     "}";
 
   /* the fragment shader colours each fragment (pixel-sized area of the
@@ -218,7 +222,7 @@ int main() {
 #if 0
     glDrawArrays( GL_LINES, 0, 6 );
 #else
-    glDrawArrays( GL_TRIANGLES, 0, 3 );
+    glDrawArrays( GL_TRIANGLES, 0, 6 );
 #endif
 
     if ( glGetError() ) { 
