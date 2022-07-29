@@ -102,9 +102,11 @@ int main() {
 #endif
   };
 
+  /* Load the shader strings from text files called test.vertand test.frag( a naming convention is handy ).*/
+
   /* these are the strings of code for the shaders
   the vertex shader positions each vertex point */
-  const char* vertex_shader =
+  const char* vertex_shader = 
     "#version 410\n"
     "in vec3 vp;"
     "void main () {"
@@ -113,7 +115,7 @@ int main() {
 
   /* the fragment shader colours each fragment (pixel-sized area of the
   triangle) */
-  const char* fragment_shader =
+  const char* fragment_shader = 
     "#version 410\n"
     "out vec4 frag_colour;"
     "void main () {"
@@ -184,7 +186,7 @@ int main() {
 
   /* here we copy the shader strings into GL shaders, and compile them. we
   then create an executable shader 'program' and attach both of the compiled
-  shaders. we link this, which matches the outputs of the vertex shader to
+      shaders. we link this, which matches the outputs of the vertex shader to
   the inputs of the fragment shader, etc. and it is then ready to use */
   vert_shader = glCreateShader( GL_VERTEX_SHADER );
   glShaderSource( vert_shader, 1, &vertex_shader, NULL );
@@ -199,7 +201,7 @@ int main() {
 
   /*  this loop clears the drawing surface, then draws the geometry described
       by the VAO onto the drawing surface. we 'poll events' to see if the window
-      was closed, etc. finally, we 'swap the buffers' which displays our drawing
+  was closed, etc. finally, we 'swap the buffers' which displays our drawing
       surface onto the view area. we use a double-buffering system which means
       that we have a 'currently displayed' surface, and 'currently being drawn'
       surface. hence the 'swap' idea. in a single-buffering system we would see
