@@ -219,14 +219,14 @@ int main() {
     glBindVertexArray( vao );
     /* draw points 0-4 from the currently bound VAO with current in-use shader */
 
-#if 0
-    glDrawArrays( GL_LINES, 0, 6 );
+#if 1
+    glDrawArrays( GL_LINE_STRIP, 0, 6 );
 #else
     glDrawArrays( GL_TRIANGLES, 0, 6 );
 #endif
-
-    if ( glGetError() ) { 
-        printf( "GL ERROR: %d: %s\n", glGetError(), gl_error_string( glGetError() ) ); 
+    int err;
+    if ( (err = glGetError()) ) { 
+        printf( "GL ERROR: %d: %s\n", err, gl_error_string( err ) );
         break;
     }
 
