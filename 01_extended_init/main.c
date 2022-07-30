@@ -14,11 +14,14 @@
 #include <stdarg.h> // for doing gl_log() functions that work like printf()
 #include <stdio.h>
 #include <time.h>
-//#include <stdbool.h> /* for visual studio i had to comment this out and define
-// pure-C bool :( */
-#define bool int
-#define true 1
-#define false 0
+
+#if 1
+#   include <stdbool.h> /* for visual studio i had to comment this out and define pure-C bool :( */
+#else
+#   define bool int
+#   define true 1
+#   define false 0
+#endif
 #define GL_LOG_FILE "gl.log"
 
 // global to use in timer code later
