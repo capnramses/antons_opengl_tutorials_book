@@ -1,39 +1,17 @@
-cmake_minimum_required(VERSION 3.6)   # CMake version check
-project(antons_tutorials C CXX)               # Create project "simple_example"
-set(CMAKE_CXX_STANDARD 11)            # Enable c++11 standard
+#
+#
+#
 
-#add source folder so the program can be compiled at build folder
-include_directories(${CMAKE_SOURCE_DIR})
+list(APPEND SOURCE_FILES 
+	main.c
+	gl_utils.c
+	gl_utils.h
+	test_fs.glsl
+	test_vs.glsl
+)
 
-#Headers
-file(GLOB HEADERS
-  *.h
-  *.c
-  )
+get_filename_component(TARGET ${CMAKE_CURRENT_SOURCE_DIR} NAME)
+add_gl_executable(${TARGET} "${SOURCE_FILES};${HEADERS}")
 
-#Main
-set(SOURCE_FILES main.c)
-add_executable(shaders ${SOURCE_FILES} ${HEADERS})
-
-#OpenGL
-find_package(OpenGL REQUIRED)
-include_directories(${OPENGL_INCLUDE_DIR})
-
-target_link_libraries(shaders ${OPENGL_gl_LIBRARY})
-
-
-#GLFW
-find_package(PkgConfig REQUIRED)
-pkg_search_module(GLFW REQUIRED glfw3)
-include_directories(${GLFW_INCLUDE_DIRS})
-target_link_libraries(shaders ${GLFW_LIBRARIES})
-
-#GLEW
-find_package(GLEW REQUIRED)
-if (GLEW_FOUND)
-    include_directories(${GLEW_INCLUDE_DIRS})
-    target_link_libraries(shaders ${GLEW_LIBRARIES})
-endif()
-
-
-
+configure_file(test_fs.glsl test_fs.glsl)
+configure_file(test_vs.glsl test_vs.glsl)
