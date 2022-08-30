@@ -16,6 +16,12 @@ find_package(OpenGL REQUIRED)
 if (UNIX)
     find_package(PkgConfig REQUIRED)
     pkg_search_module(GLFW REQUIRED glfw3)
+
+elseif(MINGW)
+	find_package(PkgConfig REQUIRED)
+    pkg_search_module(GLFW REQUIRED glfw3)
+    pkg_search_module(GLEW REQUIRED glew)
+
 else()
     #find_package(GLFW)
     find_path(GLFW_INCLUDE_DIR NAMES "GLFW/glfw3.h" HINTS 
