@@ -9,6 +9,8 @@ set(CMAKE_CXX_STANDARD 11)            # Enable c++11 standard
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
+message(STATUS "MINGW=${MINGW}")
+
 #OpenGL
 find_package(OpenGL REQUIRED)
 
