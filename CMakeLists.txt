@@ -9,6 +9,8 @@ set(CMAKE_CXX_STANDARD 11)            # Enable c++11 standard
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
+message(STATUS "MINGW=${MINGW}")
+
 #OpenGL
 find_package(OpenGL REQUIRED)
 
@@ -16,6 +18,11 @@ find_package(OpenGL REQUIRED)
 if (UNIX)
     find_package(PkgConfig REQUIRED)
     pkg_search_module(GLFW REQUIRED glfw3)
+elseif(MINGW)
+	find_package(PkgConfig REQUIRED)
+    pkg_search_module(GLFW REQUIRED glfw3)
+    pkg_search_module(GLEW REQUIRED glew)
+
 else()
     #find_package(GLFW)
     find_path(GLFW_INCLUDE_DIR NAMES "GLFW/glfw3.h" HINTS 
