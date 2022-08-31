@@ -9,8 +9,6 @@ set(CMAKE_CXX_STANDARD 11)            # Enable c++11 standard
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
-message(STATUS "MINGW=${MINGW}")
-
 #OpenGL
 find_package(OpenGL REQUIRED)
 
@@ -77,8 +75,8 @@ add_subdirectory(01_extended_init)
 add_subdirectory(02_shaders)
 add_subdirectory(03_vertex_buffer_objects)
 add_subdirectory(04_mats_and_vecs)
-if (FALSE)
 add_subdirectory(05_virtual_camera)
+if (FALSE)
 add_subdirectory(06_vcam_with_quaternion)
 add_subdirectory(07_ray_picking)
 add_subdirectory(08_phong)
