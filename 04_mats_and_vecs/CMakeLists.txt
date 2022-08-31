@@ -1,40 +1,13 @@
-cmake_minimum_required(VERSION 3.6)   # CMake version check
-project(antons_tutorials C CXX)               # Create project "simple_example"
-set(CMAKE_CXX_STANDARD 11)            # Enable c++11 standard
+#
+#
+#
 
-#add source folder so the program can be compiled at build folder
-include_directories(${CMAKE_SOURCE_DIR})
+set(HEADERS gl_utils.h maths_funcs.h)
 
-#Headers
-file(GLOB HEADERS
-  *.h
-  *.c
-  *.cpp
-  )
+set(SOURCE_FILES main.cpp gl_utils.cpp maths_funcs.cpp)
 
-#Main
-set(SOURCE_FILES main.cpp)
-add_executable(matsvecs ${SOURCE_FILES} ${HEADERS})
+get_filename_component(TARGET ${CMAKE_CURRENT_SOURCE_DIR} NAME)
+add_gl_executable(${TARGET} "${SOURCE_FILES};${HEADERS}")
 
-#OpenGL
-find_package(OpenGL REQUIRED)
-include_directories(${OPENGL_INCLUDE_DIR})
-
-target_link_libraries(matsvecs ${OPENGL_gl_LIBRARY})
-
-
-#GLFW
-find_package(PkgConfig REQUIRED)
-pkg_search_module(GLFW REQUIRED glfw3)
-include_directories(${GLFW_INCLUDE_DIRS})
-target_link_libraries(matsvecs ${GLFW_LIBRARIES})
-
-#GLEW
-find_package(GLEW REQUIRED)
-if (GLEW_FOUND)
-    include_directories(${GLEW_INCLUDE_DIRS})
-    target_link_libraries(matsvecs ${GLEW_LIBRARIES})
-endif()
-
-
-
+configure_file(test_fs.glsl test_fs.glsl)
+configure_file(test_vs.glsl test_vs.glsl)
