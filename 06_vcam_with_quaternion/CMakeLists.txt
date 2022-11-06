@@ -36,5 +36,9 @@ if (GLEW_FOUND)
     target_link_libraries(quats ${GLEW_LIBRARIES})
 endif()
 
+configure_file(test_fs.glsl test_fs.glsl)
+configure_file(test_vs.glsl test_vs.glsl)
+configure_file(sphere.obj sphere.obj)
+
 
 
