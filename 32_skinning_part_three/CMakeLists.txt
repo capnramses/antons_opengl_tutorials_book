@@ -49,6 +49,9 @@ file (GLOB AUXFILES
 	*.glsl
 	*.obj
 	*.dae
+	*.png
+	*.frag
+	*.vert
 	)
 foreach (t ${AUXFILES})
 	get_filename_component(n ${t} NAME)

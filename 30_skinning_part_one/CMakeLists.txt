@@ -45,6 +45,17 @@ if (GLEW_FOUND)
     target_link_libraries(skin ${GLEW_LIBRARIES})
   endif()
 
-
+file (GLOB AUXFILES
+	*.glsl
+	*.obj
+	*.dae
+	*.png
+	*.frag
+	*.vert
+	)
+foreach (t ${AUXFILES})
+	get_filename_component(n ${t} NAME)
+	configure_file(${n} ${n} COPYONLY)
+endforeach()
 
 

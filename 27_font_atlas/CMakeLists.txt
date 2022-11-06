@@ -34,5 +34,14 @@ if (GLEW_FOUND)
     target_link_libraries(font_atlas ${GLEW_LIBRARIES})
 endif()
 
-
+file (GLOB AUXFILES
+	*.glsl
+	*.obj
+	*.dae
+	*.png
+	)
+foreach (t ${AUXFILES})
+	get_filename_component(n ${t} NAME)
+	configure_file(${n} ${n} COPYONLY)
+endforeach()
 
