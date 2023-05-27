@@ -7,7 +7,7 @@ set -e
 ARCH=`uname -m`
 MAKEFILE="unknown"
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-	MAKEFILE=Makefile.linux32
+	#MAKEFILE=Makefile.linux32
 	if [ ${ARCH} == 'x86_64' ]; then
 		MAKEFILE=Makefile.linux64
 	fi

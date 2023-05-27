@@ -16,14 +16,12 @@ You may need to download newer versions of the libraries in the `common/` folder
 This code is some years old now and builds may fall out of date. I try to
 maintain this so that it functions but be aware that Makefiles and build details
 may differ slightly from book text for this reason.
-If you have a *tidy* CMake setup or updated build **feel free to submit a pull request here**.
 
 ## Compiling ##
 
 The libraries depended on reside in the common/ folder
 
 * `common/include` - Header files.
-* `common/linux_i386` - 32-bit GNU/Linux libraries.
 * `common/linux_x86_64` - 64-bit GNU/Linux libraries.
 * `common/osx_64` - 64-bit Apple macOS libraries.
 * `common/win32` - 32-bit Windows GCC (MinGW) libraries.
@@ -32,31 +30,24 @@ The libraries depended on reside in the common/ folder
 ### Linux ###
 
 * Install a C and C++ compiler - usually by installing a "build-essential"
-bundle package via the package manager on your distribution:
+bundle package via the package manager on your distribution. E.g. for Ubuntu:
 
 ```
-sudo apt-get install build-essential
+sudo apt install build-essential
 ```
 
-* Install the GLFW3 and FreeType libraries:
+* Install the GLFW3, FreeType, and zlib development libraries:
 
 ```
-sudo apt-get install libglfw3-dev
-sudo apt-get install libfreetype6-dev
+sudo apt install libglfw3-dev
+sudo apt install libfreetype6-dev
+sudo apt install zlib1g-dev
 ```
 
 * Open a terminal and cd to the demo of choice, then
 
-64-bit systems:
-
 ```
 make -f Makefile.linux64
-```
-
-32-bit systems:
-
-```
-make -f Makefile.linux32
 ```
 
 ### Apple macOS ###
@@ -88,10 +79,13 @@ including downloading and setting up libraries.
 
 This includes a very verbose set-up of Visual Studio 2019 with helper libraries.
 
-## Caveats ##
+## Caveats and Errata ##
 
+* Since publication the most reliable version of newer OpenGL that will work everywhere, including macOS, is 4.1 Core. I suggest hinting to use this version first.
 * Code is directly copy-pasted from book sections. This means that there will be redundant OpenGL calls to bind things etc., but I think it's easier to follow along like this.
 * Code explained in prior examples is moved to a file called `gl_utils.cpp` to avoid cluttering `main.cpp`. This means that `gl_utils.cpp` is not necessarily the same in each demo, but is built up gradually.
+* Out of date build files have been removed; 32-bit Linux and older Visual Studio files.
+* Sometimes people ask for C examples. OpenGL is a C API, and I would have used C if writing the text later. Readers wishing to use a C compiler should do so - only very minor code convention changes are required.
 
 ## Credits ##
 
@@ -102,18 +96,18 @@ mind having your name/@ printed here please let me know (or if you'd like to cha
 Contributors
 
 * Olivier Nivoix
-* Sarang Baheti https://github.com/sarangbaheti
+* Sarang Baheti <https://github.com/sarangbaheti>
 * kevin
 * Jon
-* Julien Castelain https://github.com/julien
-* Benjamin Summerton https://github.com/define-private-public
+* Julien Castelain <https://github.com/julien>
+* Benjamin Summerton <https://github.com/define-private-public>
 * Fwjrei
 * guysherman
 * 24kwakahana
 * battila7
-* Gnimuc https://github.com/Gnimuc
-* Peter Getek https://github.com/postfixNotation
-* Mikel Losada https://github.com/Workshoft
-* Kevin Moran https://github.com/kevinmoran
-* Jon https://github.com/0xBAMA
-* Pablo Alonso-Villaverde Roza https://github.com/pavroza
+* Gnimuc <https://github.com/Gnimuc>
+* Peter Getek <https://github.com/postfixNotation>
+* Mikel Losada <https://github.com/Workshoft>
+* Kevin Moran <https://github.com/kevinmoran>
+* Jon <https://github.com/0xBAMA>
+* Pablo Alonso-Villaverde Roza <https://github.com/pavroza>
