@@ -1,0 +1,9 @@
+[wrap-git]
+directory = assimp-5.2.5
+
+url = https://github.com/assimp/assimp.git
+revision = v5.2.5
+depth = 1
+
+[provide]
+assimp = assimp_dep
