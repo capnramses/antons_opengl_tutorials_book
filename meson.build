@@ -21,7 +21,10 @@ if not assimp_dep.found()
   assimp_dep = cmake.subproject('assimp', options: assimp_opt).dependency('assimp')
 endif
 
-dependencies = [dependency('gl'), dependency('glew', required: true), dependency('glfw3', required: true), dependency('freetype2', required: true), assimp_dep]
+freetype_dep = dependency('freetype2', required: true)
+
+dependencies = [dependency('gl'), dependency('glew', required: true), dependency('glfw3', required: true), assimp_dep]
+
 executable('00_hello_triangle', sources: ['00_hello_triangle/main.c'], dependencies: dependencies)
 executable('00_hello_triangle_gl2.1', sources: ['00_hello_triangle_gl2.1/main.c'], dependencies: dependencies)
 executable('01_extended_init', sources: ['01_extended_init/main.c'], dependencies: dependencies)
@@ -50,7 +53,7 @@ executable('23_tessellation_shaders', sources: ['23_tessellation_shaders/main.cp
 executable('24_gui_panels', sources: ['24_gui_panels/main.cpp', 'common/maths_funcs.cpp'], dependencies: dependencies, include_directories: include_directories('common'))
 executable('25_sprite_sheets', sources: ['25_sprite_sheets/main.cpp', 'common/maths_funcs.cpp'], dependencies: dependencies, include_directories: include_directories('common'))
 executable('26_bitmap_fonts', sources: ['26_bitmap_fonts/main.cpp', 'common/maths_funcs.cpp'], dependencies: dependencies, include_directories: include_directories('common'))
-executable('27_font_atlas_generator', sources: ['27_font_atlas/generator_main.cpp', 'common/maths_funcs.cpp'], dependencies: dependencies, include_directories: include_directories('common'))
+executable('27_font_atlas_generator', sources: ['27_font_atlas/generator_main.cpp', 'common/maths_funcs.cpp'], dependencies: dependencies + freetype_dep, include_directories: include_directories('common'))
 executable('27_font_atlas_viewer', sources: ['27_font_atlas/viewer_main.cpp', 'common/maths_funcs.cpp'], dependencies: dependencies, include_directories: include_directories('common'))
 executable('28_uniform_buffer_object', sources: ['28_uniform_buffer_object/main.cpp', '28_uniform_buffer_object/gl_utils.cpp', '28_uniform_buffer_object/obj_parser.cpp', 'common/maths_funcs.cpp'], dependencies: dependencies, include_directories: include_directories('common'))
 executable('29_particle_systems', sources: ['29_particle_systems/main.cpp', '29_particle_systems/gl_utils.cpp', 'common/maths_funcs.cpp'], dependencies: dependencies, include_directories: include_directories('common'))
