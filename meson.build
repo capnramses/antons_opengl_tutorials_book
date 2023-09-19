@@ -1,6 +1,8 @@
 project('antons_opengl_tutorials_book', 'c', 'cpp', default_options: ['warning_level=3'])
 
-assimp_dep = dependency('assimp', required: false)
+gl_dep = dependency('gl')
+
+assimp_dep = dependency('assimp', method: 'pkg-config', required: false)
 if not assimp_dep.found()
   cmake = import('cmake')
   assimp_opt = cmake.subproject_options()
@@ -21,9 +23,20 @@ if not assimp_dep.found()
   assimp_dep = cmake.subproject('assimp', options: assimp_opt).dependency('assimp')
 endif
 
-freetype_dep = dependency('freetype2', required: true)
+freetype_dep = dependency('freetype2', method: 'pkg-config', required: false)
+if not freetype_dep.found()
+  freetype_dep = dependency('freetype2', static: true, required: true)
+endif
 
-dependencies = [dependency('gl'), dependency('glew', required: true), dependency('glfw3', required: true), assimp_dep]
+glew_dep = dependency('glew', method: 'pkg-config', required: false)
+if not glew_dep.found()
+  glew_dep = dependency('glew', static: true, required: true)
+endif
+
+glfw3_dep = dependency('glfw3', method: 'pkg-config', required: false)
+if not glfw3_dep.found()
+  glfw3_dep = dependency('glfw3', static: true, required: true)
+endif
 
 components = {
   '00_hello_triangle': ['00_hello_triangle/main.c'],
@@ -72,7 +85,7 @@ components = {
 }
 
 foreach name, sources: components
-  exe = executable(name, sources: sources, dependencies: dependencies, include_directories: include_directories('common'))
+  exe = executable(name, sources: sources, dependencies: [gl_dep, glew_dep, glfw3_dep, assimp_dep], include_directories: include_directories('common'))
 
   # Just in 27_font_atlas, first run the generator then run the excutable itself
   if name == '27_font_atlas'
