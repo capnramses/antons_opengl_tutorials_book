@@ -72,6 +72,18 @@ If you have trouble linking supporting libraries you may need to recompile GLFW,
 ### Windows with Visual Studio ###
 
 The original Visual Studio solution has gone out of date now, so I removed it.
+
+#### Install Libraries with NuGet
+
+In recent versions of Visual Studio you can easily install the required libraries with _NuGet_, under the _Project_ menu of a new C++ project.
+
+1. In the _Browse_ tab search for and install; `glfw`, and `glew`. For later tutorials you can also find `assimp`, and `freetype`, when required.
+2. You need to add the text `opengl32.lib` to your linker input string. You can find this in _Project->Properties->Configuration Properties->Linker->Input->Additional Dependencies_. Just add `opengl32.lib;` to the front of the long string of dependencies so that it changes to `opengl32.lib;kernel32.lib;user32;...`.
+3. You do not need to add the libraries you installed _via_ NuGet to the linker string.
+4. You can now compile a "Hello Triangle" demo for OpenGL using GLFW and GLEW.
+
+#### Install Libraries Manually
+
 I have instead recorded a 2020 video stream tutorial where I show how to get Visual Studio set up and start programming OpenGL,
 including downloading and setting up libraries.
 
