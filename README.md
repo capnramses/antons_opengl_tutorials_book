@@ -59,16 +59,6 @@ make -f Makefile.linux64
 make -f Makefile.osx
 ```
 
-### Windows with GCC ###
-
-* Install the GNU Compiler Collection - usually by installing MinGW. I suggest the minimal MinGW GCC distro at [https://nuwen.net/mingw.html](https://nuwen.net/mingw.html).
-* Open a console and `cd` to the demo of choice.
-* `make -f Makefile.win32` (MinGW may have renamed `make.exe` to `mingw-make32.exe` or similar).
-* Copy the .dll files from the main folder to the demo folder
-* Or `make -f Makefile.win64` for the 64-bit build.
-
-If you have trouble linking supporting libraries you may need to recompile GLFW, GLEW, AssImp, and Freetype. It's a good idea to do this anyway to stay up to date.
-
 ### Windows with Visual Studio ###
 
 The original Visual Studio solution has gone out of date now, so I removed it.
@@ -89,6 +79,21 @@ If you would rather do things the old fashioned way, without using a package man
 [Tutorial: Intro to 3D Graphics Programming with OpenGL 4 (with Anton). Stream Recording.](https://youtu.be/qQJ7irgxZFQ)
 
 This includes a very verbose set-up of Visual Studio 2019 with helper libraries.
+
+### Windows with GCC ###
+
+* Install the GNU Compiler Collection - usually by installing MinGW. I suggest the minimal MinGW GCC distro at [https://nuwen.net/mingw.html](https://nuwen.net/mingw.html).
+* Open a console and `cd` to the demo of choice.
+* `make -f Makefile.win32`. (Note that MinGW may have renamed `make.exe` to `mingw-make32.exe` or similar).
+* Or `make -f Makefile.win64` for the 64-bit build.
+* Copy library `.dll` files from their MinGW binary folder to the same folder as your demo's `.exe` file.
+
+If you have trouble linking supporting libraries you may need to recompile GLFW, GLEW, AssImp, and FreeType. It's a good idea to do this anyway to stay up to date.
+
+* https://www.glfw.org/
+* https://glew.sourceforge.net/
+* https://freetype.org/download.html
+* https://github.com/assimp/assimp
 
 ## Caveats and Errata ##
 
