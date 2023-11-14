@@ -61,7 +61,7 @@ make -f Makefile.osx
 
 ### Windows with GCC ###
 
-* Install the GNU Compiler Collection - usually by installing MinGW (32-bit or the 64-bit alternative). I suggest the minimal MinGW GCC distro at [https://nuwen.net/mingw.html](https://nuwen.net/mingw.html).
+* Install the GNU Compiler Collection - usually by installing MinGW. I suggest the minimal MinGW GCC distro at [https://nuwen.net/mingw.html](https://nuwen.net/mingw.html).
 * Open a console and `cd` to the demo of choice.
 * `make -f Makefile.win32` (MinGW may have renamed `make.exe` to `mingw-make32.exe` or similar).
 * Copy the .dll files from the main folder to the demo folder
