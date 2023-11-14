@@ -84,8 +84,8 @@ This includes a very verbose set-up of Visual Studio 2019 with helper libraries.
 
 * Install the GNU Compiler Collection - usually by installing MinGW. I suggest the minimal MinGW GCC distro at [https://nuwen.net/mingw.html](https://nuwen.net/mingw.html).
 * Open a console and `cd` to the demo of choice.
-* `make -f Makefile.win32`. (Note that MinGW may have renamed `make.exe` to `mingw-make32.exe` or similar).
-* Or `make -f Makefile.win64` for the 64-bit build.
+* `make -f Makefile.win64` (Note that MinGW may have renamed `make.exe` to `mingw-make32.exe` or similar).
+* `make -f Makefile.win32` for the 32-bit build. 
 * Copy library `.dll` files from their MinGW binary folder to the same folder as your demo's `.exe` file.
 
 If you have trouble linking supporting libraries you may need to recompile GLFW, GLEW, AssImp, and FreeType. It's a good idea to do this anyway to stay up to date.
