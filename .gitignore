@@ -1,6 +1,7 @@
 # binary output
 *log
 screenshot_*
+video_frame_*
 # compiled binaries
 hellot
 01_extended_init/extinit
