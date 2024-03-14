@@ -1,6 +1,6 @@
 BIN = skin
 CC = clang++
-FLAGS = -DAPPLE -Wall -pedantic -std=C++11
+FLAGS = -DAPPLE -Wall -pedantic -std=c++11
 INC = -I/sw/include -I/usr/local/include
 LIBS = -lGLEW -lglfw -lassimp
 FRAMEWORKS = -framework Cocoa -framework OpenGL -framework IOKit

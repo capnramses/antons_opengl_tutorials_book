@@ -2,7 +2,7 @@ BIN = nmap
 CC = clang++
 FLAGS = -DAPPLE -Wall -pedantic
 INC = -I/sw/include -I/usr/local/include
-LIBS = -lGLEW -lglfw -lassimp -std=C++11
+LIBS = -lGLEW -lglfw -lassimp -std=c++11
 FRAMEWORKS = -framework Cocoa -framework OpenGL -framework IOKit
 SRC = main.cpp maths_funcs.cpp gl_utils.cpp 
 
