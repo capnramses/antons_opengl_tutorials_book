@@ -17,38 +17,36 @@ This code is some years old now and builds may fall out of date.
 I try to maintain this so that it functions, but be aware that Makefiles and
 build details may differ slightly from book text for this reason.
 
+## Compiling Demos
+
 ### Linux
 
 * Install a C and C++ compiler - usually by installing a `build-essential`
 bundle package via the package manager on your distribution.
 E.g. for Ubuntu:
 
-```
-sudo apt install build-essential
-```
+`sudo apt install build-essential`
 
-* Install the GLFW3, FreeType, and zlib development libraries:
+* Install the GLEW, GLFW3, FreeType, and Assimp development libraries:
+  `sudo apt install libglew-dev libglfw3-dev libfreetype-dev libassimp-dev`
 
-```
-sudo apt install libglew-dev libglfw3-dev libfreetype6-dev libassimp-dev
-```
+* Open a terminal and `cd` to the demo of choice, then:
+  `make -f Makefile.linux64`
 
-* Open a terminal and cd to the demo of choice, then
-
-```
-make -f Makefile.linux64
-```
+* To build all the demos you can run `./build_all_linux_osx.sh` from the main directory.
 
 ### Apple macOS
 
 * Install Clang or GNU compiler and tools - usually by installing Apple XCode through the App Store.
-* You will probably wish to install libraries via [Homebrew](https://brew.sh/), similarly to Linux.
+
+* You will probably wish to install libraries via [Homebrew](https://brew.sh/), similarly to Linux, above.
+  `brew install glew glfw assimp freetype`
+
 * Open a terminal and `cd` to the demo of choice:
+  `make -f Makefile.osx`
 
-```
-make -f Makefile.osx
-```
-
+* To build all the demos you can run `./build_all_linux_osx.sh` from the main directory.
+* 
 ### Windows with Visual Studio
 
 Create a new _Empty_, _C++_, _Console_ project.
@@ -75,7 +73,7 @@ This includes a very verbose set-up of Visual Studio 2019 with helper libraries.
 * Open a console and `cd` to the demo of choice.
 * `make -f Makefile.win64`
 
-If you have trouble linking supporting libraries you may need to recompile GLFW, GLEW, AssImp, and FreeType. It's a good idea to do this anyway to stay up to date.
+If you have trouble linking supporting libraries you may need to download and recompile GLFW, GLEW, AssImp, and FreeType. It's a good idea to do this anyway to stay up to date.
 
 * https://www.glfw.org/
 * https://glew.sourceforge.net/
@@ -84,7 +82,7 @@ If you have trouble linking supporting libraries you may need to recompile GLFW,
 
 ## Caveats and Errata
 
-* Since publication the most reliable version of newer OpenGL that will work everywhere, including macOS, is 4.1 Core. I suggest hinting to use this version first.
+* Since publication the most reliable version of newer OpenGL that will work everywhere, including macOS, is 4.1 Core. I suggest setting _window hints_ to try this version first.
 * Code is directly copy-pasted from book sections. This means that there will be redundant OpenGL calls to bind things etc., but I think it's easier to follow along like this.
 * Code explained in prior examples is moved to a file called `gl_utils.cpp` to avoid cluttering `main.cpp`. This means that `gl_utils.cpp` is not necessarily the same in each demo, but is built up gradually.
 * Out-of-date build files have been removed; 32-bit builds, and older Visual Studio files.
