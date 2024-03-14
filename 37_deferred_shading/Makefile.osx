@@ -1,5 +1,5 @@
 BIN = deferred
-CC = g++
+CC = clang++
 FLAGS = -DAPPLE -Wall -pedantic -mmacosx-version-min=10.5 -arch x86_64 -fmessage-length=0 -UGLFW_CDECL -fprofile-arcs -ftest-coverage
 INC = -I/sw/include -I/usr/local/include
 LIBS = -lGLEW -lglfw

@@ -1,5 +1,5 @@
 BIN = extinit
-CC = gcc
+CC = clang
 FLAGS = -std=c99 -DAPPLE -Wall -pedantic
 INC = -I/sw/include -I/usr/local/include
 LIBS = -lGLEW -lglfw
