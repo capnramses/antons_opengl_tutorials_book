@@ -1,0 +1,17 @@
+BIN = phong.exe
+CC = g++
+FLAGS = -Wall -pedantic
+INC = -I ../third_party/glfw-3.4.bin.WIN64/include/ -I ../third_party/glew-2.1.0/include/
+STA_LIB = ../third_party/glfw-3.4.bin.WIN64/lib-mingw-w64/libglfw3dll.a ../third_party/glew-2.1.0/lib/Release/x64/glew32.lib
+DYN_LIB = -lOpenGL32 -L ./ -lglew32 -lglfw3 -lm
+SRC = main.cpp gl_utils.cpp maths_funcs.cpp
+
+all: copy_lib
+	$(CC) $(FLAGS) -o $(BIN) $(SRC) $(INC) $(STA_LIB) $(DYN_LIB)
+
+copy_lib:
+	copy ..\third_party\glew-2.1.0\bin\Release\x64\glew32.dll .\ ^
+	copy ..\third_party\glfw-3.4.bin.WIN64\lib-mingw-w64\glfw3.dll .\
+
+clean:
+	del /q ${BIN}.* *.dll
