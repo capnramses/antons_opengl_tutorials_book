@@ -1,9 +1,9 @@
-# Anton's OpenGL 4 Tutorials book demo code #
+# Anton's OpenGL 4 Tutorials book demo code
 
 This series of demos accompanies the e-book "Anton's OpenGL 4 Tutorials":
 [antongerdelan.net/opengl](http://antongerdelan.net/opengl/)
 
-## Info ##
+## Info
 
 See `LICENCE.txt` for licence information.
 
@@ -17,7 +17,7 @@ This code is some years old now and builds may fall out of date.
 I try to maintain this so that it functions, but be aware that Makefiles and
 build details may differ slightly from book text for this reason.
 
-### Linux ###
+### Linux
 
 * Install a C and C++ compiler - usually by installing a `build-essential`
 bundle package via the package manager on your distribution.
@@ -39,7 +39,7 @@ sudo apt install libglew-dev libglfw3-dev libfreetype6-dev libassimp-dev
 make -f Makefile.linux64
 ```
 
-### Apple macOS ###
+### Apple macOS
 
 * Install Clang or GNU compiler and tools - usually by installing Apple XCode through the App Store.
 * You will probably wish to install libraries via [Homebrew](https://brew.sh/), similarly to Linux.
@@ -49,7 +49,7 @@ make -f Makefile.linux64
 make -f Makefile.osx
 ```
 
-### Windows with Visual Studio ###
+### Windows with Visual Studio
 
 Create a new _Empty_, _C++_, _Console_ project.
 You can then easily install the required libraries with _NuGet_, under the _Project_ menu of a new C++ project, and you're ready to draw a triangle in 5 minutes.
@@ -69,7 +69,7 @@ If you would rather do things the old fashioned way, without using a package man
 
 This includes a very verbose set-up of Visual Studio 2019 with helper libraries.
 
-### Windows with GCC ###
+### Windows with GCC
 
 * Install the GNU Compiler Collection - usually by installing MinGW. I suggest the minimal MinGW GCC distro at [https://nuwen.net/mingw.html](https://nuwen.net/mingw.html).
 * Open a console and `cd` to the demo of choice.
@@ -82,7 +82,7 @@ If you have trouble linking supporting libraries you may need to recompile GLFW,
 * https://freetype.org/download.html
 * https://github.com/assimp/assimp
 
-## Caveats and Errata ##
+## Caveats and Errata
 
 * Since publication the most reliable version of newer OpenGL that will work everywhere, including macOS, is 4.1 Core. I suggest hinting to use this version first.
 * Code is directly copy-pasted from book sections. This means that there will be redundant OpenGL calls to bind things etc., but I think it's easier to follow along like this.
@@ -90,13 +90,11 @@ If you have trouble linking supporting libraries you may need to recompile GLFW,
 * Out-of-date build files have been removed; 32-bit builds, and older Visual Studio files.
 * Sometimes people ask for C examples. OpenGL is a C API, and I would have used C if writing the text later. Readers wishing to use a C compiler should do so - only very minor code convention changes are required.
 
-## Credits ##
+## Contributors
 
 Special thanks to all the readers over the years that have submitted additions,
 bug reports, fixes, and feedback. If you have submitted a correction and don't
 mind having your name/@ printed here please let me know (or if you'd like to change these details).
-
-## Contributors ##
 
 * Olivier Nivoix
 * Sarang Baheti <https://github.com/sarangbaheti>
