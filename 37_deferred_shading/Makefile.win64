@@ -1,4 +1,4 @@
-BIN = shads.exe
+BIN = deferred.exe
 CC = g++
 FLAGS = -Wall -pedantic
 INC = -I ../third_party/glfw-3.4.bin.WIN64/include/ -I ../third_party/glew-2.1.0/include/
