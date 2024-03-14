@@ -13,7 +13,7 @@
 #include "stb_image_write.h"
 #include <ft2build.h>  // FreeType header
 #include FT_FREETYPE_H // unusual macro
-#include <ftglyph.h>   // needed for bounding box bit
+#include <freetype/ftglyph.h>   // needed for bounding box bit
 #include <stdio.h>
 #include <stdlib.h> // some memory management is done
 
