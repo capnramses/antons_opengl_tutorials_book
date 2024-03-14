@@ -11,7 +11,7 @@
 \******************************************************************************/
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #include "stb_image_write.h"
-#include <freetype2/ft2build.h>  // FreeType header
+#include <ft2build.h>  // FreeType header
 #include FT_FREETYPE_H // unusual macro
 #include <freetype/ftglyph.h>   // needed for bounding box bit
 #include <stdio.h>
