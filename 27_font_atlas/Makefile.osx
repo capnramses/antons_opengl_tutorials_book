@@ -1,15 +1,14 @@
 CC = g++
 FLAGS = -DAPPLE -Wall -pedantic -mmacosx-version-min=10.5 -arch x86_64 -fmessage-length=0 -UGLFW_CDECL -fprofile-arcs -ftest-coverage
-INC = -I ../common/include/freetype -I ../common/include -I/sw/include -I/usr/local/include
-LIB_PATH = ../common/osx_64/
-LOC_LIB = $(LIB_PATH)libGLEW.a $(LIB_PATH)libglfw3.a
+INC = -I/sw/include -I/usr/local/include
+LIBS = -lGLEW -lglfw
 FRAMEWORKS = -framework Cocoa -framework OpenGL -framework IOKit
 SRC = main.cpp maths_funcs.cpp 
 
 all: generator viewer
 
 generator:
-	${CC} ${FLAGS} -o generate generator_main.cpp  ${INC} ../common/osx_64/libfreetype.a
+	${CC} ${FLAGS} -o generate generator_main.cpp  ${INC} -lfreetype
 
 viewer:
-	${CC} ${FLAGS} ${FRAMEWORKS} -o view viewer_main.cpp maths_funcs.cpp  ${INC} ${LOC_LIB}
+	${CC} ${FLAGS} ${FRAMEWORKS} -o view viewer_main.cpp maths_funcs.cpp  ${INC} ${LIBS}
