@@ -3,9 +3,8 @@
 screenshot_*
 video_frame_*
 # compiled binaries
-glew32.dll
-glfw3.dll
-libassimp*.dll
+*.out
+*.dll
 hellot
 01_extended_init/extinit
 02_shaders/shaders
