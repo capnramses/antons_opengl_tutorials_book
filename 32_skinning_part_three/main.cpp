@@ -542,7 +542,7 @@ int main() {
     previous_seconds               = current_seconds;
 
     /* update animation timer and loop */
-    anim_time += elapsed_seconds * 0.5;
+    anim_time += elapsed_seconds * 500.0;
     if ( anim_time >= monkey_anim_duration ) { anim_time = monkey_anim_duration - anim_time; }
 
     _update_fps_counter( g_window );
