@@ -1,16 +1,16 @@
 # Licences
 
-## Digital Content
-
-Original asset content is created by Anton Gerdelan, and you are free to use in any way that you like, without restriction, and are released world-wide into the [public domain](https://creativecommons.org/share-your-work/public-domain/pdm/).
-
-### Third-Party Digital Assets
+## Third-Party Digital Assets
 
 * Skybox textures are from [Emil Persson's website](http://www.humus.name/index.php?page=Textures). These have a [Creative Commons Attribution 3.0 Unported Licence](https://creativecommons.org/licenses/by/3.0/).
 
 * GNU "freemono" font is from [GNU FreeFont](https://www.gnu.org/software/freefont/), under the terms of the [GNU General Public Licence](https://www.gnu.org/licenses/gpl-3.0.html).
 
 * The "Suzanne" monkey mesh is a primitive exported from the [Blender](https://www.blender.org/) 3D modelling software.
+
+## Original Digital Assets
+
+Assets created by Anton Gerdelan are free to use in any way that you like, without restriction, and are released world-wide into the [public domain](https://creativecommons.org/share-your-work/public-domain/pdm/).
 
 ## Source Code
 
