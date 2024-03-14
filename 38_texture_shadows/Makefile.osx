@@ -1,6 +1,6 @@
 BIN = shads
 CC = clang++
-FLAGS = -DAPPLE -Wall -pedantic -mmacosx-version-min=10.5 -arch x86_64 -fmessage-length=0 -UGLFW_CDECL -fprofile-arcs -ftest-coverage
+FLAGS = -DAPPLE -Wall -pedantic
 INC = -I/sw/include -I/usr/local/include
 LIBS = -lGLEW -lglfw
 FRAMEWORKS = -framework Cocoa -framework OpenGL -framework IOKit
