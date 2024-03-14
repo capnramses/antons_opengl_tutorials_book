@@ -25,6 +25,6 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: install_deps
-      run: sudo apt install libglew-dev libglfw3-dev libfreetype-dev libassimp-dev
+      run: brew install libglew-dev libglfw3-dev libfreetype-dev libassimp-dev
     - name: build_all
       run: ./build_all_linux_osx.sh
