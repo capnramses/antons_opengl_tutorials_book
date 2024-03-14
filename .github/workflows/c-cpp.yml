@@ -7,9 +7,20 @@ on:
     branches: [ "master" ]
 
 jobs:
-  build:
+  build_ubuntu:
 
     runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: install_deps
+      run: sudo apt install libglew-dev libglfw3-dev libfreetype-dev libassimp-dev
+    - name: build_all
+      run: ./build_all_linux_osx.sh
+
+  build_macos:
+  
+    runs-on: macos-latest
 
     steps:
     - uses: actions/checkout@v3
