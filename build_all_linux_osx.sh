@@ -3,18 +3,6 @@
 # any error code causes script to exit with error code
 set -e
 
-## determine if should use 64-bit or 32-bit makefiles
-ARCH=`uname -m`
-MAKEFILE="unknown"
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
-	#MAKEFILE=Makefile.linux32
-	if [ ${ARCH} == 'x86_64' ]; then
-		MAKEFILE=Makefile.linux64
-	fi
-elif [[ "$OSTYPE" == "darwin"* ]]; then
-	MAKEFILE=Makefile.osx
-fi
-
 ## list of all the demo folders
 declare -a demo_folders=(
 "00_hello_triangle"
@@ -62,9 +50,27 @@ declare -a demo_folders=(
 "41_shader_hot_reload"
 )
 
+## determine makefile to use
+ARCH=`uname -m`
+MAKEFILE="unknown"
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+	#MAKEFILE=Makefile.linux32
+	if [ ${ARCH} == 'x86_64' ]; then
+		MAKEFILE=Makefile.linux64
+	fi
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+	MAKEFILE=Makefile.osx
+fi
+
 ## call make inside each folder
 for i in "${demo_folders[@]}" ; do
   if [ -d "$i" ]; then
+    if [ "$i" == "33_extension_check" ] && [ "$OSTYPE" == "darwin"* ]; then
+      continue
+    fi
+    if [ "$i" == "40_compute_shader" ] && [ "$OSTYPE" == "darwin"* ]; then
+      continue
+    fi
     echo "$i"
     cd $i
     make -f $MAKEFILE
