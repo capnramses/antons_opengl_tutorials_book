@@ -65,10 +65,10 @@ fi
 ## call make inside each folder
 for i in "${demo_folders[@]}" ; do
   if [ -d "$i" ]; then
-    if [ "$i" == "33_extension_check" ] && [ "$OSTYPE" == "darwin"* ]; then
+    if [ "$i" == "33_extension_check" ] && [[ "$OSTYPE" == "darwin"* ]]; then
       continue
     fi
-    if [ "$i" == "40_compute_shader" ] && [ "$OSTYPE" == "darwin"* ]; then
+    if [ "$i" == "40_compute_shader" ] && [[ "$OSTYPE" == "darwin"* ]]; then
       continue
     fi
     echo "$i"
