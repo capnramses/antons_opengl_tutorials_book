@@ -37,7 +37,7 @@ E.g. for Ubuntu:
 
 ### Apple macOS
 
-* Install Clang or GNU compiler and tools - usually by installing Apple XCode through the App Store.
+* Install Clang or GNU compiler and tools - usually by installing Apple [XCode](https://apps.apple.com/us/app/xcode/id497799835?mt=12) through the App Store.
 
 * You will probably wish to install libraries via [Homebrew](https://brew.sh/), similarly to Linux, above.
   `brew install glew glfw assimp freetype`
@@ -46,7 +46,7 @@ E.g. for Ubuntu:
   `make -f Makefile.osx`
 
 * To build all the demos you can run `./build_all_linux_osx.sh` from the main directory.
-* 
+
 ### Windows with Visual Studio
 
 Create a new _Empty_, _C++_, _Console_ project.
