@@ -42,8 +42,9 @@ E.g. for Ubuntu:
 * You will probably wish to install libraries via [Homebrew](https://brew.sh/), similarly to Linux, above.
   `brew install glew glfw assimp freetype`
 
-* Open a terminal and `cd` to the demo of choice:
-  `make -f Makefile.osx`
+* Open a terminal and `cd` to the demo of choice.
+  * For Intel Macs, run `make -f Makefile.osx`
+  * For Apple Silicon Macs, run `make -f Makefile.osxARM`
 
 * To build all the demos you can run `./build_all_linux_osx.sh` from the main directory.
 
