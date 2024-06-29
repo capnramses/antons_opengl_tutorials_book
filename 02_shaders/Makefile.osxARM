@@ -1,0 +1,11 @@
+BIN = shaders
+CC = clang
+FLAGS = -std=c99 -DAPPLE -Wall -pedantic -mmacosx-version-min=10.5 -fmessage-length=0 -UGLFW_CDECL -fprofile-arcs -ftest-coverage
+INC = -I/sw/include -I/opt/homebrew/include
+LIBS = -lGLEW -lglfw -L/opt/homebrew/lib
+FRAMEWORKS = -framework Cocoa -framework OpenGL -framework IOKit
+SRC = main.c gl_utils.c
+
+all:
+	${CC} ${FLAGS} ${FRAMEWORKS} -o ${BIN} ${SRC} ${INC} ${LIBS}
+
