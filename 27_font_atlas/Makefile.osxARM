@@ -1,0 +1,14 @@
+CC = clang++
+FLAGS = -DAPPLE -Wall -pedantic -arch arm64
+INC = -I/sw/include -I/opt/homebrew/include -I/opt/homebrew/include/freetype2/
+LIBS = -lGLEW -lglfw -L/opt/homebrew/lib
+FRAMEWORKS = -framework Cocoa -framework OpenGL -framework IOKit
+SRC = main.cpp maths_funcs.cpp 
+
+all: generator viewer
+
+generator:
+	${CC} ${FLAGS} -o generate generator_main.cpp  ${INC} -L/opt/homebrew/lib -lfreetype
+
+viewer:
+	${CC} ${FLAGS} ${FRAMEWORKS} -o view viewer_main.cpp maths_funcs.cpp  ${INC} ${LIBS}
