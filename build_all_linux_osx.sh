@@ -59,7 +59,11 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 		MAKEFILE=Makefile.linux64
 	fi
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-	MAKEFILE=Makefile.osx
+  if [ ${ARCH} == 'arm64' ]; then
+		MAKEFILE=Makefile.osxARM
+	else
+	  MAKEFILE=Makefile.osx
+  fi
 fi
 
 ## call make inside each folder
