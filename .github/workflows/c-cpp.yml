@@ -5,7 +5,6 @@ on:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
-  workflow_dispatch: ## added to make manual launch option reappear in web view
 
 jobs:
   build_ubuntu:
