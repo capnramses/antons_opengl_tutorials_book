@@ -10,7 +10,7 @@ See `LICENCE.txt` for licence information.
 Each chapter with major demonstration code has a corresponding demo here.
 There is also an example of code for *Hello Triangle* for OpenGL 2.1 for reference.
 
-Each demo has easy-to-read Makefiles for Linux, MacOS, and Windows.
+Each demo has easy-to-read Makefiles for Linux, macOS, and Windows.
 You may need to download newer versions of the libraries in the `third_party/` folder.
 
 This code is some years old now and builds may fall out of date.
