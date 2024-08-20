@@ -8,7 +8,7 @@ SRC = main.cpp maths_funcs.cpp
 all: generator viewer
 
 generator:
-	${CC} ${FLAGS} -o generate generator_main.cpp  ${INC} -lfreetype
+	${CC} ${FLAGS} -o generate generator_main.cpp  ${INC} -L /opt/homebrew/lib -lfreetype
 
 viewer:
 	${CC} ${FLAGS} ${FRAMEWORKS} -o view viewer_main.cpp maths_funcs.cpp  ${INC} ${LIBS}
