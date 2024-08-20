@@ -7,5 +7,5 @@ FRAMEWORKS = -framework Cocoa -framework OpenGL -framework IOKit
 SRC = main.c
 
 all:
-	${CC} ${FLAGS} ${FRAMEWORKS} -o ${BIN} ${SRC} ${LIBS}
+	${CC} ${FLAGS} ${FRAMEWORKS} -o ${BIN} ${SRC} ${INC} ${LIBS}
 
