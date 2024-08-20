@@ -1,11 +1,11 @@
 BIN = quats
 CC = clang++
 FLAGS = -DAPPLE -Wall -pedantic
-INC = -I/sw/include -I/usr/local/include
-LIBS = -lGLEW -lglfw
+INC = -I/sw/include -I/usr/local/include -I/opt/homebrew/include
+LIBS = -L /opt/homebrew/lib -lGLEW -lglfw
 FRAMEWORKS = -framework Cocoa -framework OpenGL -framework IOKit
 SRC = main.cpp gl_utils.cpp maths_funcs.cpp obj_parser.cpp
 
 all:
-	${CC} ${FLAGS} ${FRAMEWORKS} -o ${BIN} ${SRC} ${LIBS}
+	${CC} ${FLAGS} ${FRAMEWORKS} -o ${BIN} ${SRC} ${INC} ${LIBS}
 

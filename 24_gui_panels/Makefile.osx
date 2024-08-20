@@ -1,8 +1,8 @@
 BIN = overlays
 CC = clang++
 FLAGS = -DAPPLE -Wall -pedantic
-INC = -I/sw/include -I/usr/local/include
-LIBS = -lGLEW -lglfw
+INC = -I/sw/include -I/usr/local/include -I/opt/homebrew/include
+LIBS = -L /opt/homebrew/lib -lGLEW -lglfw
 FRAMEWORKS = -framework Cocoa -framework OpenGL -framework IOKit
 SRC = main.cpp maths_funcs.cpp 
 

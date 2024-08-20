@@ -1,8 +1,8 @@
 BIN = cubemap
 CC = clang++
 FLAGS = -DAPPLE -Wall -pedantic -std=c++11
-INC = -I/sw/include -I/usr/local/include
-LIBS = -lGLEW -lglfw -lassimp
+INC = -I/sw/include -I/usr/local/include -I/opt/homebrew/include
+LIBS = -L /opt/homebrew/lib -lGLEW -lglfw -lassimp
 FRAMEWORKS = -framework Cocoa -framework OpenGL -framework IOKit
 SRC = main.cpp maths_funcs.cpp gl_utils.cpp  obj_parser.cpp
 
