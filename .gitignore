@@ -69,3 +69,4 @@ visual_studio/*/Debug/
 visual_studio/*/*/Debug/
 *.db
 *.ipch
+*.obj
