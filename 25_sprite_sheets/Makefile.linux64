@@ -1,7 +1,7 @@
 BIN = sprites
 CC = g++
 FLAGS = -Wall -pedantic
-LIBS = -lGLEW -lglfw -lGL -lz
+LIBS = -lGLEW -lglfw -lGL
 SRC = main.cpp maths_funcs.cpp
 
 all:
