@@ -1,7 +1,7 @@
 BIN   = shaders
 CC    = gcc
 FLAGS = -Wall -pedantic -std=c99
-LIBS  = -lGLEW -lglfw -lGL -lz
+LIBS  = -lGLEW -lglfw -lGL
 SRC   = main.c gl_utils.c
 
 all:

@@ -11,9 +11,9 @@
 \******************************************************************************/
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #include "stb_image_write.h"
-#include <ft2build.h>  // FreeType header
-#include FT_FREETYPE_H // unusual macro
-#include <freetype/ftglyph.h>   // needed for bounding box bit
+#include <ft2build.h>         // FreeType header
+#include FT_FREETYPE_H        // unusual macro
+#include <freetype/ftglyph.h> // needed for bounding box bit
 #include <stdio.h>
 #include <stdlib.h> // some memory management is done
 
@@ -120,8 +120,8 @@ int main() {
         atlas_buffer[atlas_buffer_index++] = 0;
         atlas_buffer[atlas_buffer_index++] = 0;
       } // endif
-    }   // endfor
-  }     // endfor
+    } // endfor
+  } // endfor
 
   // write meta-data file to go with atlas image
   FILE* fp = fopen( ATLAS_META_FILE, "w" );
@@ -142,6 +142,7 @@ int main() {
       -( (float)padding_px - (float)gymin[i] ) / (float)slot_glyph_size );
   }
   fclose( fp );
+  printf( "wrote `%s`\n", ATLAS_META_FILE );
 
   // free that buffer of glyph info
   for ( int i = 0; i < 256; i++ ) {
@@ -150,6 +151,7 @@ int main() {
 
   // use stb_image_write to write directly to png
   if ( !stbi_write_png( PNG_OUTPUT_IMAGE, atlas_dimension_px, atlas_dimension_px, 4, atlas_buffer, 0 ) ) { fprintf( stderr, "ERROR: could not write file %s\n", PNG_OUTPUT_IMAGE ); }
+  printf( "wrote `%s`\n", PNG_OUTPUT_IMAGE );
   free( atlas_buffer );
   return 0;
 }

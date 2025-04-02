@@ -1,6 +1,6 @@
 CC      = g++
 FLAGS   = -Wall -pedantic
-LIBS    = -lGLEW -lglfw -lGL -lz
+LIBS    = -lGLEW -lglfw -lGL
 SYS_LIB = -lGL 
 INC     = -I /usr/include/freetype2/
 

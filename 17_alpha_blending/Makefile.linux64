@@ -1,7 +1,7 @@
 BIN = alphablend
 CC = g++
 FLAGS = -Wall -pedantic
-LIBS = -lGLEW -lglfw -lGL -lz
+LIBS = -lGLEW -lglfw -lGL
 SRC = main.cpp gl_utils.cpp maths_funcs.cpp
 
 all:

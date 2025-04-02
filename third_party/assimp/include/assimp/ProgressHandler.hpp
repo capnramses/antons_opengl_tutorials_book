@@ -67,11 +67,15 @@ class ASSIMP_API ProgressHandler
 {
 protected:
     /// @brief  Default constructor
-    ProgressHandler () AI_NO_EXCEPT = default;
+    ProgressHandler () AI_NO_EXCEPT {
+        // empty
+    }
 
 public:
     /// @brief  Virtual destructor.
-    virtual ~ProgressHandler () = default;
+    virtual ~ProgressHandler () {
+        // empty
+    }
 
     // -------------------------------------------------------------------
     /** @brief Progress callback.
