@@ -55,24 +55,24 @@ declare -a demo_folders=(
 ## Determine appropriate Makefile to use.
 ARCH=$(uname)
 MAKEFILE="unknown"
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
+if [ "$OSTYPE" == "linux-gnu" ]; then
 	#MAKEFILE=Makefile.linux32
 	if [ ${ARCH} == 'x86_64' ]; then
 		MAKEFILE=Makefile.linux64
 	fi
-elif [[ "$OSTYPE" == "darwin"* ]]; then
+elif [ "$OSTYPE" == "darwin"* ]; then
 	MAKEFILE=Makefile.osx
-elif [[ "$OSTYPE" == "cygwin" ] || [ "$OSTYPE" == "msys" ] || [ "$OSTYPE" == "win32" ]]; then
+elif [ "$OSTYPE" == "cygwin" ] || [ "$OSTYPE" == "msys" ] || [ "$OSTYPE" == "win32" ]; then
   MAKEFILE=Makefile.win64
 fi
 
 ## Call 'make' inside each folder, excluding on macOS demos requiring OpenGL >4.1.
 for i in "${demo_folders[@]}" ; do
   if [ -d "$i" ]; then
-    if [ "$i" == "33_extension_check" ] && [[ "$OSTYPE" == "darwin"* ]]; then
+    if [ "$i" == "33_extension_check" ] && [ "$OSTYPE" == "darwin"* ]; then
       continue
     fi
-    if [ "$i" == "40_compute_shader" ] && [[ "$OSTYPE" == "darwin"* ]]; then
+    if [ "$i" == "40_compute_shader" ] && [ "$OSTYPE" == "darwin"* ]; then
       continue
     fi
     echo "$i"
