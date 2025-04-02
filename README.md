@@ -22,32 +22,62 @@ build details may differ slightly from book text for this reason.
 ### Linux
 
 * Install a C and C++ compiler - usually by installing a `build-essential`
-bundle package via the package manager on your distribution.
-E.g. for Ubuntu:
+bundle package via the package manager on your distribution. E.g. for Ubuntu:
 
-`sudo apt install build-essential`
+```shell
+sudo apt install build-essential
+```
 
-* Install the GLEW, GLFW3, FreeType, and Assimp development libraries:
-  `sudo apt install libglew-dev libglfw3-dev libfreetype-dev libassimp-dev`
+* Install the GLEW, GLFW3, FreeType, and Assimp development libraries. E.g. for Ubuntu:
+
+```shell
+sudo apt install libglew-dev libglfw3-dev libfreetype-dev libassimp-dev
+```
 
 * Open a terminal and `cd` to the demo of choice, then:
-  `make -f Makefile.linux64`
 
-* To build all the demos you can run `./build_all_linux_osx.sh` from the main directory.
+```shell
+make -f Makefile.linux64
+```
+
+* Or, to build all the demos at once, you can run `./build_all_linux_macos.sh` from the main directory.
+
 
 ### Apple macOS
 
-* Install Clang or GNU compiler and tools - usually by installing Apple [XCode](https://apps.apple.com/us/app/xcode/id497799835?mt=12) through the App Store.
+* Install the Clang or GNU compiler and tools. Usually this is done by installing Apple [XCode](https://apps.apple.com/us/app/xcode/id497799835?mt=12) through the App Store.
 
-* You will probably wish to install libraries via [Homebrew](https://brew.sh/), similarly to Linux, above.
-  `brew install glew glfw assimp freetype`
+* You will probably wish to install libraries _via_ the [Homebrew](https://brew.sh/) package manager:
+
+```shell
+brew install glew glfw assimp freetype
+```
 
 * Open a terminal and `cd` to the demo of choice:
-  `make -f Makefile.osx`
 
-* To build all the demos you can run `./build_all_linux_osx.sh` from the main directory.
+```shell
+make -f Makefile.osx
+```
+
+* Or, to build all the demos at once, you can run `./build_all_linux_macos.sh` from the main directory.
 
 ### Windows with Visual Studio
+
+Install Microsoft Visual Studio. Any edition is fine.
+
+#### With `build.bat` and `build_all_msvc.bat`
+
+For your convenience a `build.bat` file is included in each demo. These will use Visual Studio's command-line tools to
+compile the demo:
+
+1. Open the `build.bat` file in a text editor.
+2. Check that the path to your edition of Visual Studio's tools matches your installed copy.
+3. Run the batch file by double-clicking on it, or from the command line.
+
+If you want to build all the demos in one go, there is a file called `build_all_msvc.bat`.
+You will also need to check the Visual Studio tool path at the top of this file.
+
+#### Within Visual Studio
 
 Create a new _Empty_, _C++_, _Console_ project.
 You can then easily install the required libraries with _NuGet_, under the _Project_ menu of a new C++ project, and you're ready to draw a triangle in 5 minutes.
@@ -57,7 +87,7 @@ You can then easily install the required libraries with _NuGet_, under the _Proj
 1. In the _Browse_ tab search for and install; `glfw`, and `glew`. For later tutorials you can also find `assimp`, and `freetype`, when required.
 2. You need to add the text `opengl32.lib` to your linker input string. You can find this in _Project->Properties->Configuration Properties->Linker->Input->Additional Dependencies_. Just add `opengl32.lib;` to the front of the long string of dependencies so that it changes to `opengl32.lib;kernel32.lib;user32;...`.
 3. You do not need to add the libraries you installed _via_ NuGet to the linker string.
-4. You can now compile a "Hello Triangle" demo for OpenGL using GLFW and GLEW.
+4. You can now compile a _Hello Triangle_ demo for OpenGL using GLFW and GLEW.
 
 #### Install Libraries Manually
 
@@ -67,11 +97,14 @@ If you would rather do things the old fashioned way, without using a package man
 
 This includes a very verbose set-up of Visual Studio 2019 with helper libraries.
 
+
 ### Windows with GCC
 
-* Install the GNU Compiler Collection - usually by installing MinGW. I suggest the minimal MinGW GCC distro at [https://nuwen.net/mingw.html](https://nuwen.net/mingw.html).
+* Install the GNU Compiler Collection - usually by installing MinGW. I suggest the minimal MinGW GCC distribution at [https://nuwen.net/mingw.html](https://nuwen.net/mingw.html).
 * Open a console and `cd` to the demo of choice.
 * `make -f Makefile.win64`
+
+There is also a `build_all_mingw.bat` file in the main directory, that you can run to build all of the demos with GCC.
 
 If you have trouble linking supporting libraries you may need to download and recompile GLFW, GLEW, AssImp, and FreeType. It's a good idea to do this anyway to stay up to date.
 
