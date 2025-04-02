@@ -115,13 +115,16 @@ If you have trouble linking supporting libraries you may need to download and re
 
 ## Caveats and Errata
 
-* Since publication the most reliable version of newer OpenGL that will work everywhere, including macOS, is 4.1 Core. I suggest setting _window hints_ to try this version first.
+* Since publication the most reliable version of newer OpenGL that will work everywhere, including macOS, is 4.1 Core. I suggest setting _window hints_ to try this version first. See the updated [Hello Triangle](https://antongerdelan.net/opengl/hellotriangle.html) for an example.
 * Code is directly copy-pasted from book sections. This means that there will be redundant OpenGL calls to bind things etc., but I think it's easier to follow along like this.
 * Code explained in prior examples is moved to a file called `gl_utils.cpp` to avoid cluttering `main.cpp`. This means that `gl_utils.cpp` is not necessarily the same in each demo, but is built up gradually.
 * Out-of-date build files have been removed; 32-bit builds, and older Visual Studio files.
 * Sometimes people ask for C examples. OpenGL is a C API, and I would have used C if writing the text later. Readers wishing to use a C compiler should do so - only very minor code convention changes are required.
 
-## Contributors
+## Contribution and Contributors
+
+If you find a bug please feel encouraged to create an Issue, or make a Pull Request, bearing in mind the _Caveats_ above.
+Build systems and Visual Studio solution files will not be included, to keep things simple.
 
 Special thanks to all the readers over the years that have submitted additions,
 bug reports, fixes, and feedback. If you have submitted a correction and don't
