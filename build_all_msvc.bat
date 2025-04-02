@@ -63,6 +63,3 @@ FOR %%A IN (%DIR_LIST%) DO (
   call build.bat %VCVARS%
   cd ..
 )
-
-
-REM TODO 27 needs freetype
