@@ -70,10 +70,10 @@ fi
 ## Call 'make' inside each folder, excluding on macOS demos requiring OpenGL >4.1.
 for i in "${demo_folders[@]}" ; do
   if [ -d "$i" ]; then
-    if [ "$i" == "33_extension_check" ] && [ "$OSTYPE" == "darwin"* ]; then
+    if [[ "$i" == "33_extension_check" ]] && [[ $OSTYPE == "darwin"* ]]; then
       continue
     fi
-    if [ "$i" == "40_compute_shader" ] && [ "$OSTYPE" == "darwin"* ]; then
+    if [[ "$i" == "40_compute_shader" ]] && [[ $OSTYPE == "darwin"* ]]; then
       continue
     fi
     echo "$i"
