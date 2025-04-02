@@ -22,22 +22,25 @@ call "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build
 :setpaths
 
 set LFLAGS=/DEBUG /MACHINE:X64
-set INCLUDES=/I "..\third_party\glew-2.1.0\include" /I "..\third_party\glfw-3.4.bin.WIN64\include" /I "..\third_party\assimp\include"
+set INCLUDES=/I "..\third_party\glew-2.1.0\include" /I "..\third_party\glfw-3.4.bin.WIN64\include" /I "..\third_party\assimp\include" /I "..\third_party\freetype\include"
 set LIB_PATH_GLFW=/LIBPATH:"..\third_party\glfw-3.4.bin.WIN64\lib-vc2022" glew32.lib
 set LIB_PATH_GLEW=/LIBPATH:"..\third_party\glew-2.1.0\lib\Release\x64" glfw3dll.lib
 set LIB_PATH_ASSIMP=/LIBPATH:"..\third_party\assimp\lib\vs2022\" assimp-vc143-mt.lib
+set LIB_PATH_FREETYPE=/LIBPATH:"..\third_party\freetype\lib\" freetype.lib
 set SYSTEM_LIBS="kernel32.lib" "user32.lib" "gdi32.lib" "winspool.lib" "comdlg32.lib" "advapi32.lib" "shell32.lib" "ole32.lib" "oleaut32.lib" "uuid.lib" "odbc32.lib" "odbccp32.lib"
-set LIBS=%LIB_PATH_GLFW% %LIB_PATH_GLEW% %LIB_PATH_ASSIMP% OpenGL32.lib %SYSTEM_LIBS%
+set LIBS=%LIB_PATH_GLFW% %LIB_PATH_GLEW% OpenGL32.lib %SYSTEM_LIBS%
 set DLL_PATH_GLEW="..\third_party\glew-2.1.0\bin\Release\x64\glew32.dll"
 set DLL_PATH_GLFW="..\third_party\glfw-3.4.bin.WIN64\lib-vc2019\glfw3.dll"
 set DLL_PATH_ASSIMP="..\third_party\assimp\bin\vs2022\assimp-vc143-mt.dll"
+set DLL_PATH_FREETYPE="..\third_party\freetype\lib\freetype.dll"
 set SRC="*.c??"
 
 @echo on
 
-cl %CFLAGS% generator_main.cpp %INCLUDES% /link %LFLAGS% %LIBS% /OUT:"generate.exe" 
+cl %CFLAGS% generator_main.cpp %INCLUDES% /link %LFLAGS% %LIB_PATH_FREETYPE% %SYSTEM_LIBS% /OUT:"generate.exe" 
 cl %CFLAGS% viewer_main.cpp maths_funcs.cpp %INCLUDES% /link %LFLAGS% %LIBS% /OUT:"view.exe" 
 
 copy %DLL_PATH_GLEW% .\
 copy %DLL_PATH_GLFW% .\
 copy %DLL_PATH_ASSIMP% .\
+copy %DLL_PATH_FREETYPE% .\
