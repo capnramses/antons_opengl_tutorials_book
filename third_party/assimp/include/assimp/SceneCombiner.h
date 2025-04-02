@@ -191,9 +191,13 @@ struct SceneHelper {
  */
 class ASSIMP_API SceneCombiner {
     // class cannot be instanced
-    SceneCombiner() = delete;
+    SceneCombiner() {
+        // empty
+    }
 
-    ~SceneCombiner() = delete;
+    ~SceneCombiner() {
+        // empty
+    }
 
 public:
     // -------------------------------------------------------------------
