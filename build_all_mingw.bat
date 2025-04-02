@@ -1,8 +1,5 @@
 @echo off
-REM Build File for MINGW GCC
-
-set DLL_PATH_GLEW="third_party\glew-2.1.0\bin\Release\x64\glew32.dll"
-set DLL_PATH_GLFW="third_party\glfw-3.4.bin.WIN64\lib-vc2019\glfw3.dll"
+REM Build File for MinGW GCC
 
 set DIR_LIST=^
 00_hello_triangle ^
@@ -49,12 +46,9 @@ set DIR_LIST=^
 40_compute_shader ^
 41_shader_hot_reload
 
-set SRC="*.c??"
 FOR %%A IN (%DIR_LIST%) DO (
   echo ~~~ %%A ~~~
   cd %%A
   make -f Makefile.win64
-  copy ..\%DLL_PATH_GLEW% .\
-  copy ..\%DLL_PATH_GLFW% .\
   cd ..
 )
