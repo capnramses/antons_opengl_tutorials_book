@@ -5,8 +5,6 @@ This series of demos accompanies the e-book "Anton's OpenGL 4 Tutorials":
 
 ## Info
 
-See `LICENCE.txt` for licence information.
-
 Each chapter with major demonstration code has a corresponding demo here.
 There is also an example of code for *Hello Triangle* for OpenGL 2.1 for reference.
 
@@ -146,3 +144,7 @@ mind having your name/@ printed here please let me know (or if you'd like to cha
 * Kevin Moran <https://github.com/kevinmoran>
 * Jon <https://github.com/0xBAMA>
 * Pablo Alonso-Villaverde Roza <https://github.com/pavroza>
+
+## Licence
+
+See [LICENCE.md](LICENCE.md) for licence and copyright information.
