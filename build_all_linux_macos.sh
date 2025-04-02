@@ -61,7 +61,7 @@ if [ $OSTYPE=="linux-gnu" ]; then
 	if [ $MACHINE_TYPE == 'x86_64' ]; then
 		MAKEFILE=Makefile.linux64
 	fi
-elif [ $OSTYPE == "darwin"* ]; then
+elif [[ $OSTYPE == "darwin"* ]]; then
 	MAKEFILE=Makefile.osx
 elif [ $OSTYPE == "cygwin" ] || [ $OSTYPE == "msys" ] || [ $OSTYPE == "win32" ]; then
   MAKEFILE=Makefile.win64
