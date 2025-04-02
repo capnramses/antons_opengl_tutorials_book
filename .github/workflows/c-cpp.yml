@@ -16,7 +16,7 @@ jobs:
     - name: install_deps
       run: sudo apt install libglew-dev libglfw3-dev libfreetype-dev libassimp-dev
     - name: build_all
-      run: ./build_all_linux_macos.sh
+      run: bash build_all_linux_macos.sh
 
   build_macos:
   
@@ -27,4 +27,4 @@ jobs:
     - name: install_deps
       run: brew install glew glfw assimp freetype
     - name: build_all
-      run: ./build_all_linux_macos.sh
+      run: bash build_all_linux_macos.sh
