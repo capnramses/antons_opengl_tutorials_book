@@ -56,14 +56,14 @@ declare -a demo_folders=(
 MACHINE_TYPE=`uname -m`
 MAKEFILE="unknown"
 echo $OSTYPE $MACHINE_TYPE
-if [ $OSTYPE=="linux-gnu" ]; then
+if [[ $OSTYPE == "linux-gnu" ]]; then
 	#MAKEFILE=Makefile.linux32
-	if [ $MACHINE_TYPE == 'x86_64' ]; then
+	if [[ $MACHINE_TYPE == "x86_64" ]]; then
 		MAKEFILE=Makefile.linux64
 	fi
 elif [[ $OSTYPE == "darwin"* ]]; then
 	MAKEFILE=Makefile.osx
-elif [ $OSTYPE == "cygwin" ] || [ $OSTYPE == "msys" ] || [ $OSTYPE == "win32" ]; then
+elif [[ $OSTYPE == "cygwin" ]] || [[ $OSTYPE == "msys" ]] || [[ $OSTYPE == "win32" ]]; then
   MAKEFILE=Makefile.win64
 fi
 
