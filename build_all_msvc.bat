@@ -1,6 +1,17 @@
 @echo off
 REM Build File for MSVC (Visual Studio).
 
+REM Uncomment whichever one that you have installed:
+REM See https://learn.microsoft.com/en-us/cpp/build/building-on-the-command-line?view=msvc-170#developer_command_file_locations
+REM set VCVARS="C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\vcvarsall.bat" x64
+REM set VCVARS="C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\vcvarsall.bat" x64
+REM set VCVARS="C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\vcvarsall.bat" x64
+REM set VCVARS="C:\Program Files (x86)\Microsoft Visual Studio 13.0\VC\vcvarsall.bat" x64
+REM set VCVARS="C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x64
+REM set VCVARS="C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x64
+REM set VCVARS="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat"
+set VCVARS="C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat"
+
 set DIR_LIST=^
 00_hello_triangle ^
 00_hello_triangle_gl2.1 ^
@@ -46,10 +57,9 @@ set DIR_LIST=^
 40_compute_shader ^
 41_shader_hot_reload
 
-set SRC="*.c??"
-FOR %%A IN (%DIR_LIST%) DO (
+FOR %%A IN (00_hello_triangle) DO (
   echo ~~~ %%A ~~~
   cd %%A
-  call build.bat
+  call build.bat %VCVARS%
   cd ..
 )
