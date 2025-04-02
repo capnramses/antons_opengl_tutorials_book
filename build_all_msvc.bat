@@ -57,9 +57,12 @@ set DIR_LIST=^
 40_compute_shader ^
 41_shader_hot_reload
 
-FOR %%A IN (00_hello_triangle) DO (
+FOR %%A IN (%DIR_LIST%) DO (
   echo ~~~ %%A ~~~
   cd %%A
   call build.bat %VCVARS%
   cd ..
 )
+
+
+REM TODO 27 needs freetype

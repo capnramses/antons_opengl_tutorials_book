@@ -4,7 +4,7 @@ REM Build File for MSVC (Visual Studio).
 REM This clause is for the global "build_all" batch file, so that you don't need to set the VS edition path in every file first.
 IF NOT "%~1"=="" (
   echo "Using supplied vcvars:" %1
-  call %1
+  if not defined DevEnvDir ( call %1 )
   GOTO setpaths
 )
 
