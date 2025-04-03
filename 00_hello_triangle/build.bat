@@ -30,7 +30,6 @@ set SYSTEM_LIBS="kernel32.lib" "user32.lib" "gdi32.lib" "winspool.lib" "comdlg32
 set LIBS=%LIB_PATH_GLFW% %LIB_PATH_GLEW% glew32.lib glfw3dll.lib OpenGL32.lib %SYSTEM_LIBS%
 set DLL_PATH_GLEW="third_party\glew-2.1.0\bin\Release\x64\glew32.dll"
 set DLL_PATH_GLFW="third_party\glfw-3.4.bin.WIN64\lib-vc2019\glfw3.dll"
-set DLL_PATH_ASSIMP="third_party\assimp\bin\vs2022\assimp-vc143-mt.dll
 set SRC="*.c??"
 
 @echo on
