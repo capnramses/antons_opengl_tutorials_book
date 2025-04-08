@@ -1,7 +1,8 @@
 # Anton's OpenGL 4 Tutorials book demo code
 
-This series of demos accompanies the e-book "Anton's OpenGL 4 Tutorials":
-[antongerdelan.net/opengl](http://antongerdelan.net/opengl/)
+> [!NOTE]\
+> This series of demos accompanies the e-book "Anton's OpenGL 4 Tutorials":
+> [antongerdelan.net/opengl](http://antongerdelan.net/opengl/)
 
 ## Info
 
