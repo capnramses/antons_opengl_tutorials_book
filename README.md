@@ -10,8 +10,8 @@
 2. [Compiling on macOS](#compiling-on-macos)
 3. [Compiling on Windows with Visual Studio](#compiling-on-windows-with-visual-studio)
 4. [Compiling on Windows with GCC](#compiling-on-windows-with-gcc)
-5. [Contribution and Contributors](contribution-and-contributors)
-6. [Licence](licence)
+5. [Contribution and Contributors](#contribution-and-contributors)
+6. [Licence](#licence)
 
 ## Info
 
