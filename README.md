@@ -82,7 +82,10 @@ Install Microsoft Visual Studio. Any edition is fine. There are several alternat
 ### Batch Files
 
 For your convenience a `build.bat` file is included in each demo. These will use Visual Studio's command-line tools to
-compile the demo:
+compile the demo.
+
+> [!NOTE]\
+> If you open the Terminal app with a Visual Studio PowerShell or Command Prompt tab then the paths to build tools will already be set.
 
 1. Open the `build.bat` file in a text editor.
 2. Check that the path to your edition of Visual Studio's tools matches your installed copy.
